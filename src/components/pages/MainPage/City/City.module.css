@@ -1,0 +1,32 @@
+.City {
+    /* background-image: url(../../../../assets/img/main\ 1.png); */
+    /* background-repeat: no-repeat;
+    background-size: cover; */
+    /* width: 100%; */
+    /* min-height: 1500px;  */
+    position: relative;
+    margin-top: -184px;
+}
+
+.City_bg {
+    width: 100%;
+}
+
+.City_Court {
+    /* position: relative; */
+    /* width: 500px;
+    height: 500px;
+    z-index: 100;
+    border: 10px solid red; */
+}
+
+/* .City_Court::before {
+    content:  url( "./img/Court.png");
+    display: block;
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    z-index: 10;
+    left: 50px;
+    top: 50px;
+} */

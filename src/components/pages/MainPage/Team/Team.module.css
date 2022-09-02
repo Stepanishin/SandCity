@@ -1,0 +1,42 @@
+.Team {
+    background: #000000;;
+    width: 100%;
+    margin-top: -153px;
+}
+
+.Team_container {
+    margin: 0 auto;
+    max-width: 1400px;
+    padding-top: 150px;
+}
+
+.Team_title {
+    max-width: 1440px;
+    font-family: 'World Conflict';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 200px;
+    text-align: center;
+    color: white;
+    padding-top: 75px;
+    margin: 0;
+}
+
+.Team_profile_container {
+    margin-top: 150px;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+.Team_profile_name {
+    padding-top: 20px;
+    font-family: 'Fredericka the Great';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 55px;
+    line-height: 67px;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

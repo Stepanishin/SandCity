@@ -1,0 +1,139 @@
+.Trials_container {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.Trials_title {
+    margin-top: 150px;
+    font-family: 'World Conflict';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 200px;
+    line-height: 200px;
+    text-align: center;
+    color: white;
+}
+
+.Trials_slider_container {
+    margin: 125px auto;
+    width: 1100px;
+    min-height: 750px;
+    background: rgba(119, 71, 255, 0.35);
+    box-shadow: 0px 4px 8px 8px #EE8944, inset 0px 0px 15px 20px rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    border-radius: 80px;
+}
+
+/* Card style */
+.card_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+}
+
+.card_info_container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 35px;
+    padding: 0px 100px 25px;
+    border-bottom: 7px solid #EE8944;;
+}
+
+.card_info_count {
+    font-family: 'Fredericka the Great';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 100px;
+    line-height: 123px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.card_info_avatar {
+    width: 240px;
+    height: 400px;
+    border-radius: 30px;
+}
+
+.card_info_description_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.card_info_description_title {
+    font-family: 'Courier';
+    font-style: normal;
+    font-weight: 550;
+    font-size: 50px;
+    line-height: 57px;
+    color: #EE8944;
+    margin-bottom: 50px;
+}
+
+.card_info_description_data {
+    font-family: 'Courier';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 40px;
+    color: #FFFFFF;
+}
+
+.card_condition_container {
+    padding-top: 50px;
+}
+
+.card_condition_description {
+    font-family: 'Courier';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 40px;
+    color: #FFFFFF;
+}
+
+.card_timeAndJudge_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 50px 0 50px;
+    align-items: flex-end;
+}
+
+.card_timeAndJudge_timer {
+    font-family: 'Courier';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 37px;
+    color: rgba(238, 137, 68, 0.5);
+}
+
+.card_timeAndJudge_btn {
+    width: 200px;
+    height: 60px;
+    background: rgba(225, 35, 10, 0.65);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 10px;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.card_timeAndJudge_btn span {
+    /* border: 1px solid #000000; */
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+

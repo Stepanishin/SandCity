@@ -1,0 +1,63 @@
+.FAQ {
+    background: #000000;;
+    width: 100%;
+    margin-top: -88px;
+    padding-bottom: 200px;
+}
+
+.FAQ_container {
+    padding-top: 200px;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+.FAQ_title {
+    max-width: 1440px;
+    font-family: 'World Conflict';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 200px;
+    text-align: center;
+    color: white;
+    padding-top: 75px;
+    margin: 0;
+    margin-bottom: 100px;
+}
+
+.FAQ_item_container {
+    margin-bottom: 100px;
+    border-bottom: 7px solid #EE8944;
+    padding-bottom: 30px;
+}
+
+.FAQ_item_title_wrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.FAQ_item_title {
+    font-family: 'Fredericka the Great';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 65px;
+    line-height: 80px;
+    color: #FFFFFF;
+}
+
+.FAQ_item_arrow {
+    transition: 0.3s;
+}
+
+.FAQ_item_description {
+    max-width: 1400px;
+    position: absolute;
+    opacity: 0;
+    margin-top: 50px;
+    font-family: 'Courier';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 46px;
+    color: #FFFFFF;
+    transition: 0.3s;
+}

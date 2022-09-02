@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "World Conflict"; 
+    src: url("./fonts/world_conflict\ .ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+.App {
+    height: 100%
+}
