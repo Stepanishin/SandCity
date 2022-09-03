@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import styles from './MainFooter.module.css'
+import styles from './CourtFooter.module.css'
 import twitter from '../../../../assets/img/twitter.svg'
 import discord from '../../../../assets/img/discord.png'
 import me from '../../../../assets/img/me.png'
 
-const MainFooter:FC = () => {
+const CourtFooter:FC = () => {
 
     
     return (
@@ -22,4 +22,4 @@ const MainFooter:FC = () => {
 
 };
 
-export default MainFooter;
+export default CourtFooter;
