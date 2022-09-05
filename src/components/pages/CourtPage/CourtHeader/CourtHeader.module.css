@@ -1,11 +1,11 @@
-.Header {
+.Court_Header {
     margin: 0 auto;
     max-width: 1400px;
     height: 184px;
     position: relative;
 }
   
-.Header_container {
+.Court_Header_container {
     position: fixed;
     z-index: 10;
     display: flex;
@@ -15,14 +15,14 @@
 }
   
   
-.Header_nav_List {
+.Court_Header_nav_List {
     margin-top: -40px;
     display: flex;
     justify-content: space-between;
     gap: 20px;
 }
   
-.Header_nav_List li {
+.Court_Header_nav_List li {
     width: 200px;
     height: 60px;
     background: rgba(119, 71, 255, 0.45);

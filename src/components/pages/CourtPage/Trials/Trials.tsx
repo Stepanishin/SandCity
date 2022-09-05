@@ -7,6 +7,9 @@ import "swiper/css/pagination";
 import { Navigation, Pagination, Mousewheel, Keyboard } from "swiper";
 import './swiper.css'
 import { useWallet } from '@solana/wallet-adapter-react';
+import SendSolanaBtn from '../../../UI/SentSolanaBtn/SendSolanaBtn';
+import accepted from './img/accepted.svg'
+import forbidden from './img/forbidden.svg'
 
 
 const Trials: FC<any> = ({data}) => {
@@ -14,12 +17,34 @@ const Trials: FC<any> = ({data}) => {
     const { publicKey, sendTransaction } = useWallet();
     const [ currentCard, setCurrentCard ] = useState<any>([])
     const [show, setShow] = useState(false)
+    const [SolForWhat, setSolForWhat] = useState('')
+    let [ BET, setBET ] = useState(0.1)
     let count = 0
 
     const showJudge = () => {
         setShow(true)
         const current = document.querySelector('.swiper-slide-active')
         setCurrentCard(data?.filter((card:any) => card[1].id === current?.id))
+    }
+
+    const chooseSolWorWhat = (e:any) => {
+        let SolForMoreBtn:any = document.querySelector('#SolForMore')
+        let SolForLessBtn:any = document.querySelector('#SolForLess')
+        let SolForDrawBtn:any = document.querySelector('#SolForDraw')
+        if (e.target.id === 'SolForMore') {
+            SolForMoreBtn.style.background = 'rgba(225, 35, 10, 0.25)'
+            SolForLessBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+            SolForDrawBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+        }else if (e.target.id === 'SolForLess') {
+            SolForMoreBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+            SolForLessBtn.style.background = 'rgba(225, 35, 10, 0.25)'
+            SolForDrawBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+        } else if (e.target.id === 'SolForDraw') {
+            SolForMoreBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+            SolForLessBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+            SolForDrawBtn.style.background = 'rgba(225, 35, 10, 0.25)'
+        }
+        setSolForWhat(e.target.id)
     }
 
     return (
@@ -86,29 +111,64 @@ const Trials: FC<any> = ({data}) => {
 
                                 <div className={styles.BetSlip_ratio_choice_container}>
                                     <p className={styles.BetSlip_ratio_choice}>1x(Above)</p>
-                                    <button className={styles.BetSlip_ratio_choice_btn}>5.95</button>
+                                    <button onClick={chooseSolWorWhat} id='SolForMore' className={styles.BetSlip_ratio_choice_btn}>5.95</button>
                                 </div>
 
                                 <div className={styles.BetSlip_ratio_choice_container}>
                                     <p className={styles.BetSlip_ratio_choice}>x(Draw)</p>
-                                    <button className={styles.BetSlip_ratio_choice_btn}>4.25</button>
+                                    <button onClick={chooseSolWorWhat} id='SolForDraw' className={styles.BetSlip_ratio_choice_btn}>4.25</button>
                                 </div>
 
                                 <div className={styles.BetSlip_ratio_choice_container}>
                                     <p className={styles.BetSlip_ratio_choice}>2x(Below)</p>
-                                    <button className={styles.BetSlip_ratio_choice_btn}>1.19</button>
+                                    <button onClick={chooseSolWorWhat} id='SolForLess' className={styles.BetSlip_ratio_choice_btn}>1.19</button>
                                 </div>
 
                             </div>
 
                             <div className={styles.BetSlip_ratio_amount_container}>
-                                <label className={styles.BetSlip_ratio_amount_label} htmlFor="name">Amount of bet: <input className={styles.BetSlip_ratio_amount_input} placeholder='0.1' required type="text" name='name' id='name' /></label>
+                                <label className={styles.BetSlip_ratio_amount_label} htmlFor="name">
+                                    Amount of bet: <input 
+                                        value={BET} 
+                                        className={styles.BetSlip_ratio_amount_input} 
+                                        placeholder='0.1' 
+                                        required 
+                                        type="number" 
+                                        name='name' 
+                                        id='name'
+                                        min={0} 
+                                        onChange={(e: any) => {
+                                            setBET(parseFloat(e.target.value))
+                                            if (e.target.value === '') {
+                                                setBET(0)
+                                            }
+                                            }
+                                        }
+                                    />
+                                </label>
                             </div>
                         </div>
 
                         <div className={styles.card_timeAndBet_container}>
-                            <p className={styles.card_timeAndBet_timer}>Trial ends in 3 hours and 5 minutes</p>
-                            <button className={styles.card_timeAndBet_btn}><span>BET</span></button>
+                            <p id='card_timeAndBet_timer' className={styles.card_timeAndBet_timer}>Trial ends in 3 hours and 5 minutes</p>
+                            <div id='alarm_sendSucces'  className={styles.alarm_sendSucces}>
+                                <img src={accepted} alt="accepted" />
+                                <p>Your bid has been accepted!</p>
+                            </div>
+                            <div id='alarm_sendError_chooseBET'  className={styles.alarm_sendError_chooseBET}>
+                                <img src={forbidden} alt="forbidden" width='50px' height='50px' />
+                                <p>Bid not selected!</p>
+                            </div>
+                            <div id='alarm_sendError_something'  className={styles.alarm_sendError_something}>
+                                <img src={forbidden} alt="forbidden" width='50px' height='50px' />
+                                <p>Something went wrong!</p>
+                            </div>
+                            
+                            <SendSolanaBtn
+                                currentCard = {currentCard}
+                                BET ={BET}
+                                SolForWhat={SolForWhat}
+                            />
                         </div>
                     </div>
                     :
