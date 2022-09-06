@@ -5,7 +5,7 @@ import styles from './Court.module.css'
 const Court: FC = () => {
 
     return (
-        <div className={styles.Court} >
+        <div id='ABOUT' className={styles.Court} >
             <div className={styles.Court_container} >
                 <p className={styles.Court_barcode} >In the new world, it is very important not to forget about justice.</p>
                 <h2 className={styles.Court_title} >Court</h2>

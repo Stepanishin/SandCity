@@ -36,6 +36,9 @@
     margin: 0;
     position: relative;
     z-index: 1;
+    background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
 }
 
 .Story_cityImg {

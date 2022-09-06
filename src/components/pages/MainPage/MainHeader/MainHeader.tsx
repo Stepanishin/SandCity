@@ -14,11 +14,11 @@ const MainHeader: FC = () => {
                 </div>
                 <nav>
                     <ul className='Header_nav_List' >
-                        <HashLink smooth  to="/pathLink#CITY"><li>CITY</li></HashLink>
-                        <HashLink smooth  to="/pathLink#STORY"><li>STORY</li></HashLink>
-                        <HashLink smooth  to="/pathLink#ROADMAP"><li>ROADMAP</li></HashLink>
-                        <HashLink smooth  to="/pathLink#TEAM"><li>TEAM</li></HashLink>
-                        <HashLink smooth  to="/pathLink#FAQ"><li>FAQ</li></HashLink>
+                        <HashLink smooth  to="/#CITY"><li>CITY</li></HashLink>
+                        <HashLink smooth  to="/#STORY"><li>STORY</li></HashLink>
+                        <HashLink smooth  to="/#ROADMAP"><li>ROADMAP</li></HashLink>
+                        <HashLink smooth  to="/#TEAM"><li>TEAM</li></HashLink>
+                        <HashLink smooth  to="/#FAQ"><li>FAQ</li></HashLink>
                     </ul>
                 </nav>
             </div>

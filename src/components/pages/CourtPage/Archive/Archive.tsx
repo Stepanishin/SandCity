@@ -8,7 +8,7 @@ import styles from './Archive.module.css'
 const Archive:FC<any> = ({data}) => {
     
     return (
-        <div className={styles.Archive} >
+        <div id='ARCHIVE' className={styles.Archive} >
             <div className={styles.Archive_container} >
                 <h2 className={styles.Archive_title} >ARCHIVE</h2>
                 <div className={styles.Archive_cards_container}>

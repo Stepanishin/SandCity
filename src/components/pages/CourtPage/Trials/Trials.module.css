@@ -1,7 +1,6 @@
 .Trials_container {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
     justify-content: center;
 }
 
@@ -14,6 +13,9 @@
     line-height: 200px;
     text-align: center;
     color: white;
+    background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
 }
 
 .Trials_slider_container {
@@ -121,8 +123,10 @@
     border: 2px solid rgba(0, 0, 0, 0.5);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(10px);
-    /* Note: backdrop-filter has minimal browser support */
-    border-radius: 10px;
+    border-radius: 10px;  
+}
+
+.card_timeAndJudge_btn a {
     font-family: 'Bebas Neue';
     font-style: normal;
     font-weight: 400;
@@ -130,9 +134,6 @@
     line-height: 48px;
     text-align: center;
     color: #FFFFFF;
-}
-
-.card_timeAndJudge_btn span {
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 

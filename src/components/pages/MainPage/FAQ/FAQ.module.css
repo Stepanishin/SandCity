@@ -22,6 +22,9 @@
     padding-top: 75px;
     margin: 0;
     margin-bottom: 100px;
+    background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
 }
 
 .FAQ_item_container {

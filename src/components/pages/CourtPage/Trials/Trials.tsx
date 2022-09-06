@@ -10,6 +10,7 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import SendSolanaBtn from '../../../UI/SentSolanaBtn/SendSolanaBtn';
 import accepted from './img/accepted.svg'
 import forbidden from './img/forbidden.svg'
+import { HashLink } from 'react-router-hash-link';
 
 
 const Trials: FC<any> = ({data}) => {
@@ -21,12 +22,29 @@ const Trials: FC<any> = ({data}) => {
     let [ BET, setBET ] = useState(0.1)
     let count = 0
 
+    useEffect(() => {
+        // Убираю окно с коэффициентами при прокручивании слайдера.
+        // Переделать
+        let swiperBtnNext = document.querySelector('.swiper-button-next')!
+        let swiperBtnPrev = document.querySelector('.swiper-button-prev')!
+        swiperBtnNext?.addEventListener('click', function() {
+            setShow(false)
+        });
+        swiperBtnPrev?.addEventListener('click', function() {
+            setShow(false)
+        });
+    }, [])
+
+
+    // Показываем окно с коэффициентами
     const showJudge = () => {
         setShow(true)
         const current = document.querySelector('.swiper-slide-active')
         setCurrentCard(data?.filter((card:any) => card[1].id === current?.id))
     }
 
+    // Добавляем выбранному коэффициенту бэкграунд.
+    // Переделать
     const chooseSolWorWhat = (e:any) => {
         let SolForMoreBtn:any = document.querySelector('#SolForMore')
         let SolForLessBtn:any = document.querySelector('#SolForLess')
@@ -48,7 +66,7 @@ const Trials: FC<any> = ({data}) => {
     }
 
     return (
-        <div className={styles.Trials} >
+        <div id='TRIALS' className={styles.Trials} >
             <div className={styles.Trials_container}>
                 <h2 className={styles.Trials_title} >Trials</h2>
                 <div className={styles.Trials_slider_container}>
@@ -85,7 +103,7 @@ const Trials: FC<any> = ({data}) => {
                                                 </div>
                                                 <div className={styles.card_timeAndJudge_container}>
                                                     <p className={styles.card_timeAndJudge_timer}>Trial ends in 3 hours and 5 minutes</p>
-                                                    <button onClick={showJudge} className={styles.card_timeAndJudge_btn}><span>Judge</span></button>
+                                                    <button onClick={showJudge} className={styles.card_timeAndJudge_btn}><HashLink  smooth  to="/Court#BETwrap" >Judge</HashLink></button>
                                                 </div>
                                             </div>
                                         </SwiperSlide>
@@ -101,7 +119,7 @@ const Trials: FC<any> = ({data}) => {
                 {
                     show
                     ?
-                    <div className={styles.BetSlip_container}>
+                    <div id='BETwrap' className={styles.BetSlip_container}>
                         <h3 className={styles.BetSlip_container_title}>Bet Slip</h3>
                         <div className={styles.BetSlip_data_container} >
                             <p className={styles.BetSlip_data_title}>Trial: {currentCard[0][1].name}</p>

@@ -25,6 +25,9 @@
     line-height: 200px;
     text-align: center;
     color: white;
+    background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
 }
 
 .Court_description {

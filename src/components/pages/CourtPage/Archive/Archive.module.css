@@ -13,48 +13,10 @@
     line-height: 200px;
     text-align: center;
     color: white;
+    background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
 }
-
-/* .Archive_cards_container {
-    margin: 110px auto;
-    width: 1200px;
-    height: 667px;
-    background: rgba(119, 71, 255, 0.35);
-    border: 6px solid #EE8944;
-    box-shadow: 0px 0px 35px 25px rgba(107, 61, 30, 0.3), inset 0px 0px 12px 20px rgba(0, 0, 0, 0.4);
-    border-radius: 75px;
-    padding: 38px 80px;
-    overflow: auto;
-}
-
-.Archive_cards_titles {
-    text-align: left;
-}
-
-.Archive_cards_titles th {
-    font-family: 'Courier';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 35px;
-    line-height: 40px;
-    color: #FFFFFF;
-}
-
-.Archive_card_values {
-    border-collapse: collapse;
-    border-top: 2px solid rgba(19, 19, 19, 0.5);
-}
-
-.Archive_card_values td {
-    font-family: 'Courier';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 29px;
-    color: rgba(255, 255, 255, 0.75);
-    border-top: 2px solid rgba(19, 19, 19, 0.5);
-    padding: 10px 0;
-} */
 
 .Archive_cards_container {
     margin: 110px auto;
@@ -77,7 +39,6 @@
     font-size: 25px;
     line-height: 29px;
     color: rgba(255, 255, 255, 0.75);
-    /* border-top: 2px solid rgba(19, 19, 19, 0.5); */
     padding: 10px 0;
 }
 .Archive_cards_container table {
@@ -85,20 +46,13 @@
 	table-layout: fixed;
 }
 .Archive_cards_container thead th {
-	/* font-weight: bold;
-	text-align: left;
-	border: none;
-	padding: 10px 15px;
-	font-size: 14px;
-    font-family: 'Courier'; */
     font-family: 'Courier';
     text-align: left;
-font-style: normal;
-font-weight: 400;
-font-size: 35px;
-line-height: 40px;
-
-color: #FFFFFF;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 40px;
+    color: #FFFFFF;
 
 }
 .Archive_cards_container tbody td {

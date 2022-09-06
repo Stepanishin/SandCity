@@ -23,6 +23,9 @@
     padding-top: 75px;
     padding-bottom: 175px;
     margin: 0;
+    background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
 }
 
 .RoadMap_step_container {

@@ -16,9 +16,9 @@ const CourtHeader: FC = () => {
                 </div>
                 <nav>
                     <ul className={styles.Court_Header_nav_List} >
-                        <HashLink smooth  to="/pathLink#CITY"><li>ABOUT</li></HashLink>
-                        <HashLink smooth  to="/pathLink#STORY"><li>TRIALS</li></HashLink>
-                        <HashLink smooth  to="/pathLink#ROADMAP"><li>ARCHIVE</li></HashLink>
+                        <HashLink smooth  to="/Court#ABOUT"><li>ABOUT</li></HashLink>
+                        <HashLink smooth  to="/Court#TRIALS"><li>TRIALS</li></HashLink>
+                        <HashLink smooth  to="/Court#ARCHIVE"><li>ARCHIVE</li></HashLink>
                     </ul>
                 </nav>
                 <ConnectWallet />
