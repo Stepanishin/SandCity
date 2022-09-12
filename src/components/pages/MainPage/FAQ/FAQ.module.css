@@ -2,13 +2,14 @@
     background: #000000;;
     width: 100%;
     margin-top: -88px;
-    padding-bottom: 200px;
+    padding-bottom: min(200px, 10vw);
 }
 
 .FAQ_container {
-    padding-top: 200px;
+    /* padding-top: 200px; */
     margin: 0 auto;
     max-width: 1400px;
+    padding: min(200px,30vw) 35px 0 35px;
 }
 
 .FAQ_title {
@@ -16,21 +17,21 @@
     font-family: 'World Conflict';
     font-style: normal;
     font-weight: 400;
-    font-size: 200px;
+    font-size: min(200px,16vw);
     text-align: center;
     color: white;
-    padding-top: 75px;
+    padding-top: min(75px, 2vw);
     margin: 0;
-    margin-bottom: 100px;
+    margin-bottom: min(100px, 10vw);
     background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
 }
 
 .FAQ_item_container {
-    margin-bottom: 100px;
-    border-bottom: 7px solid #EE8944;
-    padding-bottom: 30px;
+    margin-bottom: min(100px, 4vw);
+    border-bottom: min(7px, 0.8vw) solid #EE8944;
+    padding-bottom: min(30px, 2vw);
 }
 
 .FAQ_item_title_wrap {
@@ -42,25 +43,27 @@
     font-family: 'Fredericka the Great';
     font-style: normal;
     font-weight: 400;
-    font-size: 65px;
-    line-height: 80px;
+    font-size: min(65px, 6vw);
+    line-height: min(80px, 7.4vw);
     color: #FFFFFF;
 }
 
 .FAQ_item_arrow {
     transition: 0.3s;
+    width: min(80px,5.5vw);
+    height: min(35px, 2.5);
 }
 
 .FAQ_item_description {
     max-width: 1400px;
     position: absolute;
     opacity: 0;
-    margin-top: 50px;
+    margin-top: min(50px, 3.2vw);
     font-family: 'Courier';
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
-    line-height: 46px;
+    font-size: min(40px, 2.7vw);
+    line-height: min(46px, 3vw);
     color: #FFFFFF;
     transition: 0.3s;
 }

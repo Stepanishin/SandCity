@@ -1,8 +1,8 @@
 .Story {
     background: #000000;;
     width: 100%;
-    min-height: 100vh;
-    margin-top: -88px;
+    /* min-height: 100vh; */
+    margin-top: max(-88px, -6vw);
 }
 
 .Story_container {
@@ -18,7 +18,7 @@
     font-family: 'Libre Barcode 128 Text';
     font-style: normal;
     font-weight: 400;
-    font-size: 100px;
+    font-size: min(6vw, 100px);
     line-height: 100px;
     text-align: center;
     color: #FFFFFF;
@@ -29,10 +29,10 @@
     font-family: 'World Conflict';
     font-style: normal;
     font-weight: 400;
-    font-size: 200px;
+    font-size: min(200px,16vw);
     text-align: center;
     color: white;
-    padding-top: 75px;
+    padding-top: min(75px, 2vw);
     margin: 0;
     position: relative;
     z-index: 1;
@@ -44,17 +44,17 @@
 .Story_cityImg {
     display: block;
     margin: -20px auto;
-    max-width: 1204px;
-    height: 1177px;
+    width: 100%;
 }
 
 .Story_description {
-    margin-bottom: 60px;
+    margin-bottom: min(60px, 5vw);
     font-family: 'Courier';
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
-    line-height: 46px;
+    font-size: min(40px, 3vw);
+    line-height: min(46px, 3.5vw);
     text-align: center;
     color: #FFFFFF;
+    padding: 0 50px;
 }

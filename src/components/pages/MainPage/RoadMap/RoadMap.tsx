@@ -13,11 +13,11 @@ const RoadMap:FC = () => {
     return (
         <div id='ROADMAP' className={styles.RoadMap} >
             <div className={styles.RoadMap_container}>
-                <h2 className={styles.RoadMap_title} >ROADMAP</h2>
+                {/* <h2 className={styles.RoadMap_title} >ROADMAP</h2> */}
             </div>
 
             <div className={styles.RoadMap_step_container}>
-                <img src={step1Img} alt="" />
+                <img className={styles.RoadMap_step_container_image} src={step1Img} alt="" />
                 <img src={line} alt="" />
                 <div className={styles.RoadMap_step_description_container}>
                     <p className={styles.RoadMap_step_description_number}>1</p>
@@ -32,7 +32,7 @@ const RoadMap:FC = () => {
                 </div>
             </div>
 
-            <div className={styles.RoadMap_step2_container}>
+            {/* <div className={styles.RoadMap_step2_container}>
                 <div className={styles.RoadMap_step2_description_container}>
                     <p className={styles.RoadMap_step_description_number}>2</p>
                     <p className={styles.RoadMap_step_description_title} >Gen 2:</p>
@@ -45,9 +45,9 @@ const RoadMap:FC = () => {
                 </div>
                 <img src={line} alt="" />
                 <img src={step2Img} alt="" />
-            </div>
+            </div> */}
 
-            <div className={styles.RoadMap_step3_container}>
+            {/* <div className={styles.RoadMap_step3_container}>
                 <img className={styles.RoadMap_step3_img} src={step3Img} alt="" />
                 <img src={line} alt="" />
                 <div className={styles.RoadMap_step3_description_container}>
@@ -60,7 +60,7 @@ const RoadMap:FC = () => {
                         <li>Roadmap v2.0</li>
                     </ul>
                 </div>
-            </div>
+            </div> */}
 
         </div>
     );

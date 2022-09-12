@@ -24,10 +24,11 @@ import ConnectWallet from './components/UI/ConnectWallet/ConnectWallet';
 
 
 
+
 function App() {
   
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
       apiKey: "AIzaSyCNdpAQXni1CNhof3krBH5aXX9icyYmsfI",
       authDomain: "rectville.firebaseapp.com",
       databaseURL: "https://rectville-default-rtdb.europe-west1.firebasedatabase.app/",
@@ -35,10 +36,10 @@ function App() {
       storageBucket: "gs://rectville.appspot.com",
       messagingSenderId: "25488995572",
       appId: "1:25488995572:web:f73ef95b07d495bdf51aa1"
-    };
+  };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
 
   return (
     <Context>

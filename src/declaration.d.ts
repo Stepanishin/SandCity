@@ -9,3 +9,4 @@ declare module '*.mp4';
 declare module 'react-slick'
 declare module "*.module.css";
 declare module "react-router-hash-link"
+declare module "react-image-mapper"

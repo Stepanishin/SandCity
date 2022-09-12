@@ -1,9 +1,4 @@
 .City {
-    /* background-image: url(../../../../assets/img/main\ 1.png); */
-    /* background-repeat: no-repeat;
-    background-size: cover; */
-    /* width: 100%; */
-    /* min-height: 1500px;  */
     position: relative;
     margin-top: -184px;
 }
@@ -12,21 +7,166 @@
     width: 100%;
 }
 
+/* COURT */
 .City_Court {
-    /* position: relative; */
-    /* width: 500px;
-    height: 500px;
-    z-index: 100;
-    border: 10px solid red; */
+    position: absolute;
+    z-index: 5;
+    top: 24vw;
+    left: 32vw;
+    width: 23vw;
+    height: 42vw;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
 }
 
-/* .City_Court::before {
-    content:  url( "./img/Court.png");
+.City_Court_descr {
     display: block;
     position: absolute;
-    height: 200px;
-    width: 200px;
-    z-index: 10;
-    left: 50px;
-    top: 50px;
-} */
+    z-index: 5;
+    top: 38.0vw;
+    left: 38vw;
+    font-family: 'Libre Barcode 128 Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(100px,5vw);
+    line-height: min(100px,5vw);
+    text-align: center;
+    color: #94FF73;
+    border: min(7px, 0.7vw) solid rgba(0, 0, 0, 0.6);
+    text-shadow: 0px 0px 0px #000000;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+}
+
+.City_Court_wrapper:hover .City_Court_descr  {
+    opacity: 1;
+}
+
+.City_Court_wrapper:hover .City_Court {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Emporium */
+.City_emporium {
+    position: absolute;
+    z-index: 5;
+    top: 8vw;
+    left: 17vw;
+    width: 15vw;
+    height: 50vw;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.City_emporium_descr {
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: 25vw;
+    left: 16vw;
+    font-family: 'Libre Barcode 128 Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(100px,5vw);
+    line-height: min(100px,5vw);
+    text-align: center;
+    color: #94FF73;
+    border: min(7px, 0.7vw) solid rgba(0, 0, 0, 0.6);
+    text-shadow: 0px 0px 0px #000000;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+}
+
+.City_emporium_wrapper:hover .City_emporium_descr  {
+    opacity: 1;
+}
+
+.City_emporium_wrapper:hover .City_emporium {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Lab */
+.City_Lab {
+    position: absolute;
+    z-index: 5;
+    top: 15vw;
+    left: 69vw;
+    width: 31vw;
+    height: 47vw;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.City_Lab_descr {
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: 25vw;
+    left: 62vw;
+    font-family: 'Libre Barcode 128 Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(100px,5vw);
+    line-height: min(100px,5vw);
+    text-align: center;
+    color: #94FF73;
+    border: min(7px, 0.7vw) solid rgba(0, 0, 0, 0.6);
+    text-shadow: 0px 0px 0px #000000;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+}
+
+.City_Lab_wrapper:hover .City_Lab_descr  {
+    opacity: 1;
+}
+
+.City_Lab_wrapper:hover .City_Lab {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Stacking */
+.City_Stacking {
+    position: absolute;
+    z-index: 5;
+    top: 29vw;
+    left: 1vw;
+    width: 15vw;
+    height: 53vw;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.City_Stacking_descr {
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: 58vw;
+    left: 6vw;
+    font-family: 'Libre Barcode 128 Text';
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(100px,5vw);
+    line-height: min(100px,5vw);
+    text-align: center;
+    color: #94FF73;
+    border: min(7px, 0.7vw) solid rgba(0, 0, 0, 0.6);
+    text-shadow: 0px 0px 0px #000000;
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+}
+
+.City_Stacking_wrapper:hover .City_Stacking_descr  {
+    opacity: 1;
+}
+
+.City_Stacking_wrapper:hover .City_Stacking {
+    opacity: 1;
+    transform: scale(1.05);
+}

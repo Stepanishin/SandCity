@@ -14,6 +14,10 @@
   gap: 52px;
 }
 
+.Header_logo {
+  height: min(184px, 22vw); 
+  width: min(190px, 22vw);
+}
 
 .Header_nav_List {
   margin-top: -40px;
@@ -37,4 +41,125 @@
   text-align: center;
   color: #FFFFFF;
   line-height: 1.5em;
+}
+
+.Header_Hamburger_container {
+  display: none;
+}
+
+#toggle {
+  display: none;
+}
+
+.Header_nav_List_mobile {
+  display: block;
+  position: absolute;
+  right: 30px;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  background: rgba(119, 71, 255, 0.45);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+}
+
+.Header_nav_List_mobile li {
+  width: min(200px, 25vw);
+  height: min(60px, 7.5vw);
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-size: min(40px,5vw);
+  line-height: 48px;
+  text-align: center;
+  color: #FFFFFF;
+  line-height: 1.5em;
+}
+
+.Header_nav_List_mobile li:hover    {
+  background: rgba(30, 16, 69, 0.65) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+/**Hamburger**/
+
+.hamburger {
+        display: block;
+        z-index: 5;
+        width: min(56px, 14vw);
+        height: min(62px, 15vw);
+        background: rgba(119, 71, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 4px 0 5px 11px;
+        transition: all 0.3s ease-in-out;
+}
+      
+.hamburger div {
+        display: block;
+        width: min(30px,9vw);
+        height: min(6px,2vw);
+        background: rgba(255, 255, 255, 0.45);
+        margin-top: min(8px, 2vw);
+        transition: all 0.3s ease-in-out;
+        border: 1px solid rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+}
+
+.dn {
+  display: block;
+}
+
+/**Animations**/
+
+#toggle:checked + .hamburger .top-bun {
+        transform: rotate(-45deg);
+        margin-top: 18px;
+}
+
+#toggle:checked + .hamburger .bottom-bun {
+        opacity: 0;
+        transform: rotate(45deg);
+}
+
+#toggle:checked + .hamburger .meat {
+        transform: rotate(45deg);
+        margin-top: -6px;
+}
+
+#toggle:checked + .hamburger {
+        padding-top: 9px;
+}
+      
+#toggle:checked + .hamburger + .Header_nav_List_mobile {
+        top: min(130px, 19vw);
+        transform: scale(1);
+}
+
+@media screen and (width < 1350px) {
+  .Header_nav_List {
+    display: none;
+  }
+  .Header_Hamburger_container {
+    display: block;
+  }
+  .Header_container {
+    width: 100vw;
+    padding-right: min(32px, 5vw);
+    gap: 0px;
+  }
+}
+
+@media screen and (width < 375px) {
+  .hamburger {  
+    padding: 3px 0 5px 7px;
+  }
+  #toggle:checked + .hamburger {
+    padding-top: 1vw;
+  }
 }

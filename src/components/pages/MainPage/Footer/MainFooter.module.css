@@ -1,8 +1,8 @@
 .Footer {
-    height: 126px;
+    height: min(126px, 10vw);
     background: #000000;
     width: 100%;
-    border-top: 7px solid #7747FF;
+    border-top: min(7px, 0.8vw) solid #7747FF;
 }
 
 .Footer_container {
@@ -19,8 +19,8 @@
     font-family: 'Courier';
     font-style: normal;
     font-weight: 400;
-    font-size: 35px;
-    line-height: 40px;
+    font-size: min(35px, 2.5vw);
+    line-height: 110%;
     color: #FFFFFF;
 }
 
@@ -28,13 +28,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 50px;
+    gap: min(50px, 2vw);
 }
 
-.Footer_links_container a  {
-    color: yellow;
+.Footer_link  {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 50px;
+}
+
+.Footer_link_image_discord {
+    width: min(83px, 6vw);
+    height: min(68px, 5vw);
+    filter: brightness(0) invert(1)  url("../../../../assets/img/sand.jpeg") ;
+}
+
+.Footer_link_image_twitter {
+    width: min(106px, 7vw);
+    height: min(106px, 7vw);
+    filter: brightness(0) invert(1)  url("../../../../assets/img/sand.jpeg") ;
+}
+
+.Footer_link_image_me {
+    width: min(91px, 7vw);
+    height: min(59px, 4.5vw);
+    filter: brightness(0) invert(1)  url("../../../../assets/img/sand.jpeg") ;
 }

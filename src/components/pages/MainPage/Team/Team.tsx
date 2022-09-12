@@ -15,22 +15,42 @@ const Team:FC = () => {
                 <div className={styles.Team_profile_container} >
 
                     <div className={styles.Team_profile}>
-                        <img src={team1} alt="Photo" />
+                        <img className={styles.Team_profile_avatar} src={team1} alt="avatar" />
                         <p className={styles.Team_profile_name}>Max</p>
                     </div>
 
                     <div className={styles.Team_profile}>
-                        <img src={team2} alt="Photo" />
+                        <img className={styles.Team_profile_avatar} src={team2} alt="avatar" />
                         <p className={styles.Team_profile_name}>Nastya</p>
                     </div>
 
                     <div className={styles.Team_profile}>
-                        <img src={team3} alt="Photo" />
+                        <img className={styles.Team_profile_avatar} src={team3} alt="avatar" />
                         <p className={styles.Team_profile_name}>Max</p>
                     </div>
 
                     <div className={styles.Team_profile}>
-                        <img src={team4} alt="Photo" />
+                        <img className={styles.Team_profile_avatar} src={team4} alt="avatar" />
+                        <p className={styles.Team_profile_name}>Max</p>
+                    </div>
+
+                    <div className={styles.Team_profile}>
+                        <img className={styles.Team_profile_avatar} src={team1} alt="avatar" />
+                        <p className={styles.Team_profile_name}>Max</p>
+                    </div>
+
+                    <div className={styles.Team_profile}>
+                        <img className={styles.Team_profile_avatar} src={team2} alt="avatar" />
+                        <p className={styles.Team_profile_name}>Max</p>
+                    </div>
+
+                    <div className={styles.Team_profile}>
+                        <img className={styles.Team_profile_avatar} src={team3} alt="avatar" />
+                        <p className={styles.Team_profile_name}>Max</p>
+                    </div>
+
+                    <div className={styles.Team_profile}>
+                        <img className={styles.Team_profile_avatar} src={team4} alt="avatar" />
                         <p className={styles.Team_profile_name}>Max</p>
                     </div>
 

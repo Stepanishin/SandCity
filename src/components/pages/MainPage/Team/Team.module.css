@@ -1,13 +1,11 @@
 .Team {
     background: #000000;;
     width: 100%;
-    margin-top: -153px;
 }
 
 .Team_container {
     margin: 0 auto;
     max-width: 1400px;
-    padding-top: 150px;
 }
 
 .Team_title {
@@ -15,10 +13,10 @@
     font-family: 'World Conflict';
     font-style: normal;
     font-weight: 400;
-    font-size: 200px;
+    font-size: min(200px,16vw);
     text-align: center;
     color: white;
-    padding-top: 75px;
+    padding-top: min(75px, 2vw);
     margin: 0;
     background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
     -webkit-background-clip:text;
@@ -26,19 +24,25 @@
 }
 
 .Team_profile_container {
-    margin-top: 150px;
+    margin-top: min(150px, 4vw);
     display: flex;
-    gap: 50px;
+    gap: min(50px,4vw);
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Team_profile_avatar {
+    width: min(250px,14vw);
+    height: min(250px,14vw);
 }
 
 .Team_profile_name {
-    padding-top: 20px;
+    padding-top: min(20px, 2vw);
     font-family: 'Fredericka the Great';
     font-style: normal;
     font-weight: 400;
-    font-size: 55px;
-    line-height: 67px;
+    font-size: min(55px,5vw);
+    line-height: min(67px, 6vw);
     text-align: center;
     color: #FFFFFF;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

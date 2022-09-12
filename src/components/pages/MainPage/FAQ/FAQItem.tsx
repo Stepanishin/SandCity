@@ -9,6 +9,7 @@ interface IFAQItemProps {
 
 const FAQItem:FC<IFAQItemProps> = ({title, description}) => {
 
+    // close and open answer
     const showDescr = () => {
         const arrow = document.getElementById(`${title}`)!
         const descr = document.getElementById(`${description}`)!
@@ -26,11 +27,11 @@ const FAQItem:FC<IFAQItemProps> = ({title, description}) => {
     
     return (
 
-        <div className={styles.FAQ_item_container} onClick={showDescr} >
+        <div className={styles.FAQ_item_container} >
 
             <div className={styles.FAQ_item_title_wrap}>
                 <h3 className={styles.FAQ_item_title}>What is Dust City?</h3>
-                <img className={styles.FAQ_item_arrow} id={title} src={arrowImg} alt="arrow" />
+                <img onClick={showDescr} className={styles.FAQ_item_arrow} id={title} src={arrowImg} alt="arrow" />
             </div>
                 
             <p id={description} className={styles.FAQ_item_description}>{description}</p>
