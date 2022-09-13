@@ -54,7 +54,7 @@
 .Header_nav_List_mobile {
   display: block;
   position: absolute;
-  right: 30px;
+  right:25px;
   transform: scale(0);
   transition: all 0.3s ease-in-out;
   overflow: hidden;
@@ -65,8 +65,8 @@
 }
 
 .Header_nav_List_mobile li {
-  width: min(200px, 25vw);
-  height: min(60px, 7.5vw);
+  width: min(200px, 35vw);
+  height: min(60px, 10.5vw);
   font-family: 'Bebas Neue';
   font-style: normal;
   font-weight: 400;
@@ -75,6 +75,7 @@
   text-align: center;
   color: #FFFFFF;
   line-height: 1.5em;
+  padding-top: 5px;
 }
 
 .Header_nav_List_mobile li:hover    {
@@ -161,5 +162,8 @@
   }
   #toggle:checked + .hamburger {
     padding-top: 1vw;
+  }
+  .Header_nav_List_mobile {
+    right:18px;
   }
 }
