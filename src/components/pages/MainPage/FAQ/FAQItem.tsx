@@ -17,21 +17,23 @@ const FAQItem:FC<IFAQItemProps> = ({title, description}) => {
             arrow.style.transform = 'scale(1)'
             descr.style.position = 'absolute'
             descr.style.opacity = '0'
+            descr.style.visibility = 'hidden'
         } else {
             arrow.style.transform = 'scale(-1)'
             descr.style.opacity = '1'
             descr.style.position = 'relative'
+            descr.style.visibility = 'visible'
         }
     }
 
     
     return (
 
-        <div className={styles.FAQ_item_container} >
+        <div onClick={showDescr} className={styles.FAQ_item_container} >
 
             <div className={styles.FAQ_item_title_wrap}>
                 <h3 className={styles.FAQ_item_title}>What is Dust City?</h3>
-                <img onClick={showDescr} className={styles.FAQ_item_arrow} id={title} src={arrowImg} alt="arrow" />
+                <img className={styles.FAQ_item_arrow} src={arrowImg} alt="arrow" id={title}  />
             </div>
                 
             <p id={description} className={styles.FAQ_item_description}>{description}</p>

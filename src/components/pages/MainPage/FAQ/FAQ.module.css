@@ -29,9 +29,10 @@
 }
 
 .FAQ_item_container {
-    margin-bottom: min(100px, 4vw);
+    cursor: pointer;
     border-bottom: min(7px, 0.8vw) solid #EE8944;
     padding-bottom: min(30px, 2vw);
+    padding-top: min(100px, 4vw);
 }
 
 .FAQ_item_title_wrap {
@@ -66,4 +67,5 @@
     line-height: min(46px, 3vw);
     color: #FFFFFF;
     transition: 0.3s;
+    visibility: hidden;
 }
