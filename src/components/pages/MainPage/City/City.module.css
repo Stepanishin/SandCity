@@ -93,8 +93,8 @@
 .City_Lab {
     position: absolute;
     z-index: 5;
-    top: 15vw;
-    left: 69vw;
+    top: 14vw;
+    left: 67.5vw;
     width: 31vw;
     height: 47vw;
     opacity: 0;
@@ -127,7 +127,6 @@
 
 .City_Lab_wrapper:hover .City_Lab {
     opacity: 1;
-    transform: scale(1.05);
 }
 
 /* Stacking */
