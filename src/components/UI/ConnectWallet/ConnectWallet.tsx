@@ -24,11 +24,10 @@ const Content: FC= () => {
     const { publicKey, sendTransaction } = useWallet();
 
 
+
     return (
         <div>   
-            <div>
                 <WalletMultiButton />
-            </div>
         </div>
     );
 };

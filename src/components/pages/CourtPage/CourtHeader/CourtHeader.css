@@ -1,0 +1,191 @@
+.Court_Header {
+    margin: 0 auto;
+    max-width: 1400px;
+    height: 184px;
+    position: relative;
+}
+  
+.Court_Header_container {
+    position: fixed;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 52px;
+    margin-left: 93px;
+}
+
+.Court_Header_logo {
+    height: min(184px, 22vw); 
+    width: min(190px, 22vw);
+}
+  
+.Court_Header_nav_List {
+    margin-top: -40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    
+}
+  
+.Court_Header_nav_List li {
+    width: 200px;
+    height: 60px;
+    background: rgba(119, 71, 255, 0.45);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+    color: #FFFFFF;
+    line-height: 1.5em;
+}
+
+.Court_wrapper_decs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+/* Mobile */
+.Court_Header_Hamburger_container {
+    display: none;
+}
+
+#toggleCourt {
+    display: none;
+}
+
+.Court_Header_nav_List_mobile {
+    display: block;
+    position: absolute;
+    transform: scale(0);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    background: rgba(119, 71, 255, 0.45);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    height: fit-content;
+    top: 65px;
+    right: 0px;
+}
+  
+.Court_Header_nav_List_mobile li {
+    font-family: 'Bebas Neue';
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(40px,5vw);
+    line-height: 48px;
+    text-align: center;
+    color: #FFFFFF;
+    line-height: 1.5em;
+    padding-top: 5px;
+}
+
+.Court_Header_nav_List_mobile li:hover    {
+    background: rgba(30, 16, 69, 0.65) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/**Hamburger**/
+
+.Court_hamburger {
+    display: block;
+    z-index: 5;
+    width: min(56px, 14vw);
+    height: min(62px, 15vw);
+    background: rgba(119, 71, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    padding: 4px 0 5px 11px;
+    transition: all 0.3s ease-in-out;
+}
+  
+.Court_hamburger div {
+    display: block;
+    width: min(30px,9vw);
+    height: min(6px,2vw);
+    background: rgba(255, 255, 255, 0.45);
+    margin-top: min(8px, 2vw);
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+
+.Court_dn {
+    display: block;
+}
+
+/**Animations**/
+
+#toggleCourt:checked + .Court_hamburger .Court_top_bun {
+    transform: rotate(-45deg);
+    margin-top: 18px;
+}
+
+#toggleCourt:checked + .Court_hamburger .Court_bottom_bun {
+    opacity: 0;
+    transform: rotate(45deg);
+}
+
+#toggleCourt:checked + .Court_hamburger .Court_meat {
+    transform: rotate(45deg);
+    margin-top: -6px;
+}
+
+#toggleCourt:checked + .Court_hamburger {
+    padding-top: 9px;
+}
+  
+#toggleCourt:checked + .Court_hamburger + .Court_Header_nav_List_mobile {
+    transform: scale(1);
+}
+
+@media screen and (width < 1350px) {
+    .Court_wrapper_decs{
+        display: none;
+    }
+
+    .Court_Header_Hamburger_container {
+        display: block;
+        position: relative;
+    }
+
+    .Court_Header_container {
+        margin-left: 0px;
+        width: 100vw;
+        padding-right: min(32px, 5vw);
+        height: min(193px, 25vw);
+        justify-content: space-between;
+        align-items: center;
+        vertical-align: middle;
+    }
+
+}
+
+
+@media screen and (width < 400px) {
+    .Court_hamburger {  
+        padding: 3px 0 5px 7px;
+    }
+    #toggleCourt:checked + .Court_hamburger {
+        padding-top: 1vw;
+    }
+    #toggleCourt:checked + .Court_hamburger + .Court_Header_nav_List_mobile {
+        top: 60px;
+    }
+
+}

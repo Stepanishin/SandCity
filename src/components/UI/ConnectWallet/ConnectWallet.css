@@ -17,6 +17,7 @@
     line-height: 48px !important;
     text-align: center !important;
     color: #FFFFFF !important;
+
 }
 
 .wallet-adapter-dropdown-list {
@@ -25,10 +26,8 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
     backdrop-filter: blur(10px) !important;
     border-radius: 10px !important;
-    padding: 0 !important;
-    width: 228px !important ;
-
-    
+    padding: 5px !important;
+    width: 228px !important;  
 }
 
 .wallet-adapter-dropdown-list-item {
@@ -48,4 +47,33 @@
     background: rgba(30, 16, 69, 0.65) !important;
     backdrop-filter: blur(10px) !important;
     
+}
+
+@media screen and (width < 1350px) {
+    .wallet-adapter-button-trigger {
+        width: min(250px, 40vw) !important;
+        text-align: center !important;
+        font-size: min(40px,5vw) !important;
+        line-height: 20px !important;
+        padding: 0px !important;
+        display: flex !important;
+        justify-content: center !important; 
+        margin: 5px !important;
+    }
+
+    .wallet-adapter-dropdown-list {
+        width: min(250px, 40vw)!important;
+        display: none !important;
+    }
+
+    .wallet-adapter-dropdown-list-item {
+        font-size: min(40px,5vw) !important;
+        line-height: 48px !important; 
+    }
+}
+
+@media screen and (width < 424px) {
+    .wallet-adapter-button-trigger {
+        height: 15vw !important;
+    }
 }

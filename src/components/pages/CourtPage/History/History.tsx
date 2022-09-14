@@ -8,7 +8,7 @@ const History: FC = () => {
     return (
         <div className={styles.History} >
             <div className={styles.History_container}>
-                <img src={bgImg} alt="avatar" />
+                <img className={styles.History_bg} src={bgImg} alt="avatar" />
             </div>
         </div>
     );

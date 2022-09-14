@@ -1,8 +1,13 @@
 .History {
     display: flex;
     justify-content: center;
+    margin-top: -184px;
 }
 
 .History_container {
     margin: 0 auto;
+}
+
+.History_bg {
+    width: 100%;
 }

@@ -21,8 +21,8 @@ const CourtPage:FC = () => {
             <History />
             <Court />
             <Trials data={data} />
-            <Archive data={data} />
-            <CourtFooter />
+            {/* <Archive data={data} /> */}
+            {/* <CourtFooter /> */}
         </div>
     );
 

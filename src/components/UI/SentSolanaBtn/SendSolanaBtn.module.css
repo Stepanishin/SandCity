@@ -1,16 +1,16 @@
 .card_timeAndBet_btn {
-    width: 200px;
-    height: 60px;
+    width: min(200px, 20vw);
+    height: min(60px, 6vw);
     background: rgba(225, 35, 10, 0.65);
     border: 2px solid rgba(0, 0, 0, 0.5);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(10px);
-    border-radius: 10px;
+    border-radius: min(10px, 1vw);  
     font-family: 'Bebas Neue';
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
-    line-height: 48px;
+    font-size: min(40px, 4vw);
+    line-height: min(48px, 4vw);
     text-align: center;
     color: #FFFFFF;
 }

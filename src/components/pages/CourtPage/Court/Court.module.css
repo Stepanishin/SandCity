@@ -10,33 +10,33 @@
     font-family: 'Libre Barcode 128 Text';
     font-style: normal;
     font-weight: 400;
-    font-size: 60px;
+    font-size: min(4.2vw, 100px);
     line-height: 60px;
     text-align: center;
     color: #FFFFFF;
 }
 
 .Court_title {
-    margin-top: 75px;
     font-family: 'World Conflict';
     font-style: normal;
     font-weight: 400;
-    font-size: 200px;
-    line-height: 200px;
+    font-size: min(200px,16vw);
     text-align: center;
     color: white;
     background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
+    padding-top: min(100px, 3.5vw);
 }
 
 .Court_description {
-    margin-top: 150px;
+    padding: 0px 20px;
+    padding-top: min(150px, 6vw);
     font-family: 'Courier';
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
-    line-height: 46px;
+    font-size: min(40px, 3vw);
+    line-height: min(46px, 4vw);
     text-align: center;
     color: #FFFFFF;
 }
