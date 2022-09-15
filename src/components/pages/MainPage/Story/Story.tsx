@@ -13,9 +13,12 @@ const Story:FC = () => {
                 <p className={styles.Story_barcode} >Save this world and Revive civilization.</p>
                 <h2 className={styles.Story_title} >DUST CITY</h2>
                 <img className={styles.Story_cityImg} src={city} alt="PhotoOfCity" />
-                <p className={styles.Story_description}>In the Summer of 2222, sandstorms began. The crop was destroyed, people were starving. Millions of people fled south to survive. There, only hunger, chaos and death awaited them.</p>
-                <p className={styles.Story_description}>But there were people who decided to survive no matter what. They will have to rebuild this city. In a completely destroyed world, people develop their technologies to withstand the cruel sands. We humans must learn to live in this world again, TOGETHER. We must restore civilization.</p>
-                <p className={styles.Story_description}>Step by step, building new buildings, we resist the merciless sandstorms. Our city is expanding, but it becomes obvious that there are not enough people. We open the gates of our city to 2222 new settlers...</p>
+                <p className={styles.Story_description}><b>The year 2178.</b> The Sun began to go out. As quickly as no one expected. Humankind just wasn’t ready…</p>
+                <p className={styles.Story_description}><b>The year 2179.</b> Countries had a common plan… The insane plan worked! So they thought for the first few hours. The sun ignited again…</p>
+                <p className={styles.Story_description}><b>The Day of Eternal Dawn,</b> so that day was called. No one could have ever thought that the day would turn into <b>The Eternal Dawn Era.</b> The Sun went out of control and started to expand. The only place on Earth where life was still possible was <b>the Majestic City.</b></p>
+                <p className={styles.Story_description}><b>A week after the first emission,</b> a new luminary lit up in the sky. Mercury was burning in fieryswirls of solar energy.</p>
+                <p className={styles.Story_description}><b>In 15 more days,</b> Mercury exploded. Billions of living beings on Earth turned to dust in aninstant. Only <b>the Majestic City</b> was able to sustain life. The radiation from the burning Sun andthe energy from Mercury’s collapsing core transformed all the organics on the planet into anew, heretofore unknown substance. Nectar, so they called it.</p>
+                <p className={styles.Story_description}>After all that happened, people began to call this <b>Majestic City</b> - the City of Dust, or shortly - <span style={{color: '#EDA45C'}} ><b>Dust City...</b></span></p>
             </div>
         </div>
     );
