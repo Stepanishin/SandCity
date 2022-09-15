@@ -35,6 +35,7 @@ const CourtHeader: FC = () => {
                             <HashLink smooth  to="/Court#ABOUT"><li>ABOUT</li></HashLink>
                             <HashLink smooth  to="/Court#TRIALS"><li>TRIALS</li></HashLink>
                             <HashLink smooth  to="/Court#ARCHIVE"><li>ARCHIVE</li></HashLink>
+                            <Link to={'/'} ><li>BACK TO CITY</li></Link>
                         </ul>
                     </nav>
                     <ConnectWallet />

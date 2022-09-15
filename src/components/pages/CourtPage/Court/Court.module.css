@@ -10,10 +10,11 @@
     font-family: 'Libre Barcode 128 Text';
     font-style: normal;
     font-weight: 400;
-    font-size: min(4.2vw, 100px);
+    font-size: min(4.2vw, 60px);
     line-height: 60px;
     text-align: center;
     color: #FFFFFF;
+    max-width: 1450px;
 }
 
 .Court_title {
@@ -39,4 +40,5 @@
     line-height: min(46px, 4vw);
     text-align: center;
     color: #FFFFFF;
+    max-width: 1450px;
 }
