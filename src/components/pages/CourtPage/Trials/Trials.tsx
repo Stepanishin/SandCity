@@ -170,15 +170,15 @@ const Trials: FC<any> = ({data}) => {
                         <div className={styles.card_timeAndBet_container}>
                             <p id='card_timeAndBet_timer' className={styles.card_timeAndBet_timer}>Trial ends in 3 hours and 5 minutes</p>
                             <div id='alarm_sendSucces'  className={styles.alarm_sendSucces}>
-                                <img src={accepted} alt="accepted" />
+                                <img className={styles.card_timeAndBet_img} src={accepted} alt="accepted" />
                                 <p>Your bid has been accepted!</p>
                             </div>
                             <div id='alarm_sendError_chooseBET'  className={styles.alarm_sendError_chooseBET}>
-                                <img src={forbidden} alt="forbidden" width='50px' height='50px' />
+                                <img className={styles.card_timeAndBet_img} src={forbidden} alt="forbidden" width='50px' height='50px' />
                                 <p>Bid not selected!</p>
                             </div>
                             <div id='alarm_sendError_something'  className={styles.alarm_sendError_something}>
-                                <img src={forbidden} alt="forbidden" width='50px' height='50px' />
+                                <img className={styles.card_timeAndBet_img} src={forbidden} alt="forbidden" width='50px' height='50px' />
                                 <p>Something went wrong!</p>
                             </div>
                             

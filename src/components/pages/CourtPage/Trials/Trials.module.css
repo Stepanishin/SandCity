@@ -306,7 +306,7 @@
     padding: min(50px, 5vw) min(50px, 5vw) 0 min(50px, 5vw);
     align-items: flex-end;
     gap: min(30px, 4vw);
-    padding-bottom: 50px;
+    padding-bottom: min(50px, 8vw);
 }
 
 .card_timeAndBet_timer {
@@ -336,33 +336,39 @@
     font-family: 'Courier';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
-    line-height: 37px;
+    font-size: min(32px, 4vw);
+    line-height: min(37px, 4.2vw);
     color: rgba(238, 137, 68, 0.5);
+    gap: min(30px, 3vw);
 }
 .alarm_sendError_chooseBET {
     display: none;
     justify-content: space-between;
-    gap: 30px;
+    gap: min(30px, 3vw);
     align-items: center;
     font-family: 'Courier';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
-    line-height: 37px;
+    font-size: min(32px, 4vw);
+    line-height: min(37px, 4.2vw);
     color: rgba(238, 137, 68, 0.5);
 }
 
 .alarm_sendError_something {
     display: none;
     justify-content: space-between;
-    gap: 30px;
+    gap: min(30px, 3vw);
     align-items: center;
     font-family: 'Courier';
     font-style: normal;
     font-weight: 400;
-    font-size: 32px;
-    line-height: 37px;
+    font-size: min(32px, 4vw);
+    line-height: min(37px, 4.2vw);
     color: rgba(238, 137, 68, 0.5);
+}
+
+.card_timeAndBet_img {
+    width: min(50px, 7vw);
+    height: min(50px, 7vw);
 }
 

@@ -71,6 +71,6 @@
 @media screen and (max-width: 1150px) { 
     .Archive_cards_container {
         border-radius: 10px;
-        margin: min(110px,20vw) 20px;
+        margin: min(110px,10vw) 20px;
     }
 }
