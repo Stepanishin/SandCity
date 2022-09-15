@@ -2,15 +2,14 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* position: relative; */
 }
 
 .Archive_title {
+    padding-top: min(150px, 5vw);
     font-family: 'World Conflict';
     font-style: normal;
     font-weight: 400;
-    font-size: 200px;
-    line-height: 200px;
+    font-size: min(200px,16vw);
     text-align: center;
     color: white;
     background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
@@ -19,25 +18,29 @@
 }
 
 .Archive_cards_container {
-    margin: 110px auto;
-    width: 1200px;
-    height: 667px;
+    margin: min(110px,20vw) auto;
+    max-width: 1100px;
+    height: min(667px, 50vw);
     background: rgba(119, 71, 255, 0.35);
-    border: 6px solid #EE8944;
-    box-shadow: 0px 0px 35px 25px rgba(107, 61, 30, 0.3), inset 0px 0px 12px 20px rgba(0, 0, 0, 0.4);
-    border-radius: 75px;
-    padding: 38px 80px;
-    overflow: auto;
-    
+    border: min(6px,1vw) solid #EE8944;
+    padding: min(38px,4vw) min(80px,6vw);
+    overflow: auto; 
+    box-shadow: 0px 4px 8px 8px #EE8944, inset 0px 0px 15px 20px rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    border-radius: 80px;
 }
+
+.Archive_cards_container::-webkit-scrollbar {
+    width: 0;
+  }
 
 .Archive_card_values {
 	overflow-x: auto;
     font-family: 'Courier';
     font-style: normal;
     font-weight: 400;
-    font-size: 25px;
-    line-height: 29px;
+    font-size: min(25px, 2.2vw);
+    line-height: min(29px,2.5vw);
     color: rgba(255, 255, 255, 0.75);
     padding: 10px 0;
 }
@@ -50,19 +53,24 @@
     text-align: left;
     font-style: normal;
     font-weight: 400;
-    font-size: 35px;
-    line-height: 40px;
+    font-size: min(35px, 3vw);
+    line-height: min(40px, 3.7vw);
     color: #FFFFFF;
-
 }
 .Archive_cards_container tbody td {
 	text-align: left;
-	padding: 10px 15px;
-	font-size: 14px;
+	padding: min(10px, 1.5vw) min(15px, 2vw);
 	vertical-align: top;
     border-top: 2px solid rgba(19, 19, 19, 0.5);
 }
 
 .firstTitle {
     width: 70%;
+}
+
+@media screen and (max-width: 1150px) { 
+    .Archive_cards_container {
+        border-radius: 10px;
+        margin: min(110px,20vw) 20px;
+    }
 }

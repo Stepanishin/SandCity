@@ -17,7 +17,7 @@ const Archive:FC<any> = ({data}) => {
                             <tr>
                                 <th className={styles.firstTitle}>Trial Name</th>
                                 <th>Status</th>
-                                <th>Verdict</th>
+                                <th>&nbsp;Verdict</th>
                             </tr>
                         </thead>
                     </table>	

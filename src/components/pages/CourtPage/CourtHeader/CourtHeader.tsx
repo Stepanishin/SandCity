@@ -53,8 +53,8 @@ const CourtHeader: FC = () => {
                             <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#ABOUT"><li>ABOUT</li></HashLink>
                             <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#TRIALS"><li>TRIALS</li></HashLink>
                             <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#ARCHIVE"><li>ARCHIVE</li></HashLink>
-                            <ConnectWallet />
                         </ul>
+                        <ConnectWallet />
                     </div>
 
                 </div>
