@@ -3,6 +3,7 @@ import logo from '../../../../assets/img/logo.png'
 import { HashLink } from 'react-router-hash-link';
 import ConnectWallet from '../../../UI/ConnectWallet/ConnectWallet';
 import './CourtHeader.css'
+import { Link } from 'react-router-dom';
 
 
 const CourtHeader: FC = () => {
@@ -53,6 +54,7 @@ const CourtHeader: FC = () => {
                             <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#ABOUT"><li>ABOUT</li></HashLink>
                             <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#TRIALS"><li>TRIALS</li></HashLink>
                             <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#ARCHIVE"><li>ARCHIVE</li></HashLink>
+                            <Link to={'/'} ><li>BACK TO CITY</li></Link>
                         </ul>
                         <ConnectWallet />
                     </div>
