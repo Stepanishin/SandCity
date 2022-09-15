@@ -1,5 +1,5 @@
-Commercial project Rektville related to blockchain technologies:
+Commercial project DustCity related to blockchain technologies:
 
-https://rektville.city/
+https://www.dustcity.world/
 
-You can buy our NFT on https://magiceden.io/marketplace/rektville
+
