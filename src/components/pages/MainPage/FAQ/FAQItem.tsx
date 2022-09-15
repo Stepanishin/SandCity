@@ -4,7 +4,7 @@ import arrowImg from './img/arrow.svg'
 
 interface IFAQItemProps {
     title: string,
-    description: string
+    description: any
 }
 
 const FAQItem:FC<IFAQItemProps> = ({title, description}) => {
@@ -32,7 +32,7 @@ const FAQItem:FC<IFAQItemProps> = ({title, description}) => {
         <div onClick={showDescr} className={styles.FAQ_item_container} >
 
             <div className={styles.FAQ_item_title_wrap}>
-                <h3 className={styles.FAQ_item_title}>What is Dust City?</h3>
+                <h3 className={styles.FAQ_item_title}>{title}</h3>
                 <img className={styles.FAQ_item_arrow} src={arrowImg} alt="arrow" id={title}  />
             </div>
                 
