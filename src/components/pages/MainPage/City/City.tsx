@@ -13,9 +13,11 @@ const City:FC = () => {
     return (
         <div id='CITY' className={styles.City} >
 
+            <p className={styles.City_title}>City Map</p>
+
             <img className={styles.City_bg} src={mainbg} />
 
-            <Link to={'./'} className={styles.City_Court_wrapper}>
+            <Link to={'./Court'} className={styles.City_Court_wrapper}>
                 <img className={styles.City_Court} src={Court} alt="" />
                 <p className={styles.City_Court_descr}>Court</p>
             </Link>

@@ -97,6 +97,7 @@
         border-radius: 10px;
         padding: 4px 0 5px 11px;
         transition: all 0.3s ease-in-out;
+        margin-top: max(-30px, -2vw);
 }
       
 .hamburger div {
@@ -138,7 +139,7 @@
 }
       
 #toggle:checked + .hamburger + .Header_nav_List_mobile {
-        top: min(130px, 19vw);
+        top: min(115px, 18vw);
         transform: scale(1);
 }
 

@@ -3,6 +3,23 @@
     margin-top: -184px;
 }
 
+.City_title {
+    position: absolute;
+    display: block;
+    top: 150px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    font-family: 'Homemade Apple';
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(40px, 6vw);
+    text-align: center; 
+    color: #94FF73;
+    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.45);
+}
+
 .City_bg {
     width: 100%;
 }
@@ -17,6 +34,7 @@
     height: 42vw;
     opacity: 0;
     transition: all 0.3s ease-in-out;
+    border-radius: 10px;
 }
 
 .City_Court_descr {
@@ -58,6 +76,7 @@
     height: 50vw;
     opacity: 0;
     transition: all 0.3s ease-in-out;
+    border-radius: 10px;
 }
 
 .City_emporium_descr {
@@ -99,6 +118,7 @@
     height: 47vw;
     opacity: 0;
     transition: all 0.3s ease-in-out;
+    border-radius: 10px;
 }
 
 .City_Lab_descr {
@@ -139,6 +159,7 @@
     height: 53vw;
     opacity: 0;
     transition: all 0.3s ease-in-out;
+    border-radius: 10px;
 }
 
 .City_Stacking_descr {
@@ -168,4 +189,33 @@
 .City_Stacking_wrapper:hover .City_Stacking {
     opacity: 1;
     transform: scale(1.05);
+}
+
+
+/* Mobile */
+@media screen and (width < 1350px) {
+    .City_title {
+        top: min(100px, 8vw);
+    }
+
+    .City * {
+        opacity: 1;
+        transition: all 0s ease-in-out;
+    }
+
+    .City_Court_wrapper:hover .City_Court {
+        transform: scale(1);
+    }
+    
+    .City_Court_wrapper:hover .City_Court_descr  {
+        transform: scale(1);
+    }
+   
+    .City_emporium_wrapper:hover .City_emporium {
+        transform: scale(1);
+    }
+    
+    .City_Stacking_wrapper:hover .City_Stacking {
+        transform: scale(1);
+    }
 }
