@@ -34,6 +34,7 @@
 .Team_profile_avatar {
     width: min(250px,14vw);
     height: min(250px,14vw);
+    border-radius: 10px;
 }
 
 .Team_profile_name {
