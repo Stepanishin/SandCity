@@ -42,6 +42,7 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
     let alarm_sendError_chooseBET:any
     let alarm_sendError_something:any
 
+    // Здесь назначаем кошелек, куда будут идти все ставки
     let theWallet:any = currentCard[0][1].walletForLess
 
     const onClick = useCallback( async (e:any) => {
@@ -70,8 +71,7 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
             let wl: HTMLElement = document.querySelector('.wallet-adapter-button')!
             if (wl instanceof HTMLElement) {
                     wl.click()         
-            }
-            
+            }  
         }
         // 
 
@@ -107,13 +107,10 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
                     get(child(dbRef,  `/Judges/${currentCard[0][1].name}`)).then((snapshot) => {
                     if (snapshot.exists()) {
                         let arr = snapshot.val()
-
                         const updates:any = {};
-
-                        console.log(arr)
-
                         let solQuantity:any = 0;
 
+                        // Определяем, куда и сколько будет приплюсовывать ставку в базе данных, draw, less or more
                         if (SolForWhat === 'SolForMore') {
                             solQuantity = arr.SolForMore
                         } else if (SolForWhat === 'SolForLess') {
@@ -121,31 +118,20 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
                         } else if (SolForWhat === 'SolForDraw') {
                             solQuantity = arr.SolForDraw
                         }
-
+                        // Делаем запись в базу данных
                         updates[`/Judges/${currentCard[0][1].name}` + `/${SolForWhat}/`] = BET + solQuantity;
 
-
-        
-                        get(child(dbRef,  `/Judges/${currentCard[0][1].name}/wallets/${SolForWhat}`)).then((snapshot) => {
-                            if (snapshot.exists()) {
-                                let userWallet = publicKey.toBase58()
-                                let arr = snapshot.val()
-                                if (arr.hasOwnProperty(`${userWallet}`)) {
-                                    let currentBet = arr[userWallet].bet
-                                    updates[`/Judges/${currentCard[0][1].name}/wallets/${SolForWhat}/${userWallet}/bet/`] = currentBet + BET
-                                    return update(ref(db), updates);
-                                } else {
-                                    set(ref(db, `/Judges/${currentCard[0][1].name}/wallets/${SolForWhat}/${userWallet}`), {
-                                        'userWallet': userWallet,
-                                        'bet': BET,
-                                    });
-                                }
-                            }
-                        }).catch((error) => {
-                            console.error(error);
-                        });
-
-
+                        // создаём и Добавляем в базу кошелек и сумму ставки этого кошелька
+                        let userWallet = publicKey.toBase58()
+                        if (arr.wallets[`${SolForWhat}`].hasOwnProperty(`${userWallet}`)) {
+                            let currentBet = arr.wallets[`${SolForWhat}`][userWallet].bet
+                            updates[`/Judges/${currentCard[0][1].name}/wallets/${SolForWhat}/${userWallet}/bet/`] = currentBet + BET
+                        } else {
+                                set(ref(db, `/Judges/${currentCard[0][1].name}/wallets/${SolForWhat}/${userWallet}`), {
+                                    'userWallet': userWallet,
+                                    'bet': BET,
+                                } );
+                        }
 
                         // Закрытие Лоадера
                         const closeAlarmLoading =() => {
