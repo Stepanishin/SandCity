@@ -17,7 +17,7 @@ const City:FC = () => {
 
             <img className={styles.City_bg} src={mainbg} />
 
-            <Link to={'./Court'} className={styles.City_Court_wrapper}>
+            <Link to={'./'} className={styles.City_Court_wrapper}>
                 <img className={styles.City_Court} src={Court} alt="" />
                 <p className={styles.City_Court_descr}>Court</p>
             </Link>
