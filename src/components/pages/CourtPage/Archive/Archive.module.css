@@ -25,7 +25,7 @@
     border: min(6px,1vw) solid #EE8944;
     padding: min(38px,4vw) min(80px,6vw);
     overflow: auto; 
-    box-shadow: 0px 4px 8px 8px #EE8944, inset 0px 0px 15px 20px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 8px min(8px,0.3vw) #EE8944, inset 0px 0px 15px 20px rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(10px);
     border-radius: 80px;
 }
