@@ -12,5 +12,5 @@ export interface IRoute {
 export const MainRoutes: IRoute[] = [
     {path: "/", exact: true, component: MainPage},
     {path: "*", exact: true, component: MainPage},
-    {path: "/Court", exact: true, component: CourtPage},
+    // {path: "/Court", exact: true, component: CourtPage},
 ]

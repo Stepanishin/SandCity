@@ -1,13 +1,17 @@
 .Header {
   margin: 0 auto;
-  max-width: 1400px;
-  height: 184px;
+  max-width: 1300px;
+  margin-top: 32px;
   position: relative;
 }
 
 .Header_container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
   position: fixed;
   z-index: 10;
+  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,33 +19,110 @@
 }
 
 .Header_logo {
-  height: min(184px, 22vw); 
-  width: min(190px, 22vw);
+  font-family: 'GT America LCG 500';
+  font-size: 22.2415px;
+  line-height: 150%;
+  letter-spacing: 0.139009px;
+  color: #5AC1CD;
 }
 
 .Header_nav_List {
-  margin-top: -40px;
+  position: relative;
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  gap: 38px;
+  align-items: baseline;
 }
 
 .Header_nav_List li {
-  width: 200px;
-  height: 60px;
-  background: rgba(119, 71, 255, 0.45);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  font-family: 'Bebas Neue';
+  font-family: 'GT America LCG 400';
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.1px;
+  color: #5AC1CD;
+  transition: all .4s ease;
+}
+
+.Header_nav_List li:hover {
+  font-family: 'GT America LCG 400';
+  color: #DB2FD5;
+}
+
+.Header_nav_list-city {
+  position: relative;
+  transition: all .4s ease;
+}
+
+
+
+.Header_nav_list-city::after {
+  content: url("data:image/svg+xml;charset=UTF-8,<svg width='7' height='16' viewBox='0 0 7 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 13.6401L5.74895 7.96234L2 2.00002' stroke='%235AC1CD' stroke-width='2' stroke-linecap='square'/></svg>");
+  position: absolute;
+  display: inline-block;
+  width: 11.64px;
+  height: 3.75px;
+  top: 3px;
+  left: -20px;
+  transition: all .4s ease;
+}
+
+.Header_nav_list-city:hover::after {
+  content: url("data:image/svg+xml;charset=UTF-8,<svg width='7' height='16' viewBox='0 0 7 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 13.6401L5.74895 7.96234L2 2.00002' stroke='%23DB2FD5' stroke-width='2' stroke-linecap='square'/></svg>");
+  
+}
+
+.Header_nav_list-city-db::after {
+  content: url("data:image/svg+xml;charset=UTF-8,<svg width='7' height='16' viewBox='0 0 7 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 13.6401L5.74895 7.96234L2 2.00002' stroke='%23DB2FD5' stroke-width='2' stroke-linecap='square'/></svg>");
+  transform: rotate(90deg);
+  top: 15px;
+  left: -15px;
+}
+
+.Header_nav_city_container {
+  position: absolute;
+  top: 35px;
+  left: -20px;
+  display: none;
+}
+
+.Header_nav_city_list {
+  position: absolute;
+  top: 15px;
+  left: 21px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.Header_nav_city_list li {
+  font-family: 'GT America LCG 400';
   font-style: normal;
   font-weight: 400;
-  font-size: 40px;
-  line-height: 48px;
-  text-align: center;
-  color: #FFFFFF;
-  line-height: 1.5em;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: #5AC1CD;
 }
+
+.Header_social {
+  display: flex;
+  gap: 52px;
+  justify-content: space-between;
+}
+
+.Header_social *{
+  transition: all .4s ease;
+}
+
+.Header_social a svg:hover path {
+  fill:#DB2FD5 ;
+  transition: all .4s ease;
+}
+
+.Header_nav_list-city-db {
+  color: #DB2FD5 !important;
+}
+
 
 .Header_Hamburger_container {
   display: none;
@@ -51,66 +132,170 @@
   display: none;
 }
 
-.Header_nav_List_mobile {
-  display: block;
+.Header_nav_mobile {
+  display: flex;
+  justify-content: center;
   position: absolute;
-  right:25px;
   transform: scale(0);
   transition: all 0.3s ease-in-out;
   overflow: hidden;
-  background: rgba(119, 71, 255, 0.45);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 800px;
 }
 
-.Header_nav_List_mobile li {
-  width: min(200px, 35vw);
-  height: min(60px, 10.5vw);
-  font-family: 'Bebas Neue';
-  font-style: normal;
-  font-weight: 400;
-  font-size: min(40px,5vw);
-  line-height: 48px;
+.Header_nav_mobile_wrapper {
+  position: relative;
+}
+
+.Header_nav_mobile_borderMobile {
+  clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%, 0 7%);
+  position: absolute;
+  background: rgba(217, 217, 217, 0.01);
+  mix-blend-mode: normal;
+  backdrop-filter: blur(17px);
+  width: 400px;
+  height: 713.02px;
+  top: 61px;
+  left: 24px;
+}
+
+.Header_nav_mobile_borderMobileBlur {
+  position: relative;
+  top: 35px;
+}
+
+.Header_nav_mobile_List {
+  display: flex;
+  padding-top: 147px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 53px;
+}
+
+.Header_nav_mobile_List li {
+  font-family: 'GT America LCG 400';
+  font-size: 24px;
+  line-height: 100%;
   text-align: center;
-  color: #FFFFFF;
-  line-height: 1.5em;
-  padding-top: 5px;
+  letter-spacing: 0.1px;
+  color: #5AC1CD;
 }
 
-.Header_nav_List_mobile li:hover    {
-  background: rgba(30, 16, 69, 0.65) !important;
-  backdrop-filter: blur(10px) !important;
+.Header_nav_mobile_List li:hover    {
+  font-family: 'GT America LCG 500';
+  color: #DB2FD5;
+} 
+
+.Header_nav_list-city-mobile {
+  position: absolute;
+  position: relative;
 }
 
-/**Hamburger**/
+.Header_nav_list-city-mobile::after {
+  content: url("data:image/svg+xml;charset=UTF-8,<svg width='7' height='16' viewBox='0 0 7 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 13.6401L5.74895 7.96234L2 2.00002' stroke='%235AC1CD' stroke-width='2' stroke-linecap='square'/></svg>");
+  position: absolute;
+  display: inline-block;
+  width: 11.64px;
+  height: 3.75px;
+  top: 0px;
+  left: -25px;  
+  transition: all .4s ease;
+}
+
+.Header_nav_list-city-mobile:hover::after {
+  content: url("data:image/svg+xml;charset=UTF-8,<svg width='7' height='16' viewBox='0 0 7 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 13.6401L5.74895 7.96234L2 2.00002' stroke='%23DB2FD5' stroke-width='2' stroke-linecap='square'/></svg>");
+  
+}
+
+.Header_nav_list-city-db-mobile {
+  color: #DB2FD5 !important;
+  font-family: 'GT America LCG 500' !important;
+}
+
+.Header_nav_list-city-db-mobile::after {
+  content: url("data:image/svg+xml;charset=UTF-8,<svg width='7' height='16' viewBox='0 0 7 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M2 13.6401L5.74895 7.96234L2 2.00002' stroke='%23DB2FD5' stroke-width='2' stroke-linecap='square'/></svg>");
+  transform: rotate(90deg);
+  top: 10px;
+  left: -15px;
+}
+
+.Header_nav_city_container-mobile {
+  display: none;
+  position: relative;
+}
+
+.Header_nav_city_list-mobile {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+}
+
+.Header_nav_city_list-mobile li {
+  font-family: 'GT America LCG 500';
+  font-size: 12px;
+  line-height: 200%;
+  text-align: center;
+  letter-spacing: 0.1px;
+  color: #5AC1CD;
+}
+
+.Header_social-mobile {
+  margin: 0 auto;
+  display: flex;
+  gap: 80px;
+  justify-content: space-between;
+  width: 270px;
+  position: relative;
+  bottom: -170px;
+}
+
+.Header_social-mobile *{
+  transition: all .4s ease;
+}
+
+.Header_social-mobile a svg:hover path {
+  fill:#DB2FD5 ;
+  transition: all .4s ease;
+}
+
+
+
+/* *Hamburger**/
 
 .hamburger {
-        display: block;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
         z-index: 5;
-        width: min(56px, 14vw);
-        height: min(62px, 15vw);
-        background: rgba(119, 71, 255, 0.8);
-        border: 1px solid rgba(0, 0, 0, 0.75);
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(10px);
-        border-radius: 10px;
-        padding: 4px 0 5px 11px;
+        width: 52.75px;
+        height: 24.19px;
         transition: all 0.3s ease-in-out;
-        margin-top: max(-30px, -2vw);
+        cursor: pointer;
 }
       
 .hamburger div {
         display: block;
-        width: min(30px,9vw);
-        height: min(6px,2vw);
-        background: rgba(255, 255, 255, 0.45);
-        margin-top: min(8px, 2vw);
+        height: 3px;
+        background: #5AC1CD;
         transition: all 0.3s ease-in-out;
-        border: 1px solid rgba(0, 0, 0, 0.75);
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(10px);
-        border-radius: 10px;
+}
+
+.top-bun {
+  width:52.75px;
+}
+
+.meat {
+  width:39.56px;
+}
+
+.bottom-bun {
+  width:26.37px;
 }
 
 .dn {
@@ -120,8 +305,8 @@
 /**Animations**/
 
 #toggle:checked + .hamburger .top-bun {
+        width: 39.56px;
         transform: rotate(-45deg);
-        margin-top: 18px;
 }
 
 #toggle:checked + .hamburger .bottom-bun {
@@ -131,40 +316,76 @@
 
 #toggle:checked + .hamburger .meat {
         transform: rotate(45deg);
-        margin-top: -6px;
+        margin-top: -9px;
 }
 
-#toggle:checked + .hamburger {
-        padding-top: 9px;
-}
-      
-#toggle:checked + .hamburger + .Header_nav_List_mobile {
-        top: min(115px, 18vw);
+#toggle:checked + .hamburger + .Header_nav_mobile {
         transform: scale(1);
 }
 
-@media screen and (width < 1350px) {
-  .Header_nav_List {
-    display: none;
-  }
-  .Header_Hamburger_container {
-    display: block;
-  }
-  .Header_container {
-    width: 100vw;
-    padding-right: min(32px, 5vw);
-    gap: 0px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width : 1100px) {
+  .Header_social {
+    gap: 30px;
   }
 }
 
-@media screen and (width < 375px) {
-  .hamburger {  
-    padding: 3px 0 5px 7px;
+
+@media screen and (max-width : 999px) {
+
+  .Header_container {
+    padding: 0 27px;
   }
-  #toggle:checked + .hamburger {
-    padding-top: 1vw;
+
+  .Header_social {
+    display: none;
   }
-  .Header_nav_List_mobile {
-    right:18px;
+
+  .Header_nav_List {
+    gap: 50px;
   }
+}
+
+@media screen and (max-width : 760px) {
+  .Header_nav_List {
+    display: none;
+  }
+
+  .Header_Hamburger_container {
+    display: block;
+  }
+}
+
+@media screen and (max-width : 424px) {
+
+  .Header_nav_mobile_wrapper {
+    transform: scale(0.8);
+  }
+
+}
+
+.db {
+  display: block;
+}
+
+.pa {
+  position: absolute;
+}
+
+.pd147 {
+  margin-top: -95px;
 }

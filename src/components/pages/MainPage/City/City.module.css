@@ -1,221 +1,48 @@
 .City {
-    position: relative;
-    margin-top: -184px;
-}
-
-.City_title {
-    position: absolute;
-    display: block;
-    top: 150px;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    font-family: 'Homemade Apple';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(40px, 6vw);
-    text-align: center; 
-    color: #94FF73;
-    text-shadow: 0px 3px 4px rgba(0, 0, 0, 0.45);
-}
-
-.City_bg {
+    top: 0;
     width: 100%;
-}
-
-/* COURT */
-.City_Court {
     position: absolute;
-    z-index: 5;
-    top: 24vw;
-    left: 32vw;
-    width: 23vw;
-    height: 42vw;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    border-radius: 10px;
+    /* top: -32px; */
+    /* min-height: calc(100vh - 32px); */
+    background-image: url('./img/Dust-City.png');
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
 }
 
-.City_Court_descr {
-    display: block;
+
+/* .City_bg {
+    width: 100%;
+} */
+
+.City_bg_bottom {
+    background: linear-gradient(180deg, rgba(12, 23, 43, 0) 9.68%, #0C172B 100%);
+    mix-blend-mode: normal;
+    width: 100%;
+    height: 250px;
     position: absolute;
-    z-index: 5;
-    top: 38.0vw;
-    left: 38vw;
-    font-family: 'Libre Barcode 128 Text';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(100px,5vw);
-    line-height: min(100px,5vw);
-    text-align: center;
-    color: #94FF73;
-    border: min(7px, 0.7vw) solid rgba(0, 0, 0, 0.6);
-    text-shadow: 0px 0px 0px #000000;
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: all 0.3s ease-in-out;
+    /* bottom: -38px; */
+    bottom: 0;
 }
 
-.City_Court_wrapper:hover .City_Court_descr  {
-    opacity: 1;
-}
-
-.City_Court_wrapper:hover .City_Court {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-/* Emporium */
-.City_emporium {
-    position: absolute;
-    z-index: 5;
-    top: 8vw;
-    left: 17vw;
-    width: 15vw;
-    height: 50vw;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    border-radius: 10px;
-}
-
-.City_emporium_descr {
-    display: block;
-    position: absolute;
-    z-index: 5;
-    top: 25vw;
-    left: 16vw;
-    font-family: 'Libre Barcode 128 Text';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(100px,5vw);
-    line-height: min(100px,5vw);
-    text-align: center;
-    color: #94FF73;
-    border: min(7px, 0.7vw) solid rgba(0, 0, 0, 0.6);
-    text-shadow: 0px 0px 0px #000000;
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: all 0.3s ease-in-out;
-}
-
-.City_emporium_wrapper:hover .City_emporium_descr  {
-    opacity: 1;
-}
-
-.City_emporium_wrapper:hover .City_emporium {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-/* Lab */
-.City_Lab {
-    position: absolute;
-    z-index: 5;
-    top: 14vw;
-    left: 67.5vw;
-    width: 31vw;
-    height: 47vw;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    border-radius: 10px;
-}
-
-.City_Lab_descr {
-    display: block;
-    position: absolute;
-    z-index: 5;
-    top: 25vw;
-    left: 62vw;
-    font-family: 'Libre Barcode 128 Text';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(100px,5vw);
-    line-height: min(100px,5vw);
-    text-align: center;
-    color: #94FF73;
-    border: min(7px, 0.7vw) solid rgba(0, 0, 0, 0.6);
-    text-shadow: 0px 0px 0px #000000;
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: all 0.3s ease-in-out;
-}
-
-.City_Lab_wrapper:hover .City_Lab_descr  {
-    opacity: 1;
-}
-
-.City_Lab_wrapper:hover .City_Lab {
-    opacity: 1;
-}
-
-/* Stacking */
-.City_Stacking {
-    position: absolute;
-    z-index: 5;
-    top: 29vw;
-    left: 1vw;
-    width: 15vw;
-    height: 53vw;
-    opacity: 0;
-    transition: all 0.3s ease-in-out;
-    border-radius: 10px;
-}
-
-.City_Stacking_descr {
-    display: block;
-    position: absolute;
-    z-index: 5;
-    top: 58vw;
-    left: 6vw;
-    font-family: 'Libre Barcode 128 Text';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(100px,5vw);
-    line-height: min(100px,5vw);
-    text-align: center;
-    color: #94FF73;
-    border: min(7px, 0.7vw) solid rgba(0, 0, 0, 0.6);
-    text-shadow: 0px 0px 0px #000000;
-    opacity: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-    transition: all 0.3s ease-in-out;
-}
-
-.City_Stacking_wrapper:hover .City_Stacking_descr  {
-    opacity: 1;
-}
-
-.City_Stacking_wrapper:hover .City_Stacking {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-
-/* Mobile */
-@media screen and (width < 1350px) {
-    .City_title {
-        top: min(100px, 8vw);
+@media screen and (max-width : 1001px) {
+    .City {
+        background-image: url('./img/Dust-City1000.png');
+        min-height: 690px;
     }
+}
 
-    .City * {
-        opacity: 1;
-        transition: all 0s ease-in-out;
-    }
 
-    .City_Court_wrapper:hover .City_Court {
-        transform: scale(1);
+@media screen and (max-width : 780px) {
+    .City {
+        background-image: url('./img/Dust-City768.png');
+        min-height: 690px;
     }
-    
-    .City_Court_wrapper:hover .City_Court_descr  {
-        transform: scale(1);
-    }
-   
-    .City_emporium_wrapper:hover .City_emporium {
-        transform: scale(1);
-    }
-    
-    .City_Stacking_wrapper:hover .City_Stacking {
-        transform: scale(1);
+}
+
+@media screen and (max-width : 500px) {
+    .City {
+        background-image: url('./img/Dust-City480.png');
+        min-height: 870px;
     }
 }

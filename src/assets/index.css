@@ -1,10 +1,21 @@
 @font-face {
-    font-family: "World Conflict"; 
-    src: url("./fonts/world_conflict\ .ttf") format("truetype"); 
+    font-family: "GT America LCG 400"; 
+    src: url("./fonts/GTAmericaLCG-ExpRg.otf") format("truetype"); 
     font-style: normal; 
     font-weight: normal; 
-} 
+}
+
+@font-face {
+    font-family: "GT America LCG 500"; 
+    src: url("./fonts/GTAmericaLCG-ExpMd.otf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+}
 
 .App {
     height: 100%
+}
+
+* {
+    transition: all .1s ease;
 }

@@ -11,6 +11,7 @@ import SendSolanaBtn from '../../../UI/SentSolanaBtn/SendSolanaBtn';
 import accepted from './img/accepted.svg'
 import forbidden from './img/forbidden.svg'
 import { HashLink } from 'react-router-hash-link';
+import Timer from '../../../UI/Timer/Timer';
 
 
 const Trials: FC<any> = ({data}) => {
@@ -102,7 +103,7 @@ const Trials: FC<any> = ({data}) => {
                                                     <p className={styles.card_condition_description}>{card[1].cardDescr}</p>
                                                 </div>
                                                 <div className={styles.card_timeAndJudge_container}>
-                                                    <p className={styles.card_timeAndJudge_timer}>Trial ends in 3 hours and 5 minutes</p>
+                                                    {/* <p className={styles.card_timeAndJudge_timer}><Timer dateToShot={card[1].dateToShot} /></p> */}
                                                     <button onClick={showJudge} className={styles.card_timeAndJudge_btn}><HashLink  smooth  to="/Court#BETwrap" >Judge</HashLink></button>
                                                 </div>
                                             </div>
@@ -168,7 +169,9 @@ const Trials: FC<any> = ({data}) => {
                         </div>
 
                         <div className={styles.card_timeAndBet_container}>
-                            <p id='card_timeAndBet_timer' className={styles.card_timeAndBet_timer}>Trial ends in 3 hours and 5 minutes</p>
+                            <p id='card_timeAndBet_timer' className={styles.card_timeAndBet_timer}>
+                                <Timer dateToShot={currentCard[0][1].dateToShot} />
+                            </p>
                             <div id='alarm_sendSucces'  className={styles.alarm_sendSucces}>
                                 <img className={styles.card_timeAndBet_img} src={accepted} alt="accepted" />
                                 <p>Your bid has been accepted!</p>

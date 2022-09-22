@@ -18,11 +18,11 @@ const MainPage:FC = () => {
         <div className={styles.MainPage} >
             <MainHeader />
             <City />
-            <Story />
+            {/* <Story /> */}
             {/* <RoadMap /> */}
-            <Team />
-            <FAQ />
-            <MainFooter />
+            {/* <Team /> */}
+            {/* <FAQ /> */}
+            {/* <MainFooter /> */}
         </div>
     );
 

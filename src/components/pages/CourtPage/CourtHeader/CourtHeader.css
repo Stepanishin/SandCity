@@ -1,4 +1,4 @@
-.Court_Header {
+/* .Court_Header {
     margin: 0 auto;
     max-width: 1400px;
     height: 184px;
@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 52px;
-    /* margin-left: 93px; */
+
 }
 
 .Court_Header_logo {
@@ -49,14 +49,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 
 
 
 
 /* Mobile */
-.Court_Header_Hamburger_container {
+/* .Court_Header_Hamburger_container {
     display: none;
 }
 
@@ -97,11 +97,11 @@
 .Court_Header_nav_List_mobile li:hover    {
     background: rgba(30, 16, 69, 0.65) !important;
     backdrop-filter: blur(10px) !important;
-}
+} */
 
 /**Hamburger**/
 
-.Court_hamburger {
+/* .Court_hamburger {
     display: block;
     z-index: 5;
     width: min(56px, 14vw);
@@ -132,11 +132,11 @@
 
 .Court_dn {
     display: block;
-}
+} */
 
 /**Animations**/
 
-#toggleCourt:checked + .Court_hamburger .Court_top_bun {
+/* #toggleCourt:checked + .Court_hamburger .Court_top_bun {
     transform: rotate(-45deg);
     margin-top: 18px;
 }
@@ -189,4 +189,4 @@
         padding-top: 2px;
     }
 }
-
+ */
