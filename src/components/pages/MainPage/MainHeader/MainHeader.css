@@ -1,8 +1,8 @@
 .Header {
   margin: 0 auto;
   max-width: 1300px;
-  margin-top: 32px;
   position: relative;
+  top: 70px;
 }
 
 .Header_container {

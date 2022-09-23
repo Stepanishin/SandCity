@@ -1,19 +1,14 @@
 .City {
     top: 0;
     width: 100%;
-    position: absolute;
-    /* top: -32px; */
-    /* min-height: calc(100vh - 32px); */
+    position: relative;
+    margin-top: -38px;
     background-image: url('./img/Dust-City.png');
     min-height: 100vh;
     background-position: center;
     background-size: cover;
+    overflow:hidden;
 }
-
-
-/* .City_bg {
-    width: 100%;
-} */
 
 .City_bg_bottom {
     background: linear-gradient(180deg, rgba(12, 23, 43, 0) 9.68%, #0C172B 100%);
@@ -21,14 +16,157 @@
     width: 100%;
     height: 250px;
     position: absolute;
-    /* bottom: -38px; */
     bottom: 0;
 }
+
+.City_title_container {
+    margin: 185px auto;
+    display: flex;
+    justify-content: center;
+    height: 265px;
+    position: relative;
+}
+
+.City_title_letter {
+    background: radial-gradient(50% 50% at 50% 50%, #000000 0%, #80003F 36%, #56002A 50%, #310018 65%, #16000A 79%, #050002 91%, #000000 100%);
+    background-blend-mode: screen;
+    mix-blend-mode: screen;
+}
+
+.City_title_container_top {
+    position: relative;
+    left: -342px;
+}
+.City_title_container_bottom {
+    position: relative;
+    left: -345px;
+}
+
+.City_title_letterD {
+    position: absolute;
+    left: 80px;
+}
+
+.City_title_letterU {
+    position: absolute;
+    left: 200px;
+    top: 40px;
+} 
+
+.City_title_letterS {
+    position: absolute;
+    left: 331px;
+    top: 7px;
+}
+
+.City_title_letterT {
+    position: absolute;
+    left: 438px;
+    top: -17px;
+}
+
+.City_title_letterC {
+    position: absolute;
+    left: 73px;
+    bottom: -35px;
+}
+
+.City_title_letterI {
+    position: absolute;
+    left: 220px;
+    bottom: -37px;
+} 
+
+.City_title_letterT2 {
+    position: absolute;
+    left: 272px;
+    bottom: -8px;
+}
+
+.City_title_letterY {
+    position: absolute;
+    left: 390px;
+    bottom: -36px;
+}
+
+.City_title_container_middle {
+    position: absolute;
+    top: 130px;
+    font-family: 'GT America LCG 500';
+    font-size: 23.8449px;
+    line-height: 170%;
+    text-align: center;
+    letter-spacing: 0.25655px;
+    text-transform: uppercase;
+    color: #02D7F2;
+    text-shadow: -4px -3px 6px rgba(90, 193, 205, 0.51);
+}
+
+.City_title_container_blur {
+    position: absolute;
+    top: -300px;
+    background: rgba(12, 23, 43, 0.2);
+    mix-blend-mode: normal;
+    filter: blur(100px);
+    transform: rotate(-89.72deg);
+    width: 493px;
+    height: 1008px;
+}
+
+.City_title_container_blue {
+    position: absolute;
+    top: -300px;
+    background: rgba(31, 60, 193, 0.6);
+    mix-blend-mode: normal;
+    filter: blur(100px);
+    transform: rotate(-89.72deg);
+    width: 493px;
+    height: 1008px;
+}
+
+.City_bg_bottom_society_container {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width : 1001px) {
     .City {
         background-image: url('./img/Dust-City1000.png');
         min-height: 690px;
+    }
+
+    .City_title_container_blur {
+        height: 807px;
+        width: 395px;
+    }
+
+    .City_title_container_blue {
+        height: 807px;
+        width: 395px;
+    }
+}
+
+@media screen and (max-width : 999px) {
+    .City_bg_bottom {
+        height: 164px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .City_bg_bottom_society_container {
+        display: flex;
+        gap: 67px;
+        height: 30px;
+        margin-bottom: 40px;
     }
 }
 
@@ -40,9 +178,88 @@
     }
 }
 
+@media screen and (max-width : 760px) {
+    .City_bg_bottom_society_container {
+        display: none;
+    }
+
+    .City_title_container_middle {
+        width: 350px;
+        font-size: 20.4376px;
+        line-height: 119%;
+    }
+
+    .City_title_container_top {
+        margin-top: -15px;
+    }
+
+    .City_title_container_bottom {
+        margin-bottom: -20px;
+    } 
+}
+
 @media screen and (max-width : 500px) {
     .City {
         background-image: url('./img/Dust-City480.png');
         min-height: 870px;
     }
 }
+
+@media screen and (max-width : 479px) {
+    .City_title_container_middle {
+        font-size: 14.7787px;
+        line-height: 119%;  
+        width: 225px;       
+    }
+    
+    .City_title_letterD {
+        width: 108px;
+        height: 108px;
+        top: 55px;
+        left: 177px;
+    }
+    .City_title_letterU {
+        width: 108px;
+        height: 85px;
+        top: 81px;
+        left: 250px;
+    }
+    .City_title_letterS {
+        width: 99px;
+        height: 98px;
+        top: 60px;
+    }
+    .City_title_letterT {
+        width: 101px;
+        height: 101px;
+        top: 46px;
+        left: 400px;
+    }
+    
+    
+    .City_title_letterC {
+        width: 108px;
+        height: 108px;
+        top: 144px;
+        left: 178px;
+    }
+    .City_title_letterI {
+        width: 63px;
+        height: 108px;
+        top: 145px;
+        left: 267px;
+    }
+    .City_title_letterT2 {
+        width: 101px;
+        height: 101px;
+        left: 299px;
+        top: 136px;
+    }
+    .City_title_letterY {
+        width: 108px;
+        height: 108px;
+        top: 146px;
+        left: 377px;
+    }
+}
+
