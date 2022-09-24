@@ -1,145 +1,127 @@
 .RoadMap {
-    background: #000000;;
-    width: 100%;
-    min-height: 100vh;
-    /* margin-top: -61px; */
-    /* padding-top: min(80px, 3vw); */
+    min-height: 1000px;
 }
 
 .RoadMap_container {
     margin: 0 auto;
-    max-width: 1400px;
-    position: relative;
-}
-
-.RoadMap_title {
-    max-width: 1440px;
-    font-family: 'World Conflict';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(200px,16vw);
-    text-align: center;
-    color: white;
-    padding-top: min(75px, 5vw);
-    padding-bottom: 175px;
-    margin: 0;
-    background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color: transparent;
-}
-
-.RoadMap_step_container {
-    display: flex;
-    justify-content: center;
-    gap: min(87px, 5vw);
-    margin-bottom: min(150px, 10vw);
-}
-
-.RoadMap_step2_container {
-    display: flex;
-    justify-content: center;
-    gap: 87px;
-    margin-bottom: 150px;
-    margin-left: 200px;
-}
-
-.RoadMap_step3_container {
-    display: flex;
-    justify-content: center;
-    gap: 87px;
-    margin-bottom: 150px;
-    margin-left: -145px;
-}
-
-.RoadMap_step_container_image {
-    width: 100%;
-}
-
-.RoadMap_step_description_container {
+    max-width: 1300px;
+    z-index: 0;
+    padding: 0px 40px;
     display: flex;
     flex-direction: column;
-    justify-content: start;
     align-items: flex-start;
-    font-family: 'Courier';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 46px;
-    color: #FFFFFF;
 }
 
-.RoadMap_step2_description_container {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    font-family: 'Courier';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 46px;
-    color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-}
-
-.RoadMap_step3_description_container {
-    padding-top: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: flex-start;
-    font-family: 'Courier';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 46px;
-    color: #FFFFFF;
-}
-
-.RoadMap_step_description_number {
-    font-family: 'Fredericka the Great';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 150px;
-    line-height: 184px;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-.RoadMap_step_description_list{
+.Roadmap_title_container {
     position: relative;
-    left: 55px;
-    padding-top: 50px;
+    top: -100px;
+    width: 347.84px;
+    height: 106.42px;
 }
 
-.RoadMap_step2_description_list{
-    position: relative;
-    left: 55px;
-    padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    left: 0;
+.Roadmap_title {
+    position: absolute;
+    font-family: 'GT America LCG 400';
+    font-size: 79.388px;
+    line-height: 150%;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px #5AC1CD;
 }
 
-.RoadMap_step_description_list li {
-    margin-bottom: 30px;
-    list-style: disc !important;
+.Roadmap_title_blur {
+    position: absolute;
+    font-family: 'GT America LCG 400';
+    font-size: 79.388px;
+    line-height: 159%;
+    text-transform: uppercase;
+    color: #00D5FF;
+    filter: blur(6px);
+    -webkit-text-stroke: 1px #00D5FF;
+     text-shadow:
+        2px  2px 0 #00D5FF,
+       -1px -1px 0 #00D5FF,  
+        1px -1px 0 #00D5FF,
+       -1px  1px 0 #00D5FF,
+        1px  1px 0 #00D5FF;
 }
 
-.RoadMap_step2_description_list li {
-    margin-bottom: 30px;
-    list-style: disc !important;
+.Roadmap_title_bg {
+    position: absolute;
+    top: 32px;
+    mix-blend-mode: overlay;
 }
 
-/* .RoadMap_step3_description_list li {
-    margin-bottom: 30px;
-    list-style: disc !important;
-} */
+.Roadmap_title_bg480 {
+    display: none;
+}
 
+.Roadmap_title_bg320 {
+    display: none;
+}
 
+@media screen and (max-width : 1250px) {
+    .RoadMap {
+        margin-top: 200px;
+    }
+}
 
-.RoadMap_step3_img {
-    margin-right: -380px;
+@media screen and (max-width : 999px) {
+    .RoadMap_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .Roadmap_title_container {       
+        width: 527.58px;
+        height: 62.67px;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    .Roadmap_title_container {
+        width: 386.77px;
+        height: 43.6px;
+    }
+    .Roadmap_title {
+        font-size: 54px;
+    }
+    
+    .Roadmap_title_blur {
+        font-size: 54px;
+    }
+    
+    .Roadmap_title_bg {
+        display: none;
+    }
+
+    .Roadmap_title_bg480 {
+        display: block;
+        position: absolute;
+        top: 25px;
+        mix-blend-mode: overlay;
+    }
+}
+
+@media screen and (max-width : 376px) {
+    .Roadmap_title_container {
+        width: 286px;
+        height: 60px;
+    }
+    .Roadmap_title {
+        font-size: 42px;
+    }
+    .Roadmap_title_blur {
+        font-size: 42px;
+    }
+    .Roadmap_title_bg320 {
+        display: block;
+        position: absolute;
+        top: 15px;
+        left: -10px;
+        mix-blend-mode: overlay;
+    }
+    .Roadmap_title_bg480 {
+        display: none;
+    }
 }

@@ -4,7 +4,7 @@
     position: relative;
     margin-top: -38px;
     background-image: url('./img/Dust-City.png');
-    min-height: 100vh;
+    min-height: calc(100vh + 38px);
     background-position: center;
     background-size: cover;
     overflow:hidden;
@@ -20,7 +20,7 @@
 }
 
 .City_title_container {
-    margin: 185px auto;
+    margin: 292px auto;
     display: flex;
     justify-content: center;
     height: 265px;
@@ -138,6 +138,10 @@
 
 
 @media screen and (max-width : 1001px) {
+    .City_title_container {
+        margin: 250px auto;
+    }
+
     .City {
         background-image: url('./img/Dust-City1000.png');
         min-height: 690px;
@@ -172,6 +176,9 @@
 
 
 @media screen and (max-width : 780px) {
+    .City_title_container {
+        margin: 240px auto;
+    }
     .City {
         background-image: url('./img/Dust-City768.png');
         min-height: 690px;
@@ -206,6 +213,11 @@
 }
 
 @media screen and (max-width : 479px) {
+    .City {
+        background-image: url('./img/Dust-City320.png');
+        min-height: 700px;
+    }
+
     .City_title_container_middle {
         font-size: 14.7787px;
         line-height: 119%;  
@@ -260,6 +272,13 @@
         height: 108px;
         top: 146px;
         left: 377px;
+    }
+}
+
+@media screen and (max-width : 376px) {
+    .City {
+        background-image: url('./img/Dust-City320.png');
+        min-height: 700px;
     }
 }
 

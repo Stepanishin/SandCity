@@ -13,15 +13,15 @@ const MainPage:FC = () => {
 
     
     return (
-        <div >
+        <>
             <MainHeader />
             <City />
             <Story />
-            {/* <RoadMap /> */}
-            {/* <Team /> */}
+            <RoadMap />
+            <Team />
             {/* <FAQ /> */}
             {/* <MainFooter /> */}
-        </div>
+        </>
     );
 
 };

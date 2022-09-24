@@ -1,51 +1,143 @@
 .Team {
-    background: #000000;;
-    width: 100%;
+    /* width: 100%; */
+    min-height: 1000px;
 }
 
 .Team_container {
     margin: 0 auto;
-    max-width: 1400px;
+    max-width: 1300px;
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding: 0px 40px;
 }
 
-.Team_title {
-    max-width: 1440px;
-    font-family: 'World Conflict';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(200px,16vw);
-    text-align: center;
-    color: white;
-    padding-top: min(75px, 2vw);
-    margin: 0;
-    background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color: transparent;
+.Team_title_container {
     position: relative;
+    width: 347.84px;
+    height: 106.42px;
+    top: -30px;
 }
 
 .Team_profile_container {
-    margin-top: min(150px, 4vw);
     display: flex;
-    gap: min(50px,4vw);
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
+    gap: 28px;
 }
 
-.Team_profile_avatar {
-    width: min(250px,14vw);
-    height: min(250px,14vw);
-    border-radius: 10px;
+.Team_profile {
+
 }
 
-.Team_profile_name {
-    padding-top: min(20px, 2vw);
-    font-family: 'Fredericka the Great';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(55px,5vw);
-    line-height: min(67px, 6vw);
-    text-align: center;
-    color: #FFFFFF;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+.Team_profile img {
+    width: 330px;
+    height: 330px;
+}
+
+.Team_title {
+    position: absolute;
+    font-family: 'GT America LCG 400';
+    font-size: 79.388px;
+    line-height: 150%;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px #5AC1CD;
+}
+
+.Team_title_blur {
+    position: absolute;
+    font-family: 'GT America LCG 400';
+    font-size: 79.388px;
+    line-height: 159%;
+    text-transform: uppercase;
+    color: #00D5FF;
+    filter: blur(6px);
+    -webkit-text-stroke: 1px #00D5FF;
+     text-shadow:
+        2px  2px 0 #00D5FF,
+       -1px -1px 0 #00D5FF,  
+        1px -1px 0 #00D5FF,
+       -1px  1px 0 #00D5FF,
+        1px  1px 0 #00D5FF;
+}
+
+.Team_title_bg {
+    position: absolute;
+    top: 32px;
+    mix-blend-mode: overlay;
+}
+
+.Team_title_bg480 {
+    display: none;
+}
+
+.Team_title_bg320 {
+    display: none;
+}
+
+@media screen and (max-width : 1250px) {
+    .Team {
+        margin-top: 200px;
+    }
+}
+
+@media screen and (max-width : 999px) {
+    .Team_container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .Team_title_container {       
+        width: 527.58px;
+        height: 62.67px;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    .Team_title_container {
+        width: 386.77px;
+        height: 43.6px;
+    }
+    .Team_title {
+        font-size: 54px;
+    }
+    
+    .Team_title_blur {
+        font-size: 54px;
+    }
+    
+    .Team_title_bg {
+        display: none;
+    }
+
+    .Team_title_bg480 {
+        display: block;
+        position: absolute;
+        top: 25px;
+        mix-blend-mode: overlay;
+    }
+}
+
+@media screen and (max-width : 376px) {
+    .Team_title_container {
+        width: 286px;
+        height: 60px;
+    }
+    .Team_title {
+        font-size: 42px;
+    }
+    .Team_title_blur {
+        font-size: 42px;
+    }
+    .Team_title_bg320 {
+        display: block;
+        position: absolute;
+        top: 15px;
+        left: -10px;
+        mix-blend-mode: overlay;
+    }
+    .Team_title_bg480 {
+        display: none;
+    }
 }
