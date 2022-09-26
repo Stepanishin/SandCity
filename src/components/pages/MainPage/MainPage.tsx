@@ -19,8 +19,8 @@ const MainPage:FC = () => {
             <Story />
             <RoadMap />
             <Team />
-            {/* <FAQ /> */}
-            {/* <MainFooter /> */}
+            <FAQ />
+            <MainFooter />
         </>
     );
 

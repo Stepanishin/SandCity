@@ -1,70 +1,303 @@
 .FAQ {
-    background: #000000;;
     width: 100%;
-    margin-top: -88px;
-    padding-bottom: min(200px, 10vw);
+    margin-top: 247px;
 }
 
 .FAQ_container {
     margin: 0 auto;
-    max-width: 1400px;
-    padding: min(200px,30vw) 35px 0 35px;
+    max-width: 1300px;
+    padding: 0px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.FAQ_title_container {
+    position: relative;
+    width: 347.84px;
+    height: 106.42px;
+    top: -30px;
 }
 
 .FAQ_title {
-    max-width: 1440px;
-    font-family: 'World Conflict';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(200px,16vw);
-    text-align: center;
-    color: white;
-    padding-top: min(75px, 2vw);
-    margin: 0;
-    margin-bottom: min(100px, 10vw);
-    background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color: transparent;
+    position: absolute;
+    font-family: 'GT America LCG 400';
+    font-size: 79.388px;
+    line-height: 150%;
+    text-transform: uppercase;
+    -webkit-text-stroke: 1px #5AC1CD;
+}
+
+.FAQ_title_blur {
+    position: absolute;
+    font-family: 'GT America LCG 400';
+    font-size: 79.388px;
+    line-height: 159%;
+    text-transform: uppercase;
+    color: #00D5FF;
+    filter: blur(6px);
+    -webkit-text-stroke: 1px #00D5FF;
+     text-shadow:
+        2px  2px 0 #00D5FF,
+       -1px -1px 0 #00D5FF,  
+        1px -1px 0 #00D5FF,
+       -1px  1px 0 #00D5FF,
+        1px  1px 0 #00D5FF;
+}
+
+.FAQ_title_bg {
+    position: absolute;
+    top: 32px;
+    mix-blend-mode: overlay;
+}
+
+.FAQ_title_bg480 {
+    display: none;
+}
+
+.FAQ_title_bg320 {
+    display: none;
+}
+
+.FAQ_list_container {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.FAQ_item_wrap {
+    width: 895.2px;
 }
 
 .FAQ_item_container {
+    height: 93.82px;
+    background-image: url('./img/border.svg');
+    border-right:1px solid #DB2FD5;
     cursor: pointer;
-    border-bottom: min(7px, 0.8vw) solid #EE8944;
-    padding-bottom: min(30px, 2vw);
-    padding-top: min(100px, 4vw);
 }
 
 .FAQ_item_title_wrap {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0px 45px;
 }
 
 .FAQ_item_title {
-    font-family: 'Fredericka the Great';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(65px, 6vw);
-    line-height: min(80px, 7.4vw);
-    color: #FFFFFF;
+    font-family: 'GT America LCG 500';
+    font-size: 20px;
+    line-height: 120%;
+    display: flex;
+    color: #00D5FF;
 }
 
 .FAQ_item_arrow {
-    transition: 0.3s;
-    width: min(80px,5.5vw);
-    height: min(35px, 2.5);
+    transform: rotate(0deg);
 }
 
 .FAQ_item_description {
-    max-width: 1400px;
-    position: absolute;
+    font-family: 'GT America LCG 400';
+    font-size: 16px;
+    line-height: 170%;
+    letter-spacing: 0.1px;
+    color: #00D5FF;
+    padding: 40px;
     opacity: 0;
-    margin-top: min(50px, 3.2vw);
-    font-family: 'Courier';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(40px, 2.7vw);
-    line-height: min(46px, 3vw);
-    color: #FFFFFF;
     transition: 0.3s;
     visibility: hidden;
+    position: absolute;
 }
+
+
+/* @media screen and (max-width : 1250px) {
+    .FAQ_container {
+        flex-direction: column;
+        gap: 120px;
+    }
+    .FAQ_list_container {
+        margin: 0 auto;
+    }
+} */
+
+
+@media screen and (max-width : 1250px) {
+    .FAQ {
+        /* padding-top: 230px; */
+    }
+    .FAQ_profile_container {
+        gap: 22px;
+        justify-content: end;
+    }
+    .FAQ_profile img {
+        width: 258px;
+        height: 258px;
+    }
+    .FAQ_container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    .FAQ_title_container {       
+        width: 211.58px;
+        height: 105.67px;
+    }
+}
+
+@media screen and (max-width : 999px) {
+    .FAQ {
+        margin-top: 127px;
+    }  
+    .FAQ_container {
+        padding: 0px 30px;
+    } 
+    .FAQ_list_container {
+        gap: 20px;
+    }
+    .FAQ_item_wrap {
+        width: 705.11px;
+    }
+
+    .FAQ_item_title_wrap {
+        padding: 0px 30px;
+    }
+    
+    .FAQ_item_container {
+        height: 71.97px;
+        background-image: url('./img/border768.svg');
+    }
+    .FAQ_item_arrow {
+        width: 12.87px;
+        height: 37.85px;    
+    }
+    .FAQ_item_title {
+        font-size: 16px;
+    }   
+    .FAQ_item_description {
+        padding: 30px;
+    }
+}
+
+@media screen and (max-width : 750px) {
+    .FAQ_item_wrap {
+        width: 400.68px;
+    }
+    .FAQ_item_container {
+        height: 40.9px;
+        background-image: url('./img/border480.svg');
+    }
+    .FAQ_item_title {
+        font-size: 12px;
+    }   
+    .FAQ_item_arrow {
+        width: 7.87px;
+        height: 22.85px;    
+    }
+    .FAQ_item_description {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width : 600px) {
+    .FAQ {
+        margin-top: 148px;
+    }
+    .FAQ_list_container {
+        gap: 14px;
+    }
+    .FAQ_title_container {
+        width: 145.77px;
+        height: 73.6px;
+    }
+    .FAQ_item_title_wrap {
+        padding: 0px 20px;
+    }
+    .FAQ_title {
+        font-size: 54px;
+    }
+    
+    .FAQ_title_blur {
+        font-size: 54px;
+    }
+    
+    .FAQ_title_bg {
+        display: none;
+    }
+
+    .FAQ_title_bg480 {
+        display: block;
+        position: absolute;
+        top: 21px;
+        mix-blend-mode: overlay;
+        left: -20px;
+    }
+    .FAQ_item_description {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width : 424px) {
+    .FAQ_container {
+        padding: 0px 5px;
+    }
+    .FAQ_list_container {
+        gap: 9px;
+    }
+    .FAQ_item_wrap {
+        width: 300px;
+    }
+    .FAQ_item_title_wrap {
+        padding: 0px 15px;
+    }
+    .FAQ_item_container {
+        height: 30.62px;
+        background-image: url('./img/border320.svg');
+    }
+    .FAQ_item_title {
+        font-size: 9px;
+    }   
+    .FAQ_item_arrow {
+        width: 5.87px;
+        height: 16.85px;    
+    }
+    .FAQ_item_description {
+        font-size: 9px;
+    }
+    .FAQ_item_description {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width : 376px) {
+    .FAQ {
+        margin-top: 99px;
+    }
+    .FAQ_title_container {
+        width: 118px;
+        height: 61px;
+    }
+    .FAQ_title {
+        font-size: 42px;
+    }
+    .FAQ_title_blur {
+        font-size: 42px;
+    }
+    .FAQ_title_bg320 {
+        display: block;
+        position: absolute;
+        top: 15px;
+        left: -10px;
+        mix-blend-mode: overlay;
+    }
+    .FAQ_title_bg480 {
+        display: none;
+    }
+}
+
+@media screen and (max-width : 340px) {
+    .FAQ_item_wrap {
+        width: 250px;
+    }
+}
+

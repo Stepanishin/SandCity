@@ -371,7 +371,9 @@
 }
 
 @media screen and (max-width : 424px) {
-
+  .Header_container {
+    padding: 0 12px;
+  }
   .Header_nav_mobile_wrapper {
     transform: scale(0.8);
   }

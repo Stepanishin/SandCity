@@ -226,8 +226,9 @@
         margin-top: -60px;
     }
     .Story_title_container {
-        width: 186px;
+        width: 205px;
         height: 60px;
+        padding: 0px 10px;
     }
     .Story_title {
         font-size: 42px;

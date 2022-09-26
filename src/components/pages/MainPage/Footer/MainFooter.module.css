@@ -1,8 +1,8 @@
 .Footer {
     height: min(126px, 10vw);
-    background: #000000;
     width: 100%;
-    border-top: min(7px, 0.8vw) solid #7747FF;
+    height: 300px;
+    margin-top: 100px;
 }
 
 .Footer_container {
@@ -11,46 +11,26 @@
     max-width: 1400px;
     padding: 0px 10px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.Footer_social {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    transition: all .3s ease;
 }
 
 .Footer_description {
-    font-family: 'Courier';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(35px, 2.5vw);
-    line-height: 110%;
-    color: #FFFFFF;
+    font-family: 'GT America LCG 500';
+    font-size: 20px;
+    line-height: 27px;
+    color: #5A1E7D;
 }
 
-.Footer_links_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: min(50px, 2vw);
-}
-
-.Footer_link  {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.Footer_link_image_discord {
-    width: min(83px, 6vw);
-    height: min(68px, 5vw);
-    filter: brightness(0) invert(1)  url("../../../../assets/img/sand.jpeg") ;
-}
-
-.Footer_link_image_twitter {
-    width: min(106px, 7vw);
-    height: min(106px, 7vw);
-    filter: brightness(0) invert(1)  url("../../../../assets/img/sand.jpeg") ;
-}
-
-.Footer_link_image_me {
-    width: min(91px, 7vw);
-    height: min(59px, 4.5vw);
-    filter: brightness(0) invert(1)  url("../../../../assets/img/sand.jpeg") ;
+.Footer_social a svg:hover stop {
+    stop-color: #DB2FD5;
 }

@@ -1,6 +1,5 @@
 .Team {
     /* width: 100%; */
-    min-height: 1000px;
 }
 
 .Team_container {
@@ -24,15 +23,53 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 28px;
+    justify-content: end;
+}
+
+.Team_profile_wrap {
+    position: relative;
+    clip-path: polygon(8% 0, 99% 0, 100% 100%, 0 100%, 0 8%);
 }
 
 .Team_profile {
-
+    position: relative;
+    display: block;
 }
 
 .Team_profile img {
     width: 330px;
     height: 330px;
+    position: relative;
+}
+
+.Team_profile img:hover {
+    filter: drop-shadow(0px 0px 30px #00D5FF) blur(15px);   
+}
+
+.Team_profile_demiurg_after {
+    position: absolute;
+    width: 100%;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    bottom: 20px;
+    z-index: 10;
+}
+
+.Team_profile_demiurg_after img {
+    width: 22px !important;
+    height: 18px !important;
+}
+.Team_profile_demiurg_after p {
+    font-family: 'GT America LCG 500';
+    font-size: 16px;
+    line-height: 170%;
+    letter-spacing: 0.172146px;
+    color: #FF0080;
+}
+
+.Team_profile img:hover + .Team_profile_demiurg_after {
+    display: flex;
 }
 
 .Team_title {
@@ -75,9 +112,14 @@
     display: none;
 }
 
-@media screen and (max-width : 1250px) {
-    .Team {
-        margin-top: 200px;
+@media screen and (max-width : 1160px) {
+    .Team_profile_container {
+        gap: 22px;
+        justify-content: end;
+    }
+    .Team_profile img {
+        width: 258px;
+        height: 258px;
     }
 }
 
@@ -87,16 +129,35 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        padding: 0 30px;
     }
     .Team_title_container {       
-        width: 527.58px;
+        width: 300.58px;
         height: 62.67px;
+    }
+    .Team_profile_container {
+        gap: 30px;
+        justify-content:center;
+    }
+    .Team_profile img {
+        width: 338px;
+        height: 338px;
+    }
+}
+
+@media screen and (max-width : 768px) {
+    .Team_profile_container {
+        margin-top: -30px;
+    }
+    .Team_profile img {
+        width: 250px;
+        height: 250px;
     }
 }
 
 @media screen and (max-width : 600px) {
     .Team_title_container {
-        width: 386.77px;
+        width: 200.77px;
         height: 43.6px;
     }
     .Team_title {
@@ -114,15 +175,42 @@
     .Team_title_bg480 {
         display: block;
         position: absolute;
-        top: 25px;
+        top: 21px;
         mix-blend-mode: overlay;
+        left: -45px;
+    }
+    .Team_profile img {
+        width: 191px;
+        height: 191px;
+    }
+
+    .Team_profile_demiurg_after img {
+        width: 18px !important;
+        height: 13px !important;
+    }
+    .Team_profile_demiurg_after p {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width : 472px) {
+    .Team_profile img {
+        width: 300px;
+        height: 300px;
+    }
+    .Team_profile_demiurg_after img {
+        width: 20px !important;
+        height: 15px !important;
+    }
+    .Team_profile_demiurg_after p {
+        font-size: 12px;
     }
 }
 
 @media screen and (max-width : 376px) {
     .Team_title_container {
-        width: 286px;
-        height: 60px;
+        width: 161px;
+        height: 0px;
     }
     .Team_title {
         font-size: 42px;
@@ -139,5 +227,16 @@
     }
     .Team_title_bg480 {
         display: none;
+    }
+    .Team_profile img {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width : 319px) {
+    .Team_profile img {
+        width: 280px;
+        height: 280px;
     }
 }
