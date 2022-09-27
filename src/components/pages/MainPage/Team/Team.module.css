@@ -1,5 +1,5 @@
 .Team {
-    /* width: 100%; */
+    position: relative;
 }
 
 .Team_container {
@@ -112,6 +112,30 @@
     display: none;
 }
 
+/* DECORATION//////////////////////////// */
+.Team_bg_svg1 {
+    position: absolute;
+    top: -500px;
+    right: 0px;
+}
+.Team_bg_svg2 {
+    position: absolute;
+    -webkit-filter: opacity(.1) drop-shadow(0 0 0 blue);
+    filter: opacity(.1) drop-shadow(0 0 0 blue);
+    top: 300px;
+    left: 300px;
+}
+.Team_bg_svg3 {
+    position: absolute;
+    top: 400px;
+    right: 40px;
+}
+.Team_bg_svg4 {
+    position: absolute;
+    display: none;
+}
+/* ////////////////////////////////////// */
+
 @media screen and (max-width : 1160px) {
     .Team_profile_container {
         gap: 22px;
@@ -121,6 +145,22 @@
         width: 258px;
         height: 258px;
     }
+    /* DECORATION//////////////////////////// */
+    .Team_bg_svg1 {
+        width: 1660px;
+        height: 1400px;
+        top: -400px;
+        right: 0px;
+    }
+    .Team_bg_svg2 {
+        top: 300px;
+        left: 100px;
+    }
+    .Team_bg_svg3 {
+        top: 600px;
+        right: 40px;
+    }
+    /* ////////////////////////////////////// */
 }
 
 @media screen and (max-width : 999px) {
@@ -143,6 +183,19 @@
         width: 338px;
         height: 338px;
     }
+    /* DECORATION//////////////////////////// */
+    .Team_bg_svg1 {
+        position: absolute;
+        top: -400px;
+        right: 0px;
+    }
+    .Team_bg_svg2 {
+        display: none;
+    }
+    .Team_bg_svg3 {
+        display: none;
+    }
+    /* ////////////////////////////////////// */
 }
 
 @media screen and (max-width : 768px) {
@@ -191,6 +244,19 @@
     .Team_profile_demiurg_after p {
         font-size: 10px;
     }
+    /* DECORATION//////////////////////////// */
+    .Team_bg_svg1 {
+        width: 1200px;
+        height: 1000px;
+        right: -150px;
+        top: -400px;
+    }
+    .Team_bg_svg4 {
+        display: block;
+        bottom: -109px;
+        right: -50px;
+    }
+    /* ////////////////////////////////////// */
 }
 
 @media screen and (max-width : 472px) {
@@ -232,6 +298,19 @@
         width: 300px;
         height: 300px;
     }
+        /* DECORATION//////////////////////////// */
+        .Team_bg_svg1 {
+            width: 700px;
+            height: 600px;
+            right: -150px;
+            top: -400px;
+        }
+        .Team_bg_svg4 {
+            display: block;
+            bottom: -109px;
+            right: 263px;
+        }
+        /* ////////////////////////////////////// */
 }
 
 @media screen and (max-width : 319px) {

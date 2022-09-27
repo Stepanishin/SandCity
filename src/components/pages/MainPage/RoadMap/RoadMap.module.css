@@ -1,5 +1,7 @@
 .RoadMap {
-    min-height: 1000px;
+    min-height: 900px;
+    margin-top: 50px;
+    position: relative;
 }
 
 .RoadMap_container {
@@ -14,7 +16,6 @@
 
 .Roadmap_title_container {
     position: relative;
-    top: -100px;
     width: 347.84px;
     height: 106.42px;
 }
@@ -59,13 +60,45 @@
     display: none;
 }
 
+/* DECORATION//////////////////////////// */
+.RoadMap_bg_svg1 {
+    position: absolute;
+    top: 400px;
+    left: 400px;
+}
+.RoadMap_bg_svg2 {
+    position: absolute;
+    -webkit-filter: opacity(.1) drop-shadow(0 0 0 blue);
+    filter: opacity(.1) drop-shadow(0 0 0 blue);
+    top: 625px;
+    right: 400px;
+}
+.RoadMap_bg_svg3 {
+    position: absolute;
+    display: none;
+    -webkit-filter: opacity(.15) drop-shadow(0 0 0 blue);
+    filter: opacity(.15) drop-shadow(0 0 0 blue);
+}
+/* ////////////////////////////////////// */
+
 @media screen and (max-width : 1250px) {
     .RoadMap {
-        margin-top: 200px;
+        margin-top: 0px;
     }
+    /* DECORATION//////////////////////////// */
+    .RoadMap_bg_svg1 {
+       display: none;
+    }
+    .RoadMap_bg_svg2 {
+        right: 200px;
+    }
+    /* ////////////////////////////////////// */
 }
 
 @media screen and (max-width : 999px) {
+    .RoadMap {
+        margin-top: 120px;
+    }
     .RoadMap_container {
         display: flex;
         flex-direction: column;
@@ -76,9 +109,19 @@
         width: 527.58px;
         height: 62.67px;
     }
+    /* DECORATION//////////////////////////// */
+    .RoadMap_bg_svg2 {
+        top: 205px;
+        right: 100px;
+    }
+    /* ////////////////////////////////////// */
 }
 
 @media screen and (max-width : 600px) {
+    .RoadMap {
+        margin-top: 50px;
+        min-height: 500px;
+    }
     .Roadmap_title_container {
         width: 386.77px;
         height: 43.6px;
@@ -101,6 +144,19 @@
         top: 25px;
         mix-blend-mode: overlay;
     }
+    /* DECORATION//////////////////////////// */
+    .RoadMap_bg_svg2 {
+        width: 109px;
+        height: 320px;
+        top: 125px;
+        right: 100px;
+    }
+    .RoadMap_bg_svg3 {
+        display: block;
+        left: -200px;
+        top: 300px;
+    }
+    /* ////////////////////////////////////// */
 }
 
 @media screen and (max-width : 376px) {
@@ -124,4 +180,15 @@
     .Roadmap_title_bg480 {
         display: none;
     }
+        /* DECORATION//////////////////////////// */
+        .RoadMap_bg_svg2 {
+            width: 81px;
+            height: 247px;
+            top: 125px;
+            right: 50px;
+        }
+        .RoadMap_bg_svg3 {
+            display: none;
+        }
+        /* ////////////////////////////////////// */
 }

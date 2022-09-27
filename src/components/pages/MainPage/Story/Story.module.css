@@ -1,17 +1,19 @@
 .Story {
     width: 100%;
-    min-height: 1100px;
     margin-top: 150px;
+    position: relative;
 }
 
 .Story_container {
     margin: 0 auto;
     max-width: 1300px;
-    z-index: 0;
+    z-index: 3;
     padding: 0px 40px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
+    padding-bottom: 150px;
 }
 
 .Story_title_container {
@@ -19,7 +21,6 @@
     top: -100px;
     width: 347.84px;
     height: 106.42px;
-    overflow: hidden;
 }
 
 .Story_title {
@@ -52,6 +53,8 @@
     position: absolute;
     top: 32px;
     mix-blend-mode: overlay;
+    -webkit-filter: opacity(.2) drop-shadow(0 0 0 blue);
+    filter: opacity(.2) drop-shadow(0 0 0 blue);
 }
 
 .Story_title_bg480 {
@@ -107,7 +110,67 @@
 .Story_description_container768 {
     display: none;
 }
+/* ///////////////////////////////////Decoration */
+.Story_bg {
+    width: 1440px;
+    height: 2589px;
+    position: absolute;
+    top: -400px;
+}
 
+.Story_bg_svg1 {
+    width: 224px;
+    height: 42px;
+    position: absolute;
+    bottom: 0;
+    left: -35px;
+}
+
+.Story_bg_wrap_svg2svg3 {
+    position: absolute;
+    right: 50px;
+}
+
+.Story_bg_svg2 {
+    width: 54px;
+    height: 359px;
+    position: absolute;
+    top: -88px;
+    -webkit-filter: opacity(.1) drop-shadow(0 0 0 blue);
+    filter: opacity(.1) drop-shadow(0 0 0 blue);
+}
+
+.Story_bg_svg3 {
+    width: 184px;
+    height: 54px;
+    position: absolute;
+    right: -42px;
+}
+.Story_bg_svg4 {
+    width: 110px;
+    height: 80px;
+    position: absolute;
+    display: none;
+}
+.Story_bg_svg5 {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    display: none;
+}
+.Story_bg_svg6 {
+    position: absolute;
+    display: none;
+    -webkit-filter: opacity(.1) drop-shadow(0 0 0 blue);
+    filter: opacity(.15) drop-shadow(0 0 0 blue);
+}
+.Story_bg_svg7 {
+    position: absolute;
+    display: none;
+    -webkit-filter: opacity(.1) drop-shadow(0 0 0 blue);
+    filter: opacity(.15) drop-shadow(0 0 0 blue);
+}
+/* //////////////////////////////////////////////// */
 
 
 @media screen and (max-width : 1250px) {
@@ -134,6 +197,28 @@
         height: 505.15px;
         filter: drop-shadow(0px 0px 30px #00D5FF);
     }
+    /* ///////////////////////////////////Decoration */
+    .Story_bg {
+        width: 1230px;
+        height: 1230px;
+        position: absolute;
+        top: 23px;
+        left: -134px;
+    }
+
+    .Story_bg_svg1 {
+        width: 224px;
+        height: 42px;
+        position: absolute;
+        bottom: 800px;
+        left: 829px;
+    }
+
+    .Story_bg_wrap_svg2svg3 {
+        position: absolute;
+        right: 250px;
+    }
+    /* //////////////////////////////////////////////// */
 }
 
 @media screen and (max-width : 999px) {
@@ -163,6 +248,33 @@
         width: 100%;
         height: calc(100vw / 1.95);
     }
+    /* ///////////////////////////////////Decoration */
+    .Story_bg {
+        width: 1230px;
+        height: 1230px;
+        position: absolute;
+        top: 300px;
+        left: -57px;
+    }
+
+    .Story_bg_svg1 {
+       display: none;
+    }
+
+    .Story_bg_wrap_svg2svg3 {
+        display: none;
+    }
+    .Story_bg_svg4 {
+        display: block;
+        top: -85px;
+        left: -28px;
+    }
+    .Story_bg_svg5 {
+        display: block;
+        bottom: -100px;
+        right: 106px;
+    }
+    /* ////////////////////////////////////////////////// */
 }
 
 @media screen and (max-width : 600px) {
@@ -210,6 +322,26 @@
         mix-blend-mode: overlay;
         overflow: hidden;
     }
+        /* ///////////////////////////////////Decoration */
+        .Story_bg {
+            width: 1230px;
+            height: 1230px;
+            position: absolute;
+            top: -300px;
+            left: -21px;
+        }
+        .Story_bg_svg4 {
+            display: none;
+        }
+        .Story_bg_svg5 {
+            display: none;
+        }
+        .Story_bg_svg6 {
+            display: block;
+            bottom: 137px;
+            right: 10px;
+        }
+        /* ////////////////////////////////////////////////// */
 }
 
 @media screen and (max-width : 376px) {
@@ -242,6 +374,28 @@
         top: 16px;
         left: -15px;
     }
+            /* ///////////////////////////////////Decoration */
+            .Story_bg {
+                width: 1230px;
+                height: 1230px;
+                position: absolute;
+                top: 400px;
+                left: -202px;
+            }
+            .Story_bg_svg4 {
+                display: none;
+            }
+            .Story_bg_svg5 {
+                display: none;
+            }
+            .Story_bg_svg6 {
+                display: none;
+            }
+            .Story_bg_svg7 {
+                display: block;
+                bottom: -50px;
+            }
+            /* ////////////////////////////////////////////////// */
 }
 
 @media screen and (max-width : 319px) {

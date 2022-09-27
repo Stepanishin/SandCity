@@ -8,6 +8,10 @@ import bg from './img/bg.svg'
 import bg480 from './img/bg480.svg'
 import bg320 from './img/bg320.svg'
 import Avatar from './Avatar';
+import bg1 from './img/bg1.svg'
+import bg2 from './img/bg2.svg'
+import bg3 from './img/bg3.svg'
+import bg4 from './img/bg4.svg'
 
 const Team:FC = () => {
 
@@ -15,6 +19,12 @@ const Team:FC = () => {
     return (
         <div id='TEAM' className={styles.Team} >
             <div className={styles.Team_container}>
+
+                <img className={styles.Team_bg_svg1} src={bg1} alt="" />
+                <img className={styles.Team_bg_svg2} src={bg2} alt="" />
+                <img className={styles.Team_bg_svg3} src={bg3} alt="" />
+                <img className={styles.Team_bg_svg4} src={bg4} alt="" />
+
                 <div className={styles.Team_title_container}>
                     <div>
                         <h2 className={styles.Team_title}>Team</h2>

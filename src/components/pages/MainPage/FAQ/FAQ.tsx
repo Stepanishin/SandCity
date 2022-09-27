@@ -4,6 +4,9 @@ import FAQItem from './FAQItem';
 import bg from './img/bg.svg'
 import bg480 from './img/bg480.svg'
 import bg320 from './img/bg320.svg'
+import bg1 from './img/bg1.svg'
+import bg2 from './img/bg2.svg'
+import bg3 from './img/bg3.svg'
 
 
 
@@ -13,6 +16,11 @@ const FAQ:FC = () => {
     return (
         <div id='FAQ' className={styles.FAQ} >
             <div className={styles.FAQ_container}>
+
+                <img className={styles.FAQ_bg_svg1} src={bg1} alt="" />
+                <img className={styles.FAQ_bg_svg2} src={bg2} alt="" />
+                <img className={styles.FAQ_bg_svg3} src={bg3} alt="" />
+
                 <div className={styles.FAQ_title_container}>
                     <div>
                         <h2 className={styles.FAQ_title}>FAQ</h2>
