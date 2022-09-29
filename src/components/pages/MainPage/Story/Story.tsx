@@ -17,7 +17,7 @@ const Story:FC = () => {
 
     
     return (
-        <div id="STORY" className={styles.Story} >
+        <div  className={styles.Story} >
                 <svg className={styles.Story_bg} width="1440" height="2589" viewBox="0 0 1440 2589" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_f_873_83218)">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M-138.55 766.319C-18.1478 717.835 73.5437 617.007 204.518 604.603C349.723 590.852 505.528 606.324 631.126 693.43C760.522 783.171 841.766 929.592 889.834 1079.89C937.442 1228.76 959.894 1393.78 898.493 1529.46C840.093 1658.51 689.198 1697.46 574.624 1776.45C461.661 1854.32 373.935 1993.35 233.258 1988.06C92.3664 1982.77 -1.83184 1832.48 -122.961 1750.24C-256.971 1659.25 -424.67 1618.45 -513.406 1481.09C-616.592 1321.36 -725.952 1104.57 -642.663 945.75C-556.946 782.305 -307.925 834.523 -138.55 766.319Z" fill="#DB2FD5" fill-opacity="0.15"/>
@@ -48,7 +48,7 @@ const Story:FC = () => {
 
 
 
-                    <div className={styles.Story_title_container}>
+                    <div id="STORY" className={styles.Story_title_container}>
                         <div>
                             <h2 className={styles.Story_title}>STORY</h2>
                             <h2 className={styles.Story_title_blur}>STORY</h2>
