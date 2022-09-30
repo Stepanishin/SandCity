@@ -18,6 +18,7 @@
     height: 106.42px;
     top: -30px;
     z-index: 5;
+    pointer-events: none;
 }
 
 .FAQ_title {
@@ -27,6 +28,7 @@
     line-height: 150%;
     text-transform: uppercase;
     -webkit-text-stroke: 1px #5AC1CD;
+    pointer-events: none;
 }
 
 .FAQ_title_blur {
@@ -44,20 +46,24 @@
         1px -1px 0 #00D5FF,
        -1px  1px 0 #00D5FF,
         1px  1px 0 #00D5FF;
+    pointer-events: none;
 }
 
 .FAQ_title_bg {
     position: absolute;
     top: 32px;
     mix-blend-mode: overlay;
+    pointer-events: none;
 }
 
 .FAQ_title_bg480 {
     display: none;
+    pointer-events: none;
 }
 
 .FAQ_title_bg320 {
     display: none;
+    pointer-events: none;
 }
 
 .FAQ_list_container {
@@ -116,6 +122,7 @@
     position: absolute;
     bottom: -420px;
     left: 0px;
+    pointer-events: none;
 }
 .FAQ_bg_svg2 {
     position: absolute;
@@ -123,12 +130,14 @@
     filter: opacity(.1) drop-shadow(0 0 0 blue);
     top: 600px;
     left: 0px;
+    pointer-events: none;
 }
 .FAQ_bg_svg3 {
     position: absolute;
     display: none;
     -webkit-filter: opacity(.1) drop-shadow(0 0 0 blue);
     filter: opacity(.1) drop-shadow(0 0 0 blue);
+    pointer-events: none;
 }
 /* ////////////////////////////////////// */
 

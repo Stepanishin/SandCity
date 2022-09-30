@@ -18,6 +18,7 @@
     position: relative;
     width: 347.84px;
     height: 106.42px;
+    pointer-events: none;
 }
 
 .Roadmap_title {
@@ -27,6 +28,7 @@
     line-height: 150%;
     text-transform: uppercase;
     -webkit-text-stroke: 1px #5AC1CD;
+    pointer-events: none;
 }
 
 .Roadmap_title_blur {
@@ -44,20 +46,24 @@
         1px -1px 0 #00D5FF,
        -1px  1px 0 #00D5FF,
         1px  1px 0 #00D5FF;
+    pointer-events: none;
 }
 
 .Roadmap_title_bg {
     position: absolute;
     top: 32px;
     mix-blend-mode: overlay;
+    pointer-events: none;
 }
 
 .Roadmap_title_bg480 {
     display: none;
+    pointer-events: none;
 }
 
 .Roadmap_title_bg320 {
     display: none;
+    pointer-events: none;
 }
 
 /* DECORATION//////////////////////////// */
@@ -65,6 +71,8 @@
     position: absolute;
     top: 400px;
     left: 400px;
+    pointer-events: none;
+    pointer-events: none;
 }
 .RoadMap_bg_svg2 {
     position: absolute;
@@ -72,12 +80,16 @@
     filter: opacity(.1) drop-shadow(0 0 0 blue);
     top: 625px;
     right: 400px;
+    pointer-events: none;
+    pointer-events: none;
 }
 .RoadMap_bg_svg3 {
     position: absolute;
     display: none;
     -webkit-filter: opacity(.15) drop-shadow(0 0 0 blue);
     filter: opacity(.15) drop-shadow(0 0 0 blue);
+    pointer-events: none;
+    pointer-events: none;
 }
 /* ////////////////////////////////////// */
 

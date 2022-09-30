@@ -36,10 +36,12 @@
 .City_title_container_top {
     position: relative;
     left: -342px;
+    pointer-events: none;
 }
 .City_title_container_bottom {
     position: relative;
     left: -345px;
+    pointer-events: none;
 }
 
 .City_title_letterD {
@@ -100,6 +102,7 @@
     text-transform: uppercase;
     color: #02D7F2;
     text-shadow: -4px -3px 6px rgba(90, 193, 205, 0.51);
+    pointer-events: none;
 }
 
 .City_title_container_blur {
@@ -111,6 +114,7 @@
     transform: rotate(-89.72deg);
     width: 493px;
     height: 1008px;
+    pointer-events: none;
 }
 
 .City_title_container_blue {
@@ -122,6 +126,7 @@
     transform: rotate(-89.72deg);
     width: 493px;
     height: 1008px;
+    pointer-events: none;
 }
 
 .City_bg_bottom_society_container {

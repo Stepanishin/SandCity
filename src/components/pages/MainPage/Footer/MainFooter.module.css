@@ -57,6 +57,7 @@
     position: absolute;
     bottom: 0px;
     right: 15%;
+    pointer-events: none;
 }
 /* ////////////////////////////////////// */
 

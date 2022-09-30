@@ -16,6 +16,7 @@
     width: 347.84px;
     height: 106.42px;
     top: -30px;
+    pointer-events: none;
 }
 
 .Team_profile_container {
@@ -98,6 +99,7 @@
     line-height: 150%;
     text-transform: uppercase;
     -webkit-text-stroke: 1px #5AC1CD;
+    pointer-events: none;
 }
 
 .Team_title_blur {
@@ -115,20 +117,24 @@
         1px -1px 0 #00D5FF,
        -1px  1px 0 #00D5FF,
         1px  1px 0 #00D5FF;
+    pointer-events: none;
 }
 
 .Team_title_bg {
     position: absolute;
     top: 32px;
     mix-blend-mode: overlay;
+    pointer-events: none;
 }
 
 .Team_title_bg480 {
     display: none;
+    pointer-events: none;
 }
 
 .Team_title_bg320 {
     display: none;
+    pointer-events: none;
 }
 
 /* DECORATION//////////////////////////// */
@@ -138,6 +144,7 @@
     right: 0px;
     width: 2200px;
     height: 1600px;
+    pointer-events: none;
 }
 .Team_bg_svg2 {
     position: absolute;
@@ -145,15 +152,18 @@
     filter: opacity(.1) drop-shadow(0 0 0 blue);
     top: 300px;
     left: 300px;
+    pointer-events: none;
 }
 .Team_bg_svg3 {
     position: absolute;
     top: 400px;
     right: 40px;
+    pointer-events: none;
 }
 .Team_bg_svg4 {
     position: absolute;
     display: none;
+    pointer-events: none;
 }
 /* ////////////////////////////////////// */
 
