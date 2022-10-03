@@ -27,6 +27,12 @@
   z-index: 5;
 }
 
+.Header_logo_img {
+  z-index: 5;
+  width: 80px;
+  height: 80px;
+}
+
 .Header_nav_List {
   position: relative;
   display: flex;
@@ -207,7 +213,7 @@
   backdrop-filter: blur(10px);
   width: 400px;
   height: 713.02px;
-  top: 90px;
+  top: 130px;
   left: 24px;
   z-index: 3;
   display: flex;
@@ -217,7 +223,7 @@
 
 .Header_nav_mobile_borderMobileBlur {
   position: relative;
-  top: 60px;
+  top: 100px;
   z-index: 3;
 }
 
@@ -439,10 +445,10 @@
     transform: scale(0.8);
   }
   .Header_nav_mobile_borderMobileBlur {
-    top: -60px;
+    top: -20px;
   }
   .Header_nav_mobile_borderMobile {
-    top: -30px;
+    top: 10px;
   }
   /* DECORATION////////////////////// */
   .Header_bg_svg1 {
@@ -462,10 +468,10 @@
     transform: scale(0.7);
   }
   .Header_nav_mobile_borderMobileBlur {
-    top: -100px;
+    top: -70px;
   }
   .Header_nav_mobile_borderMobile {
-    top: -70px;
+    top: -40px;
   }
 }
 

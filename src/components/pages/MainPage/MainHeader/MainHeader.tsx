@@ -8,6 +8,7 @@ import borderMobileBlur from './img/borderMobileBlur.svg'
 import bg1 from './img/bg1.png'
 import bg2 from './img/bg2.svg'
 import bg3 from './img/bg3.svg'
+import logo from './img/logo.svg'
 
 
 const MainHeader: FC = () => {
@@ -56,7 +57,8 @@ const MainHeader: FC = () => {
     return (
         <header className='Header'>
             <div className='Header_container'>
-                <p className='Header_logo' >Dust City</p>
+                {/* <p className='Header_logo' >Dust City</p> */}
+                <img className='Header_logo_img' src={logo} alt="" />
                 <nav>
                     <ul className='Header_nav_List' >
                         <a onClick={openCityMenu} className='Header_nav_list-city_link'><li >City</li></a>
