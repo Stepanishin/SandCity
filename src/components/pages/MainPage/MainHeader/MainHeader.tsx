@@ -43,7 +43,7 @@ const MainHeader: FC = () => {
         cityMobile.classList.toggle('Header_nav_list-city-db-mobile')
         burgerMenu.classList.toggle('pd147')
         cityMenuMobile.classList.toggle('db')
-        societyMobile.classList.toggle('b110')
+        // societyMobile.classList.toggle('b110')
     }
 
     // Closing of Hamburger
@@ -132,7 +132,7 @@ const MainHeader: FC = () => {
                             <img className='Header_nav_mobile_borderMobileBlur' src={borderMobileBlur} alt="" />
                             <div className='Header_nav_mobile_borderMobile'>
                                 <ul className='Header_nav_mobile_List' >
-                                    <a className='Header_nav_list-city-mobile-link'><li onClick={openCityMenuMobile} className='Header_nav_list-city-mobile'>City</li></a>
+                                    <a  onClick={openCityMenuMobile} className='Header_nav_list-city-mobile-link'><li className='Header_nav_list-city-mobile'>City</li></a>
                                     <div id='CITYMENU' className='Header_nav_city_container-mobile'>
                                         <img src={border} alt="" />
                                         <ul className='Header_nav_city_list-mobile'>
