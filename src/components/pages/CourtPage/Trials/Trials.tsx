@@ -50,26 +50,39 @@ const Trials: FC<any> = ({data}) => {
         let SolForMoreBtn:any = document.querySelector('#SolForMore')
         let SolForLessBtn:any = document.querySelector('#SolForLess')
         let SolForDrawBtn:any = document.querySelector('#SolForDraw')
-        if (e.target.id === 'SolForMore') {
-            SolForMoreBtn.style.background = 'rgba(225, 35, 10, 0.25)'
-            SolForLessBtn.style.background = 'rgba(0, 0, 0, 0.35)'
-            SolForDrawBtn.style.background = 'rgba(0, 0, 0, 0.35)'
-        }else if (e.target.id === 'SolForLess') {
-            SolForMoreBtn.style.background = 'rgba(0, 0, 0, 0.35)'
-            SolForLessBtn.style.background = 'rgba(225, 35, 10, 0.25)'
-            SolForDrawBtn.style.background = 'rgba(0, 0, 0, 0.35)'
-        } else if (e.target.id === 'SolForDraw') {
-            SolForMoreBtn.style.background = 'rgba(0, 0, 0, 0.35)'
-            SolForLessBtn.style.background = 'rgba(0, 0, 0, 0.35)'
-            SolForDrawBtn.style.background = 'rgba(225, 35, 10, 0.25)'
+
+        if (SolForDrawBtn === true) {
+            if (e.target.id === 'SolForMore') {
+                SolForMoreBtn.style.background = 'rgba(225, 35, 10, 0.25)'
+                SolForLessBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+                SolForDrawBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+            }else if (e.target.id === 'SolForLess') {
+                SolForMoreBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+                SolForLessBtn.style.background = 'rgba(225, 35, 10, 0.25)'
+                SolForDrawBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+            } else if (e.target.id === 'SolForDraw') {
+                SolForMoreBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+                SolForLessBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+                SolForDrawBtn.style.background = 'rgba(225, 35, 10, 0.25)'
+            }
+        } else {
+            if (e.target.id === 'SolForMore') {
+                SolForMoreBtn.style.background = 'rgba(225, 35, 10, 0.25)'
+                SolForLessBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+            }else if (e.target.id === 'SolForLess') {
+                SolForMoreBtn.style.background = 'rgba(0, 0, 0, 0.35)'
+                SolForLessBtn.style.background = 'rgba(225, 35, 10, 0.25)'
+            }
         }
+
+
         setSolForWhat(e.target.id)
     }
 
     return (
         <div id='TRIALS' className={styles.Trials} >
             <div className={styles.Trials_container}>
-                <h2 className={styles.Trials_title} >Trials</h2>
+            <h2 className={styles.Trials_title} >COURT</h2>
                 <div className={styles.Trials_slider_container}>
                     <>
                     <Swiper
@@ -94,16 +107,26 @@ const Trials: FC<any> = ({data}) => {
                                                     <img className={styles.card_info_avatar} src={card[1].avatar} alt="avatar" />
                                                     <div className={styles.card_info_description_container}>
                                                         <h3 className={styles.card_info_description_title}>{card[1].name}</h3>
-                                                        <p className={styles.card_info_description_data}>Supply 666</p>
-                                                        <p className={styles.card_info_description_data}>twitter</p>
-                                                        <p className={styles.card_info_description_data}>discord</p>
+                                                        <div className={styles.card_info_description_data_container}>
+                                                            {
+                                                                card[1].quantity && <p className={styles.card_info_description_data}>Supply 666</p>
+                                                            }
+                                                            {
+                                                                card[1].twitter && <a href={card[1].twitter} className={styles.card_info_description_data} target="_blank" rel="noreferrer">Twitter</a>
+                                                            }
+                                                            {
+                                                                card[1].discord && <a href={card[1].discord} className={styles.card_info_description_data} target="_blank" rel="noreferrer">Discord</a>
+                                                            }
+                                                            {
+                                                                card[1].website && <a href={card[1].website} className={styles.card_info_description_data} target="_blank" rel="noreferrer">Website</a>
+                                                            }
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div className={styles.card_condition_container}>
                                                     <p className={styles.card_condition_description}>{card[1].cardDescr}</p>
                                                 </div>
                                                 <div className={styles.card_timeAndJudge_container}>
-                                                    {/* <p className={styles.card_timeAndJudge_timer}><Timer dateToShot={card[1].dateToShot} /></p> */}
                                                     <button onClick={showJudge} className={styles.card_timeAndJudge_btn}><HashLink  smooth  to="/Court#BETwrap" >Judge</HashLink></button>
                                                 </div>
                                             </div>
@@ -129,18 +152,32 @@ const Trials: FC<any> = ({data}) => {
                             <div className={styles.BetSlip_ratio_container}>
 
                                 <div className={styles.BetSlip_ratio_choice_container}>
-                                    <p className={styles.BetSlip_ratio_choice}>1x(Above)</p>
-                                    <button onClick={chooseSolWorWhat} id='SolForMore' className={styles.BetSlip_ratio_choice_btn}>5.95</button>
+                                    <p className={styles.BetSlip_ratio_choice}>{currentCard[0][1].cardDescrMore}</p>
+                                    <button onClick={chooseSolWorWhat} id='SolForMore' className={styles.BetSlip_ratio_choice_btn}>
+                                        {
+                                            ((currentCard[0][1].SolForMore + (currentCard[0][1].SolForLess * 0.8) + (currentCard[0][1].SolForDraw * 0.8)) / currentCard[0][1].SolForMore).toFixed(1)
+                                        }
+                                    </button>
                                 </div>
 
-                                <div className={styles.BetSlip_ratio_choice_container}>
-                                    <p className={styles.BetSlip_ratio_choice}>x(Draw)</p>
-                                    <button onClick={chooseSolWorWhat} id='SolForDraw' className={styles.BetSlip_ratio_choice_btn}>4.25</button>
+                                {
+                                   currentCard[0][1].isDraw && <div className={styles.BetSlip_ratio_choice_container}>
+                                    <p className={styles.BetSlip_ratio_choice}>{currentCard[0][1].cardDescrDraw}</p>
+                                    <button onClick={chooseSolWorWhat} id='SolForDraw' className={styles.BetSlip_ratio_choice_btn}>
+                                        {
+                                            ((currentCard[0][1].SolForDraw + (currentCard[0][1].SolForMore * 0.8) + (currentCard[0][1].SolForLess * 0.8)) / currentCard[0][1].SolForLess).toFixed(1)
+                                        }
+                                    </button>
                                 </div>
+                                }
 
                                 <div className={styles.BetSlip_ratio_choice_container}>
-                                    <p className={styles.BetSlip_ratio_choice}>2x(Below)</p>
-                                    <button onClick={chooseSolWorWhat} id='SolForLess' className={styles.BetSlip_ratio_choice_btn}>1.19</button>
+                                    <p className={styles.BetSlip_ratio_choice}>{currentCard[0][1].cardDescrLess}</p>
+                                    <button onClick={chooseSolWorWhat} id='SolForLess' className={styles.BetSlip_ratio_choice_btn}>
+                                        {
+                                            ((currentCard[0][1].SolForLess + (currentCard[0][1].SolForMore * 0.8) + (currentCard[0][1].SolForDraw * 0.8)) / currentCard[0][1].SolForLess).toFixed(1)
+                                        }
+                                    </button>
                                 </div>
 
                             </div>
@@ -163,7 +200,7 @@ const Trials: FC<any> = ({data}) => {
                                             }
                                             }
                                         }
-                                    />
+                                    /> SOL
                                 </label>
                             </div>
                         </div>

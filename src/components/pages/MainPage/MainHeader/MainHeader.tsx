@@ -57,7 +57,6 @@ const MainHeader: FC = () => {
     return (
         <header className='Header'>
             <div className='Header_container'>
-                {/* <p className='Header_logo' >Dust City</p> */}
                 <img className='Header_logo_img' src={logo} alt="" />
                 <nav>
                     <ul className='Header_nav_List' >

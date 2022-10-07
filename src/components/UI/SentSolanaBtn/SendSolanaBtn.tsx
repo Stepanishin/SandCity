@@ -104,7 +104,7 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
         const updateDb = () => {
 
             const dbRef = ref(getDatabase());
-                    get(child(dbRef,  `/Judges/${currentCard[0][1].name}`)).then((snapshot) => {
+                    get(child(dbRef,  `/Judges/${currentCard[0][1].name}${currentCard[0][1].id}`)).then((snapshot) => {
                     if (snapshot.exists()) {
                         let arr = snapshot.val()
                         const updates:any = {};
@@ -119,15 +119,15 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
                             solQuantity = arr.SolForDraw
                         }
                         // Делаем запись в базу данных
-                        updates[`/Judges/${currentCard[0][1].name}` + `/${SolForWhat}/`] = BET + solQuantity;
+                        updates[`/Judges/${currentCard[0][1].name}${currentCard[0][1].id}` + `/${SolForWhat}/`] = BET + solQuantity;
 
                         // создаём и Добавляем в базу кошелек и сумму ставки этого кошелька
                         let userWallet = publicKey.toBase58()
                         if (arr.wallets[`${SolForWhat}`].hasOwnProperty(`${userWallet}`)) {
                             let currentBet = arr.wallets[`${SolForWhat}`][userWallet].bet
-                            updates[`/Judges/${currentCard[0][1].name}/wallets/${SolForWhat}/${userWallet}/bet/`] = currentBet + BET
+                            updates[`/Judges/${currentCard[0][1].name}${currentCard[0][1].id}/wallets/${SolForWhat}/${userWallet}/bet/`] = currentBet + BET
                         } else {
-                                set(ref(db, `/Judges/${currentCard[0][1].name}/wallets/${SolForWhat}/${userWallet}`), {
+                                set(ref(db, `/Judges/${currentCard[0][1].name}${currentCard[0][1].id}/wallets/${SolForWhat}/${userWallet}`), {
                                     'userWallet': userWallet,
                                     'bet': BET,
                                 } );

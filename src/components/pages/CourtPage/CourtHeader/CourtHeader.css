@@ -1,62 +1,71 @@
-/* .Court_Header {
+.Court_Header {
+    position: fixed;
     margin: 0 auto;
-    max-width: 1400px;
-    height: 184px;
-    position: relative;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+    z-index: 10;
+    padding-top: 30px;
 }
   
 .Court_Header_container {
-    position: fixed;
+    padding: 0 20px;
+    width: 100%;
+    max-width: 1440px;
+    position: relative;
     z-index: 10;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 52px;
-
+    vertical-align: middle;
 }
 
 .Court_Header_logo {
-    height: min(184px, 22vw); 
-    width: min(190px, 22vw);
+    height: 80px;
+    width: 80px;
+    z-index: 1;
+    position: relative;
 }
   
 .Court_Header_nav_List {
-    margin-top: -40px;
     display: flex;
     justify-content: space-between;
-    gap: 20px;
-    
+    align-items: center;
+    gap: 50px;
 }
   
 .Court_Header_nav_List li {
-    width: 200px;
-    height: 60px;
-    background: rgba(119, 71, 255, 0.45);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'GT America LCG 400';
     backdrop-filter: blur(10px);
     border-radius: 10px;
-    font-family: 'Bebas Neue';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 48px;
+    font-size: 20px;
+    line-height: 100%;
     text-align: center;
     color: #FFFFFF;
-    line-height: 1.5em;
+}
+
+.Court_Header_nav_List li:hover {
+    color:#5AC1CD ;
 }
 
 .Court_wrapper_decs {
     display: flex;
     justify-content: center;
     align-items: center;
-} */
+}
 
 
 
 
 
 /* Mobile */
-/* .Court_Header_Hamburger_container {
+.Court_wrapper {
+    display: none;
+}
+
+.Court_Header_Hamburger_container {
     display: none;
 }
 
@@ -65,54 +74,57 @@
 }
 
 .Court_Header_nav_List_mobile {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 30px;
     position: absolute;
     transform: scale(0);
     transition: all 0.3s ease-in-out;
     overflow: hidden;
-    background: rgba(119, 71, 255, 0.45);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(10px);
-    border-radius: 10px;
-    top: min(70px,17.5vw);
-    width: min(200px, 30vw);
+    width: 100%;
+    background: rgba(4.7,9,16.9, 1);
+    position: fixed;
+    overflow: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 150px;
 }
  
 .Court_Header_nav_List_mobile a {
-    height: 0;   
+    /* height: 0;    */
 }
 
 .Court_Header_nav_List_mobile li {
-    font-family: 'Bebas Neue';
+    font-family: 'GT America LCG 400';
     font-style: normal;
     font-weight: 400;
-    font-size: min(40px,5vw);
-    line-height: 48px;
+    font-size: 20px;
+    line-height: 100%;
     text-align: center;
     color: #FFFFFF;
-    height: min(53px,9vw);
+    height: 100%;
 }
 
 
 .Court_Header_nav_List_mobile li:hover    {
-    background: rgba(30, 16, 69, 0.65) !important;
-    backdrop-filter: blur(10px) !important;
-} */
+    color: #5AC1CD;
+} 
 
 /**Hamburger**/
 
-/* .Court_hamburger {
+.Court_hamburger {
     display: block;
     z-index: 5;
     width: min(56px, 14vw);
     height: min(62px, 15vw);
-    background: rgba(119, 71, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: min(7px, 3vw) 0 5px min(11px,2.3vw);
     transition: all 0.3s ease-in-out;
+    cursor: pointer;
 }
   
 .Court_hamburger .Court_top_bun,
@@ -120,8 +132,8 @@
 .Court_hamburger .Court_bottom_bun {
     display: block;
     width: min(30px,9vw);
-    height: min(6px,2vw);
-    background: rgba(255, 255, 255, 0.45);
+    height: min(4px,2vw);
+    background: #5AC1CD;
     margin-top: min(8px, 1.4vw);
     transition: all 0.3s ease-in-out;
     border: 1px solid rgba(0, 0, 0, 0.75);
@@ -132,11 +144,11 @@
 
 .Court_dn {
     display: block;
-} */
+}
 
 /**Animations**/
 
-/* #toggleCourt:checked + .Court_hamburger .Court_top_bun {
+#toggleCourt:checked + .Court_hamburger .Court_top_bun {
     transform: rotate(-45deg);
     margin-top: 18px;
 }
@@ -148,7 +160,7 @@
 
 #toggleCourt:checked + .Court_hamburger .Court_meat {
     transform: rotate(45deg);
-    margin-top: -6px;
+    margin-top: -4px;
 }
 
 #toggleCourt:checked + .Court_hamburger {
@@ -159,9 +171,13 @@
     transform: scale(1);
 }
 
-@media screen and (width < 1350px) {
+@media screen and (width < 900px) {
     .Court_wrapper_decs{
         display: none;
+    }
+
+    .Court_wrapper {
+        display: block;
     }
 
     .Court_Header_Hamburger_container {
@@ -174,8 +190,6 @@
     .Court_Header_container {
         margin-left: 0px;
         width: 100vw;
-        padding-right: min(32px, 5vw);
-        height: min(193px, 25vw);
         justify-content: space-between;
         align-items: center;
         vertical-align: middle;
@@ -189,4 +203,4 @@
         padding-top: 2px;
     }
 }
- */
+

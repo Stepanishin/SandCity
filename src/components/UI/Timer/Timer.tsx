@@ -56,14 +56,14 @@ const Timer:FC<ITimerProps> = ({Timerclass, dateToShot}) => {
         }
         var seconds:any = Math.floor((result/1000)%60);
         var minutes:any = Math.floor((result/1000/60)%60);
-        // var hours:any = Math.floor((result/1000/60/60)%24);
+        var hours:any = Math.floor((result/1000/60/60)%24);
         var hours:any = Math.floor((result/1000/60/60));
         var days:any = Math.floor(result/1000/60/60/24);
-        if (seconds < 10) seconds = '0' + seconds;
-        if (minutes < 10) minutes = '0' + minutes;
+        // if (seconds < 10) seconds = '0' + seconds;
+        // if (minutes < 10) minutes = '0' + minutes;
         // if (hours < 10) hours = '0' + hours;
         var elmnt:any = document.getElementById('timer');
-        elmnt.innerHTML ='Trial ends in ' + hours + ' hours and ' + minutes + ' minutes'
+        elmnt.innerHTML ='Trial ends in ' + days + ' days ' + (hours % 24) + ' hours and ' + minutes + ' minutes '
         setTimeout(timer, 1000);
     }
     window.onload = function() {

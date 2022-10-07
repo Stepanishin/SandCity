@@ -18,8 +18,8 @@ const CourtPage:FC = () => {
     return (
         <div className={styles.CourtPage} >
             <CourtHeader />
-            <History />
-            <Court />
+            {/* <History /> */}
+            {/* <Court /> */}
             <Trials data={data} />
             <Archive data={data} />
             <CourtFooter />

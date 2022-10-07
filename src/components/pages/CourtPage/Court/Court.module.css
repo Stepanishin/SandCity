@@ -24,7 +24,7 @@
     font-size: min(200px,16vw);
     text-align: center;
     color: white;
-    background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover;
+    /* background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover; */
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
     padding-top: min(100px, 3.5vw);

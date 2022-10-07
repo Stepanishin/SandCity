@@ -40,8 +40,6 @@ const Avatar:FC<IAvatarProps> = ({ memberName, url ,imgUrl }) => {
                         <img src={iconTwitter} alt="" width="22" height="18" />
                     </div>
                 </a>
-            
-
             </div>
         </div>
         

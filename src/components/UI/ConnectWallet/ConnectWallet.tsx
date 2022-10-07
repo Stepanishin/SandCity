@@ -26,8 +26,8 @@ const Content: FC= () => {
 
 
     return (
-        <div>   
-                <WalletMultiButton />
-        </div>
+        
+        <WalletMultiButton />
+        
     );
 };

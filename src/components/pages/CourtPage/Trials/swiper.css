@@ -25,13 +25,13 @@
 .swiper-button-next {
     right: min(40px, 4vw) !important;
     top: min(90px, 7vw) !important;
-    color: #E1230A;
+    color: #5AC1CD;
 }
 
 .swiper-button-prev {
   top: min(90px, 7vw) !important;
   right: min(100px, 9vw) !important;
-  color: #E1230A;
+  color: #5AC1CD;
   left: auto !important;
 }
 
@@ -41,11 +41,11 @@
 
 .swiper-pagination {
   bottom: max(-50px, -8vw) !important;
-  color: #EE8944;
+  color: #5AC1CD;
 }
 
 .swiper-pagination span {
-  background-color: #EE8944;
+  background-color: #5AC1CD;
   width: min(150px, 20vw) !important;
   height: min(5px, 1vw) !important;
   border-radius: 0px !important;

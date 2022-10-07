@@ -1,5 +1,5 @@
 import React, { FC,useEffect } from 'react';
-import logo from '../../../../assets/img/logo.png'
+import logo from './img/logo.svg'
 import { HashLink } from 'react-router-hash-link';
 import ConnectWallet from '../../../UI/ConnectWallet/ConnectWallet';
 import './CourtHeader.css'
@@ -27,18 +27,19 @@ const CourtHeader: FC = () => {
         <header className='Court_Header'>
             <div className='Court_Header_container'>
                 <div>
-                    <img className='Court_Header_logo' src={logo} alt="logo" height='184px' width='190px'  />
+                    <img className='Court_Header_logo' src={logo} alt="logo" />
                 </div>
                 <div className='Court_wrapper_decs' >
                     <nav>
                         <ul className='Court_Header_nav_List' >
-                            <HashLink smooth  to="/Court#ABOUT"><li>ABOUT</li></HashLink>
-                            <HashLink smooth  to="/Court#TRIALS"><li>TRIALS</li></HashLink>
+                            {/* <HashLink smooth  to="/Court#ABOUT"><li>ABOUT</li></HashLink> */}
+                            {/* <HashLink smooth  to="/Court#TRIALS"><li>TRIALS</li></HashLink> */}
                             <HashLink smooth  to="/Court#ARCHIVE"><li>ARCHIVE</li></HashLink>
-                            <Link to={'/'} ><li>BACK TO CITY</li></Link>
+                            <a href='https://dustcity.world/'  target="_blank" rel="noreferrer"><li>BACK TO CITY</li></a>
+                            <ConnectWallet />
                         </ul>
                     </nav>
-                    <ConnectWallet />
+                    
                 </div>
                 
 
@@ -52,12 +53,13 @@ const CourtHeader: FC = () => {
                             <div className='Court_bottom_bun'></div>
                         </label>
                         <ul id='Court_Header_nav_List_mobile' className='Court_Header_nav_List_mobile' >
-                            <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#ABOUT"><li>ABOUT</li></HashLink>
-                            <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#TRIALS"><li>TRIALS</li></HashLink>
+                            {/* <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#ABOUT"><li>ABOUT</li></HashLink> */}
+                            {/* <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#TRIALS"><li>TRIALS</li></HashLink> */}
                             <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#ARCHIVE"><li>ARCHIVE</li></HashLink>
-                            <Link to={'/'} ><li>BACK TO CITY</li></Link>
+                            <a  href='https://dustcity.world/'  target="_blank" rel="noreferrer" ><li>BACK TO CITY</li></a>
+                            <li><ConnectWallet /></li>
                         </ul>
-                        <ConnectWallet />
+                        
                     </div>
 
                 </div>
