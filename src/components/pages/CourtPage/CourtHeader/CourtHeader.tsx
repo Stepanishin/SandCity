@@ -11,13 +11,15 @@ const CourtHeader: FC = () => {
     let burgerMenu:HTMLElement
     let toggle:HTMLInputElement
 
-    useEffect(() => {
-        burgerMenu = document.getElementById('Court_Header_nav_List_mobile')!
-        toggle = document.querySelector("#toggleCourt")!
-    }, [])  
+    // useEffect(() => {
+    //     burgerMenu = document.getElementById('Court_Header_nav_List_mobile')!
+    //     toggle = document.querySelector("#toggleCourt")!
+    // }, [])  
 
     // Closing of Hamburger
     const deleteBurgerMenu = () => {
+        burgerMenu = document.getElementById('Court_Header_nav_List_mobile')!
+        toggle = document.querySelector("#toggleCourt")!
         burgerMenu.classList.add("Court_dn")
         toggle.checked = false
         burgerMenu.classList.remove("Court_dn")
@@ -26,7 +28,7 @@ const CourtHeader: FC = () => {
     return (
         <header className='Court_Header'>
             <div className='Court_Header_container'>
-                <div>
+                <div onClick={deleteBurgerMenu}>
                     <img className='Court_Header_logo' src={logo} alt="logo" />
                 </div>
                 <div className='Court_wrapper_decs' >
@@ -34,7 +36,7 @@ const CourtHeader: FC = () => {
                         <ul className='Court_Header_nav_List' >
                             {/* <HashLink smooth  to="/Court#ABOUT"><li>ABOUT</li></HashLink> */}
                             {/* <HashLink smooth  to="/Court#TRIALS"><li>TRIALS</li></HashLink> */}
-                            <HashLink smooth  to="/Court#ARCHIVE"><li>ARCHIVE</li></HashLink>
+                            <HashLink smooth  to="/#ARCHIVE"><li>ARCHIVE</li></HashLink>
                             <a href='https://dustcity.world/'  target="_blank" rel="noreferrer"><li>BACK TO CITY</li></a>
                             <ConnectWallet />
                         </ul>
@@ -55,8 +57,8 @@ const CourtHeader: FC = () => {
                         <ul id='Court_Header_nav_List_mobile' className='Court_Header_nav_List_mobile' >
                             {/* <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#ABOUT"><li>ABOUT</li></HashLink> */}
                             {/* <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#TRIALS"><li>TRIALS</li></HashLink> */}
-                            <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#ARCHIVE"><li>ARCHIVE</li></HashLink>
-                            <a  href='https://dustcity.world/'  target="_blank" rel="noreferrer" ><li>BACK TO CITY</li></a>
+                            <HashLink onClick={deleteBurgerMenu} smooth  to="/#ARCHIVE"><li>ARCHIVE</li></HashLink>
+                            <a  onClick={deleteBurgerMenu} href='https://dustcity.world/'  target="_blank" rel="noreferrer" ><li>BACK TO CITY</li></a>
                             <li><ConnectWallet /></li>
                         </ul>
                         
