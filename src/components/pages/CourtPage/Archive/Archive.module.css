@@ -2,9 +2,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 10px 20px;
+    align-items: center;
 }
 
-.Archive_title {
+/* .Archive_title {
     padding-top: min(200px, 10vw);
     font-family: 'GT America LCG 500';
     font-style: normal;
@@ -12,19 +14,88 @@
     font-size: min(60px,8vw);
     text-align: center;
     color: white;
+} */
+
+.Archive_title_container {
+    padding-top: min(200px, 30vw);
+    position: relative;
+    width: 355px;
 }
 
-.Archive_cards_container {
+.Archive_title_blur {
+    position: absolute;
+    font-family: 'Fredericka the Great';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 80px;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #00D5FF; 
+    filter: blur(6px);
+    left: 50%;
+    right: 50%;
+    transform:translate(-50%, -50%);
+    width: 355px;
+}
+
+.Archive_title {
+    position: absolute;
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    font-size: 80px;
+    text-transform: uppercase;
+    color: rgba(219, 47, 213, 0.06);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: cyan;
+    left: 50%;
+    right: 50%;
+    transform:translate(-50%, -50%);
+    width: 355px;
+}
+
+/* .Archive_cards_container {
     margin: min(110px,20vw) auto;
     max-width: 1100px;
-    height: min(667px, 50vw);
+
     background: rgba(119, 71, 255, 0.35);
     border: min(6px,1vw) solid #5AC1CD;
     padding: min(38px,4vw) min(80px,6vw);
-    overflow: auto; 
+
     box-shadow: 0px 0px 20px min(8px,0.3vw) #5AC1CD, inset 0px 0px 15px min(8px,0.5vw)rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(10px);
     border-radius: 80px;
+} */
+
+.Archive_cards_container {
+    margin: min(110px,9vw) auto;
+    padding: min(38px,4vw) min(80px,6vw);
+    position: relative;
+    max-width: 1100px;
+    width: 100%;
+    height: min(667px, 50vw);
+    border-right: 2px solid #db2fd5;
+    border-bottom: 1px solid #db2fd5;
+    background-image: url('../../../../assets/img/border.svg');
+    background-size: cover;
+    overflow: auto; 
+    
+}
+
+.Archive_cards_container:before {
+    content: '';
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%, 0 13%);
+    position: absolute;
+    top: 0;left: 0;right: 0;bottom: 0;
+    max-width: 1100px;
+    width: 100%;
+    height: 100%;
 }
 
 .Archive_cards_container::-webkit-scrollbar {
@@ -39,7 +110,6 @@
     font-size: min(25px, 2.2vw);
     line-height: min(29px,2.5vw);
     color: rgba(255, 255, 255, 0.75);
-    padding: 10px 0;
 }
 .Archive_cards_container table {
 	width:100%;
@@ -65,9 +135,37 @@
     width: 70%;
 }
 
-@media screen and (max-width: 1150px) { 
-    .Archive_cards_container {
-        border-radius: 10px;
-        margin: min(110px,10vw) 20px;
+@media screen and (max-width: 767px) {
+    .Archive_title_container {
+        padding-top: min(200px, 30vw);
+        width: 300px;
+    }
+    
+    .Archive_title_blur {
+        font-size: 50px;
+        width: 300px;
+    }
+    
+    .Archive_title {
+        font-size: 50px;
+        width: 300px;
     }
 }
+
+@media screen and (max-width: 424px) {
+    .Archive_title_container {
+        padding-top: min(200px, 30vw);
+        width: 250px;
+    }
+    
+    .Archive_title_blur {
+        font-size: 30px;
+        width: 250px;
+    }
+    
+    .Archive_title {
+        font-size: 30px;
+        width: 250px;
+    }
+}
+

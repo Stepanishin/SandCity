@@ -1,12 +1,9 @@
 .Footer {
     height: 200px;
-    background: #000000;
+    background: #0C172B;
     width: 100%;
-    border-top: min(7px, 0.8vw) solid #5AC1CD;
     margin-top: 100px;
 }
-
-
 
 .Footer_container {
     margin: 0 auto;

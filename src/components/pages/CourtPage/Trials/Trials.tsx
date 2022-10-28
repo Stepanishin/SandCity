@@ -12,6 +12,8 @@ import accepted from './img/accepted.svg'
 import forbidden from './img/forbidden.svg'
 import { HashLink } from 'react-router-hash-link';
 import Timer from '../../../UI/Timer/Timer';
+import { useAppDispatch, useAppSelector } from '../../../../hooks/redux';
+import { ARG, timerAndDisableBtnSlice } from '../../../../store/reducers/getTimerAndDisableBtnReducer';
 
 
 const Trials: FC<any> = ({data}) => {
@@ -20,19 +22,27 @@ const Trials: FC<any> = ({data}) => {
     const [ currentCard, setCurrentCard ] = useState<any>([])
     const [show, setShow] = useState(false)
     const [SolForWhat, setSolForWhat] = useState('')
+    let {isTimeToDisable} = useAppSelector(state => state.timerAndDisableBtnSlice)
+    const {timerAndDisableBtn} = timerAndDisableBtnSlice.actions
+    const dispatch = useAppDispatch()
     let [ BET, setBET ] = useState(0.1)
     let count = 0
 
     useEffect(() => {
-        // Убираю окно с коэффициентами при прокручивании слайдера.
+        // Убираю окно с коэффициентами при прокручивании слайдера и сбрасываю выбор ставки
         // Переделать
         let swiperBtnNext = document.querySelector('.swiper-button-next')!
         let swiperBtnPrev = document.querySelector('.swiper-button-prev')!
         swiperBtnNext?.addEventListener('click', function() {
             setShow(false)
+            setSolForWhat('')
+            dispatch(timerAndDisableBtn(ARG.false))
         });
         swiperBtnPrev?.addEventListener('click', function() {
             setShow(false)
+            setSolForWhat('')
+            dispatch(timerAndDisableBtn(ARG.false))
+            // isTimeToDisable = false
         });
     }, [])
 
@@ -74,15 +84,16 @@ const Trials: FC<any> = ({data}) => {
                 SolForLessBtn.style.background = 'rgba(225, 35, 10, 0.25)'
             }
         }
-
-
         setSolForWhat(e.target.id)
     }
 
     return (
         <div id='TRIALS' className={styles.Trials} >
             <div className={styles.Trials_container}>
-            <h2 className={styles.Trials_title} >COURT</h2>
+            <div className={styles.Trials_title_container}>
+                <h2 className={styles.Trials_title_blur} >COURT</h2>
+                <h2 className={styles.Trials_title} >COURT</h2>
+            </div>
                 <div className={styles.Trials_slider_container}>
                     <>
                     <Swiper
@@ -103,13 +114,16 @@ const Trials: FC<any> = ({data}) => {
                                         <SwiperSlide id={card[1].id} key={card[1].id} >
                                             <div className={styles.card_container}>
                                                 <div className={styles.card_info_container}>
-                                                    <p className={styles.card_info_count}>{count}</p>
+                                                    <div className={styles.card_info_count_container}>
+                                                        <p className={styles.card_info_count}>{count}</p>
+                                                        <p className={styles.card_info_count_blur}>{count}</p>
+                                                    </div>
                                                     <img className={styles.card_info_avatar} src={card[1].avatar} alt="avatar" />
                                                     <div className={styles.card_info_description_container}>
                                                         <h3 className={styles.card_info_description_title}>{card[1].name}</h3>
                                                         <div className={styles.card_info_description_data_container}>
                                                             {
-                                                                card[1].quantity && <p className={styles.card_info_description_data}>Supply 666</p>
+                                                                card[1].quantity && <p className={styles.card_info_description_data}>Supply {card[1].quantity}</p>
                                                             }
                                                             {
                                                                 card[1].twitter && <a href={card[1].twitter} className={styles.card_info_description_data} target="_blank" rel="noreferrer">Twitter</a>
@@ -152,7 +166,7 @@ const Trials: FC<any> = ({data}) => {
                             <div className={styles.BetSlip_ratio_container}>
 
                                 <div className={styles.BetSlip_ratio_choice_container}>
-                                    <p className={styles.BetSlip_ratio_choice}>{currentCard[0][1].cardDescrMore}</p>
+                                    <p className={styles.BetSlip_ratio_choice}>1X(Above)</p>
                                     <button onClick={chooseSolWorWhat} id='SolForMore' className={styles.BetSlip_ratio_choice_btn}>
                                         {
                                             ((currentCard[0][1].SolForMore + (currentCard[0][1].SolForLess * 0.8) + (currentCard[0][1].SolForDraw * 0.8)) / currentCard[0][1].SolForMore).toFixed(1)
@@ -162,7 +176,7 @@ const Trials: FC<any> = ({data}) => {
 
                                 {
                                    currentCard[0][1].isDraw && <div className={styles.BetSlip_ratio_choice_container}>
-                                    <p className={styles.BetSlip_ratio_choice}>{currentCard[0][1].cardDescrDraw}</p>
+                                    <p className={styles.BetSlip_ratio_choice}>X(Draw)</p>
                                     <button onClick={chooseSolWorWhat} id='SolForDraw' className={styles.BetSlip_ratio_choice_btn}>
                                         {
                                             ((currentCard[0][1].SolForDraw + (currentCard[0][1].SolForMore * 0.8) + (currentCard[0][1].SolForLess * 0.8)) / currentCard[0][1].SolForLess).toFixed(1)
@@ -172,7 +186,7 @@ const Trials: FC<any> = ({data}) => {
                                 }
 
                                 <div className={styles.BetSlip_ratio_choice_container}>
-                                    <p className={styles.BetSlip_ratio_choice}>{currentCard[0][1].cardDescrLess}</p>
+                                    <p className={styles.BetSlip_ratio_choice}>2X(Below)</p>
                                     <button onClick={chooseSolWorWhat} id='SolForLess' className={styles.BetSlip_ratio_choice_btn}>
                                         {
                                             ((currentCard[0][1].SolForLess + (currentCard[0][1].SolForMore * 0.8) + (currentCard[0][1].SolForDraw * 0.8)) / currentCard[0][1].SolForLess).toFixed(1)
@@ -200,7 +214,7 @@ const Trials: FC<any> = ({data}) => {
                                             }
                                             }
                                         }
-                                    /> SOL
+                                    /> SOL<span style={{fontSize:'min(20px, 2.5vw)'}}>(Min 0.1)</span>
                                 </label>
                             </div>
                         </div>
@@ -222,11 +236,18 @@ const Trials: FC<any> = ({data}) => {
                                 <p>Something went wrong!</p>
                             </div>
                             
-                            <SendSolanaBtn
+                            {
+                                !isTimeToDisable
+                                ?
+                                <SendSolanaBtn
                                 currentCard = {currentCard}
                                 BET ={BET}
                                 SolForWhat={SolForWhat}
-                            />
+                                />
+                                :
+                                <></>
+                            }
+
                         </div>
                     </div>
                     :

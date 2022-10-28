@@ -10,7 +10,10 @@ const Archive:FC<any> = ({data}) => {
     return (
         <div id='ARCHIVE' className={styles.Archive} >
             <div className={styles.Archive_container} >
-                <h2 className={styles.Archive_title} >ARCHIVE</h2>
+                <div className={styles.Archive_title_container}>
+                    <h2 className={styles.Archive_title_blur} >ARCHIVE</h2>
+                    <h2 className={styles.Archive_title} >ARCHIVE</h2>
+                </div>
                 <div className={styles.Archive_cards_container}>
                     <table>
                         <thead>

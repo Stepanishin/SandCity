@@ -6,11 +6,12 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { ITimerProps } from '../../../types/ITimerProps';
 import { child, get, getDatabase, ref, update } from 'firebase/database';
 import { useParams } from 'react-router-dom';
+import { ARG, timerAndDisableBtnSlice } from '../../../store/reducers/getTimerAndDisableBtnReducer';
 
 const Timer:FC<ITimerProps> = ({Timerclass, dateToShot}) => {
 
-    // const {isTimeToDisable} = useAppSelector(state => state.timerAndDisableBtnSlice)
-    // const {timerAndDisableBtn} = timerAndDisableBtnSlice.actions
+    const {isTimeToDisable} = useAppSelector(state => state.timerAndDisableBtnSlice)
+    const {timerAndDisableBtn} = timerAndDisableBtnSlice.actions
     const dispatch = useAppDispatch()
     const params = useParams()
 
@@ -25,7 +26,7 @@ const Timer:FC<ITimerProps> = ({Timerclass, dateToShot}) => {
         if (result < 0) {
             var elmnt:any = document.getElementById('timer');
             elmnt.innerHTML = 'Trials ended';
-            // dispatch(timerAndDisableBtn())
+            dispatch(timerAndDisableBtn(ARG.true))
 
             // const db = getDatabase();
             // const updateDb = (params: any) => {
@@ -54,6 +55,7 @@ const Timer:FC<ITimerProps> = ({Timerclass, dateToShot}) => {
 
             return undefined;
         }
+        // dispatch(timerAndDisableBtn('false'))
         var seconds:any = Math.floor((result/1000)%60);
         var minutes:any = Math.floor((result/1000/60)%60);
         var hours:any = Math.floor((result/1000/60/60)%24);
