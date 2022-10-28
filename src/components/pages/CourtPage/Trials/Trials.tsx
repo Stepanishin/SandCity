@@ -61,7 +61,7 @@ const Trials: FC<any> = ({data}) => {
         let SolForLessBtn:any = document.querySelector('#SolForLess')
         let SolForDrawBtn:any = document.querySelector('#SolForDraw')
 
-        if (SolForDrawBtn === true) {
+        if (SolForDrawBtn != null) {
             if (e.target.id === 'SolForMore') {
                 SolForMoreBtn.style.background = 'rgba(225, 35, 10, 0.25)'
                 SolForLessBtn.style.background = 'rgba(0, 0, 0, 0.35)'

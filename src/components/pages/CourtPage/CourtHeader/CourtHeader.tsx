@@ -4,17 +4,14 @@ import { HashLink } from 'react-router-hash-link';
 import ConnectWallet from '../../../UI/ConnectWallet/ConnectWallet';
 import './CourtHeader.css'
 import { Link } from 'react-router-dom';
+import { useAppSelector } from '../../../../hooks/redux';
 
 
 const CourtHeader: FC = () => {
 
     let burgerMenu:HTMLElement
     let toggle:HTMLInputElement
-
-    // useEffect(() => {
-    //     burgerMenu = document.getElementById('Court_Header_nav_List_mobile')!
-    //     toggle = document.querySelector("#toggleCourt")!
-    // }, [])  
+    let {isShowFlat} = useAppSelector(state => state.accessToFlatSlice)
 
     // Closing of Hamburger
     const deleteBurgerMenu = () => {
@@ -34,8 +31,9 @@ const CourtHeader: FC = () => {
                 <div className='Court_wrapper_decs' >
                     <nav>
                         <ul className='Court_Header_nav_List' >
-                            {/* <HashLink smooth  to="/Court#ABOUT"><li>ABOUT</li></HashLink> */}
-                            {/* <HashLink smooth  to="/Court#TRIALS"><li>TRIALS</li></HashLink> */}
+                            {
+                                isShowFlat && <HashLink smooth  to="/#FLAT"><li>FLAT</li></HashLink>
+                            }
                             <HashLink smooth  to="/#ARCHIVE"><li>ARCHIVE</li></HashLink>
                             <a href='https://dustcity.world/'  target="_blank" rel="noreferrer"><li>BACK TO CITY</li></a>
                             <ConnectWallet />
@@ -55,8 +53,9 @@ const CourtHeader: FC = () => {
                             <div className='Court_bottom_bun'></div>
                         </label>
                         <ul id='Court_Header_nav_List_mobile' className='Court_Header_nav_List_mobile' >
-                            {/* <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#ABOUT"><li>ABOUT</li></HashLink> */}
-                            {/* <HashLink onClick={deleteBurgerMenu} smooth  to="/Court#TRIALS"><li>TRIALS</li></HashLink> */}
+                            {
+                                isShowFlat && <HashLink onClick={deleteBurgerMenu} smooth  to="/#FLAT"><li>FLAT</li></HashLink>
+                            }
                             <HashLink onClick={deleteBurgerMenu} smooth  to="/#ARCHIVE"><li>ARCHIVE</li></HashLink>
                             <a  onClick={deleteBurgerMenu} href='https://dustcity.world/'  target="_blank" rel="noreferrer" ><li>BACK TO CITY</li></a>
                             <li><ConnectWallet /></li>

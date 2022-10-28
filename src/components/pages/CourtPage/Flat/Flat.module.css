@@ -1,4 +1,4 @@
-.Archive_container {
+.Flat_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -6,13 +6,13 @@
     align-items: center;
 }
 
-.Archive_title_container {
-    padding-top: min(100px, 15vw);
+.Flat_title_container {
+    padding-top: min(200px, 30vw);
     position: relative;
     width: 355px;
 }
 
-.Archive_title_blur {
+.Flat_title_blur {
     position: absolute;
     font-family: 'Fredericka the Great';
     font-style: normal;
@@ -32,7 +32,7 @@
     width: 355px;
 }
 
-.Archive_title {
+.Flat_title {
     position: absolute;
     font-family: 'Arimo';
     font-style: normal;
@@ -50,22 +50,23 @@
     width: 355px;
 }
 
-.Archive_cards_container {
+.Flat_inner_container {
     margin: min(110px,9vw) auto;
     padding: min(38px,4vw) min(80px,6vw);
     position: relative;
     max-width: 900px;
     width: 100%;
-    height: min(667px, 50vw);
+    height: min(350px, 30vw);
     border-right: 2px solid #db2fd5;
     border-bottom: 1px solid #db2fd5;
     background-image: url('../../../../assets/img/border.svg');
     background-size: cover;
     overflow: auto; 
+    color: #00D5FF;
     
 }
 
-.Archive_cards_container:before {
+.Flat_inner_container:before {
     content: '';
     clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%, 0 13%);
     position: absolute;
@@ -73,78 +74,44 @@
     max-width: 900px;
     width: 100%;
     height: 100%;
+    z-index: 1;
 }
 
-.Archive_cards_container::-webkit-scrollbar {
-    width: 0;
-  }
-
-.Archive_card_values {
-	overflow-x: auto;
-    font-family: 'Courier';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(25px, 2.2vw);
-    line-height: min(29px,2.5vw);
-    color: rgba(255, 255, 255, 0.75);
-}
-.Archive_cards_container table {
-	width:100%;
-	table-layout: fixed;
-}
-.Archive_cards_container thead th {
-    font-family: 'Courier';
-    text-align: left;
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(25px, 3vw);
-    line-height: min(30px, 3.7vw);
-    color: #FFFFFF;
-}
-.Archive_cards_container tbody td {
-    text-align: left;
-    padding: min(10px, 1.5vw) min(8px, 1vw);
-    vertical-align: top;
-    border-top: 2px solid rgba(19, 19, 19, 0.5);
-    font-size: min(18px, 3vw);
-    line-height: min(30px, 3.7vw);
-}
-
-.firstTitle {
-    width: 70%;
+.Flat_wallet {
+    color: #00D5FF;
+    font-size:30px;
 }
 
 @media screen and (max-width: 767px) {
-    .Archive_title_container {
+    .Flat_title_container {
         padding-top: min(200px, 30vw);
         width: 300px;
     }
     
-    .Archive_title_blur {
+    .Flat_title_blur {
         font-size: 50px;
         width: 300px;
     }
     
-    .Archive_title {
+    .Flat_title {
         font-size: 50px;
         width: 300px;
     }
 }
 
 @media screen and (max-width: 424px) {
-    .Archive_title_container {
+    .Flat_title_container {
         padding-top: min(200px, 30vw);
         width: 250px;
     }
     
-    .Archive_title_blur {
+    .Flat_title_blur {
         font-size: 30px;
         width: 250px;
     }
     
-    .Archive_title {
+    .Flat_title {
         font-size: 30px;
         width: 250px;
     }
 }
-
