@@ -56,15 +56,20 @@
     position: relative;
     max-width: 900px;
     width: 100%;
-    height: min(350px, 30vw);
+    min-height: min(350px, 30vw);
+    max-height: min(700px, 60vw);
     border-right: 2px solid #db2fd5;
     border-bottom: 1px solid #db2fd5;
     background-image: url('../../../../assets/img/border.svg');
     background-size: cover;
     overflow: auto; 
     color: #00D5FF;
-    
+    font-size: 20px;  
 }
+
+.Flat_inner_container::-webkit-scrollbar {
+    width: 0;
+  }
 
 .Flat_inner_container:before {
     content: '';

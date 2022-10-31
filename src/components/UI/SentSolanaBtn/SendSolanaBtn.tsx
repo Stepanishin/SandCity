@@ -4,36 +4,27 @@ import { useEffect } from 'react';
 import { FC, ReactNode, useMemo, useCallback, useState } from 'react';
 
 import { clusterApiUrl, Transaction, SystemProgram, Keypair, LAMPORTS_PER_SOL, PublicKey } from '@solana/web3.js';
-import { actions, utils, programs, NodeWallet, Connection} from '@metaplex/js';
-import { WalletAdapterNetwork, WalletNotConnectedError } from '@solana/wallet-adapter-base';
+// import { actions, utils, programs, NodeWallet, Connection} from '@metaplex/js';
+import { WalletAdapterNetwork, WalletNotConnectedError, WalletSendTransactionError } from '@solana/wallet-adapter-base';
 import { ConnectionProvider, WalletProvider, useConnection, useWallet } from '@solana/wallet-adapter-react';
 
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { getDatabase, ref, get, child, push, update, set } from "firebase/database";
 
+import * as web3 from "@solana/web3.js";
+// import * as splToken from "@solana/spl-token";
+
 
 export interface ISendSolanaBtnProps {
-    // borderPrice?: number,
-    // descr?: string,
     wallet?: string,
-    // classN?: string,
-    // descr2?: number,
-    // judgePrice?: number, 
-    // name?: string,
     SolForWhat?: string,
-    // currency?: string,
-    // cardDescrMore?: string,
-    // cardDescrLess?: string,
-    // SolForMore?: number,
-    // SolForLess?: number,
-    // id?: number,
     currentCard?: any,
     BET?: number
 }
 
 const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) => {
 
-    const connection = new Connection(clusterApiUrl("mainnet-beta"))
+    const connection = new web3.Connection(clusterApiUrl("mainnet-beta"))
     const { publicKey, sendTransaction } = useWallet();
     const db = getDatabase();
     let alarm_loading : any
@@ -52,6 +43,8 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
         alarm_sendSucces = document.querySelector('#alarm_sendSucces')
         alarm_sendError_chooseBET = document.querySelector('#alarm_sendError_chooseBET')
         alarm_sendError_something = document.querySelector('#alarm_sendError_something')
+
+
         
         // Если не выбрали на какое событие ставить
         if (SolForWhat === '') {
@@ -79,12 +72,16 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
         
         ////////////////////////SOLANA///////////////////////////////////////////////////////////////////////////////////////////////////////////////   
 
-        if (!publicKey) throw new WalletNotConnectedError('connect wallet123');
+        if (!publicKey) throw new WalletSendTransactionError('connect wallet123');
+
+        // if (!publicKey) {
+        //     return
+        // }
 
         alarm_loading.style.display = 'block'
         
 
-        connection.getBalance(publicKey).then((bal) => {
+        connection.getBalance(publicKey).then((bal:any) => {
         });
 
         let lamportsI = LAMPORTS_PER_SOL*BET!;
@@ -95,8 +92,14 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
                 lamports: lamportsI,
             })
         );
-
-        const signature = await sendTransaction(transaction, connection);
+        
+        // const signature = await sendTransaction(transaction, connection);
+        // const signature = await web3.sendAndConfirmTransaction(transaction, connection);
+        // const signature = await web3.sendAndConfirmTransaction(connection, transaction, [
+        //     fromKeypair,
+        //   ]);
+        const signature = await web3.sendAndConfirmTransaction(connection, transaction, publicKey);
+        // const signature = await web3.signAndSendTransaction(transaction);
         
         await connection.confirmTransaction(signature, 'processed');
 
@@ -104,7 +107,7 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
         const updateDb = () => {
 
             const dbRef = ref(getDatabase());
-                    get(child(dbRef,  `/Judges/${currentCard[0][1].name}${currentCard[0][1].id}`)).then((snapshot) => {
+                    get(child(dbRef,  `/Judges/${currentCard[0][1].name}${currentCard[0][1].id}`)).then((snapshot:any) => {
                     if (snapshot.exists()) {
                         let arr = snapshot.val()
                         const updates:any = {};
@@ -155,7 +158,7 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
                     } else {
                         console.log("No data available");
                     }
-                    }).catch((error) => {
+                    }).catch((error:any) => {
                     console.error(error);
                     });
         }
@@ -183,7 +186,7 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
         
 
          
-    }, [publicKey, sendTransaction, connection ]);
+    }, [publicKey, sendTransaction, connection  ]);
 
     
     

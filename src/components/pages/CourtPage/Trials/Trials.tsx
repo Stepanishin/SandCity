@@ -14,6 +14,7 @@ import { HashLink } from 'react-router-hash-link';
 import Timer from '../../../UI/Timer/Timer';
 import { useAppDispatch, useAppSelector } from '../../../../hooks/redux';
 import { ARG, timerAndDisableBtnSlice } from '../../../../store/reducers/getTimerAndDisableBtnReducer';
+import SendNCTRBtn from '../../../UI/SendNCTRBtn/SendNCTRBtn';
 
 
 const Trials: FC<any> = ({data}) => {
@@ -247,6 +248,12 @@ const Trials: FC<any> = ({data}) => {
                                 :
                                 <></>
                             }
+
+                           <SendNCTRBtn 
+                                currentCard = {currentCard}
+                                BET ={BET}
+                                SolForWhat={SolForWhat}
+                           />
 
                         </div>
                     </div>

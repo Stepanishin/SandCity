@@ -3,10 +3,11 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
 import { FC } from 'react';
-import { Connection} from '@metaplex/js'; 
+// import { Connection} from '@metaplex/js'; 
 import './ConnectWallet.css'
 import { accessToFlatSlice } from '../../../store/reducers/getAccesToFlatReducer';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
+import * as web3 from "@solana/web3.js";
 
 require('@solana/wallet-adapter-react-ui/styles.css');
 
@@ -26,7 +27,7 @@ const Content: FC= () => {
     const {accessToFalt} = accessToFlatSlice.actions
     const dispatch = useAppDispatch()
   
-    const connection = new Connection(clusterApiUrl("mainnet-beta"))
+    const connection = new web3.Connection(clusterApiUrl("mainnet-beta"))
     const { publicKey, sendTransaction } = useWallet();
 
     if (publicKey) {

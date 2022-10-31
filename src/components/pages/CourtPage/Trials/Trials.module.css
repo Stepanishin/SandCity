@@ -260,7 +260,7 @@
     padding: 10px;
 }
 
-.BetSlip_container:before {
+/* .BetSlip_container:before {
     content: '';
     background: rgba(219, 47, 213, 0.06);
     clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%, 0 13%);
@@ -270,7 +270,7 @@
     width: 100%;
     height: 100%;
     z-index: 0;
-}
+} */
 
 .BetSlip_container_title {
     margin-top: min(45px, 4.5vw);

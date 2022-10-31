@@ -10,3 +10,15 @@ declare module 'react-slick'
 declare module "*.module.css";
 declare module "react-router-hash-link"
 declare module "react-image-mapper"
+declare module "swiper/react"
+declare module "swiper"
+declare module "@solana/wallet-adapter-react"
+declare module "@solana/wallet-adapter-react-ui"
+declare module "@solana/wallet-adapter-base"
+
+declare module "@solana/web3.js"
+declare module "firebase/database"
+declare module "@solana/wallet-adapter-base"
+declare module "@solana/wallet-adapter-base"
+declare module "@reduxjs/toolkit/query/react"
+declare module "@solana/spl-token"
