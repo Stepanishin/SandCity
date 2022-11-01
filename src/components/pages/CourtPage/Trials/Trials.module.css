@@ -192,6 +192,7 @@
     justify-content: center;
     padding-top: min(30px, 4vw);
     align-items: flex-end;
+    gap: min(50px, 5vw);
 }
 
 .card_timeAndJudge_timer {
@@ -218,11 +219,11 @@
     vertical-align: middle;
 }
 
-.card_timeAndJudge_btn a {
+.card_timeAndJudge_btn {
     font-family: 'Bebas Neue';
     font-style: normal;
     font-weight: 400;
-    font-size: min(40px, 4vw);
+    font-size: min(35px, 3.5vw);
     line-height: min(48px, 4vw);
     text-align: center;
     color: #FFFFFF;

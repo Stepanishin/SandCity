@@ -15,19 +15,26 @@ import Timer from '../../../UI/Timer/Timer';
 import { useAppDispatch, useAppSelector } from '../../../../hooks/redux';
 import { ARG, timerAndDisableBtnSlice } from '../../../../store/reducers/getTimerAndDisableBtnReducer';
 import SendNCTRBtn from '../../../UI/SendNCTRBtn/SendNCTRBtn';
+import { SolForWhatSlice } from '../../../../store/reducers/getSolForWhatReducer';
 
 
 const Trials: FC<any> = ({data}) => {
 
     const { publicKey, sendTransaction } = useWallet();
     const [ currentCard, setCurrentCard ] = useState<any>([])
-    const [show, setShow] = useState(false)
-    const [SolForWhat, setSolForWhat] = useState('')
+    const [show, setShow] = useState({
+        isShow: false,
+        isNCTR: false,
+        isSOL: false,
+    })
     let {isTimeToDisable} = useAppSelector(state => state.timerAndDisableBtnSlice)
     const {timerAndDisableBtn} = timerAndDisableBtnSlice.actions
+    let {SolForWhat} = useAppSelector(state => state.SolForWhatSlice)
+    const {changeSolForWhat} = SolForWhatSlice.actions
     const dispatch = useAppDispatch()
     let [ BET, setBET ] = useState(0.1)
     let count = 0
+
 
     useEffect(() => {
         // Убираю окно с коэффициентами при прокручивании слайдера и сбрасываю выбор ставки
@@ -35,22 +42,51 @@ const Trials: FC<any> = ({data}) => {
         let swiperBtnNext = document.querySelector('.swiper-button-next')!
         let swiperBtnPrev = document.querySelector('.swiper-button-prev')!
         swiperBtnNext?.addEventListener('click', function() {
-            setShow(false)
-            setSolForWhat('')
+            setShow({
+                isShow: false,
+                isNCTR: false,
+                isSOL: false,
+            })
+            dispatch(changeSolForWhat('clear'))
             dispatch(timerAndDisableBtn(ARG.false))
         });
         swiperBtnPrev?.addEventListener('click', function() {
-            setShow(false)
-            setSolForWhat('')
+            setShow({
+                isShow: false,
+                isNCTR: false,
+                isSOL: false,
+            })
+            dispatch(changeSolForWhat('clear'))
             dispatch(timerAndDisableBtn(ARG.false))
-            // isTimeToDisable = false
         });
     }, [])
 
 
     // Показываем окно с коэффициентами
-    const showJudge = () => {
-        setShow(true)
+    const showJudge = (e:any) => {
+        let SolForMoreBtn:any = document.querySelector('#SolForMore')!
+        let SolForLessBtn:any = document.querySelector('#SolForLess')!
+        let SolForDrawBtn:any = document.querySelector('#SolForDraw')!
+        setShow({
+            isShow: false,
+            isNCTR: false,
+            isSOL: false,
+        })
+        dispatch(changeSolForWhat('clear'))
+        if(e.target.id === 'JudgeInSOL') {
+            setShow({
+                isShow: true,
+                isNCTR: false,
+                isSOL: true,
+            })
+        }
+        if(e.target.id === 'JudgeInNCTR') {
+            setShow({
+                isShow: true,
+                isNCTR: true,
+                isSOL: false,
+            }) 
+        }
         const current = document.querySelector('.swiper-slide-active')
         setCurrentCard(data?.filter((card:any) => card[1].id === current?.id))
     }
@@ -61,7 +97,10 @@ const Trials: FC<any> = ({data}) => {
         let SolForMoreBtn:any = document.querySelector('#SolForMore')
         let SolForLessBtn:any = document.querySelector('#SolForLess')
         let SolForDrawBtn:any = document.querySelector('#SolForDraw')
+        // dispatch(changeSolForWhat('clean'))
 
+        // SolForWhat = false
+        console.log(SolForWhat)
         if (SolForDrawBtn != null) {
             if (e.target.id === 'SolForMore') {
                 SolForMoreBtn.style.background = 'rgba(225, 35, 10, 0.25)'
@@ -85,7 +124,8 @@ const Trials: FC<any> = ({data}) => {
                 SolForLessBtn.style.background = 'rgba(225, 35, 10, 0.25)'
             }
         }
-        setSolForWhat(e.target.id)
+        dispatch(changeSolForWhat(`${e.target.id}`))
+        // setSolForWhat(e.target.id)
     }
 
     return (
@@ -123,10 +163,7 @@ const Trials: FC<any> = ({data}) => {
                                                     <div className={styles.card_info_description_container}>
                                                         <h3 className={styles.card_info_description_title}>{card[1].name}</h3>
                                                         <div className={styles.card_info_description_data_container}>
-                                                            {
-                                                                card[1].quantity && <p className={styles.card_info_description_data}>Supply {card[1].quantity}</p>
-                                                            }
-                                                            {
+                                                            {   
                                                                 card[1].twitter && <a href={card[1].twitter} className={styles.card_info_description_data} target="_blank" rel="noreferrer">Twitter</a>
                                                             }
                                                             {
@@ -142,7 +179,8 @@ const Trials: FC<any> = ({data}) => {
                                                     <p className={styles.card_condition_description}>{card[1].cardDescr}</p>
                                                 </div>
                                                 <div className={styles.card_timeAndJudge_container}>
-                                                    <button onClick={showJudge} className={styles.card_timeAndJudge_btn}><HashLink  smooth  to="/Court#BETwrap" >Judge</HashLink></button>
+                                                    <HashLink smooth  to="/Court#BETwrap" ><button id='JudgeInSOL' onClick={showJudge} className={styles.card_timeAndJudge_btn}>Judge in SOL</button></HashLink>
+                                                    <HashLink smooth  to="/Court#BETwrap" ><button id='JudgeInNCTR' onClick={showJudge} className={styles.card_timeAndJudge_btn}>Judge in NCTR</button></HashLink>
                                                 </div>
                                             </div>
                                         </SwiperSlide>
@@ -156,7 +194,7 @@ const Trials: FC<any> = ({data}) => {
                 </div>
     
                 {
-                    show
+                    show.isShow
                     ?
                     <div id='BETwrap' className={styles.BetSlip_container}>
                         <h3 className={styles.BetSlip_container_title}>Bet Slip</h3>
@@ -170,27 +208,46 @@ const Trials: FC<any> = ({data}) => {
                                     <p className={styles.BetSlip_ratio_choice}>1X(Above)</p>
                                     <button onClick={chooseSolWorWhat} id='SolForMore' className={styles.BetSlip_ratio_choice_btn}>
                                         {
-                                            ((currentCard[0][1].SolForMore + (currentCard[0][1].SolForLess * 0.8) + (currentCard[0][1].SolForDraw * 0.8)) / currentCard[0][1].SolForMore).toFixed(1)
+                                            show.isSOL
+                                            ?
+                                            ((currentCard[0][1].BetSOL.SolForMore + (currentCard[0][1].BetSOL.SolForLess * 0.8) + (currentCard[0][1].BetSOL.SolForDraw * 0.8)) / currentCard[0][1].BetSOL.SolForMore).toFixed(1)
+                                            :
+                                            ((currentCard[0][1].BetNCTR.SolForMore + (currentCard[0][1].BetNCTR.SolForLess * 0.8) + (currentCard[0][1].BetNCTR.SolForDraw * 0.8)) / currentCard[0][1].BetNCTR.SolForMore).toFixed(1)
                                         }
                                     </button>
                                 </div>
 
                                 {
-                                   currentCard[0][1].isDraw && <div className={styles.BetSlip_ratio_choice_container}>
-                                    <p className={styles.BetSlip_ratio_choice}>X(Draw)</p>
-                                    <button onClick={chooseSolWorWhat} id='SolForDraw' className={styles.BetSlip_ratio_choice_btn}>
+                                   currentCard[0][1].isDraw && show.isSOL
+                                   ?
+                                    <div className={styles.BetSlip_ratio_choice_container}>
+                                        <p className={styles.BetSlip_ratio_choice}>X(Draw)</p>
+                                        <button onClick={chooseSolWorWhat} id='SolForDraw' className={styles.BetSlip_ratio_choice_btn}>
                                         {
-                                            ((currentCard[0][1].SolForDraw + (currentCard[0][1].SolForMore * 0.8) + (currentCard[0][1].SolForLess * 0.8)) / currentCard[0][1].SolForLess).toFixed(1)
+                                            ((currentCard[0][1].BetSOL.SolForDraw + (currentCard[0][1].BetSOL.SolForMore * 0.8) + (currentCard[0][1].BetSOL.SolForLess * 0.8)) / currentCard[0][1].BetSOL.SolForDraw).toFixed(1)
                                         }
-                                    </button>
-                                </div>
+                                        </button>
+                                    </div>
+                                    :
+                                    <div className={styles.BetSlip_ratio_choice_container}>
+                                        <p className={styles.BetSlip_ratio_choice}>X(Draw)</p>
+                                        <button onClick={chooseSolWorWhat} id='SolForDraw' className={styles.BetSlip_ratio_choice_btn}>
+                                        {
+                                            ((currentCard[0][1].BetNCTR.SolForDraw + (currentCard[0][1].BetNCTR.SolForMore * 0.8) + (currentCard[0][1].BetNCTR.SolForLess * 0.8)) / currentCard[0][1].BetNCTR.SolForDraw).toFixed(1)
+                                        }
+                                        </button>
+                                    </div>
                                 }
 
                                 <div className={styles.BetSlip_ratio_choice_container}>
                                     <p className={styles.BetSlip_ratio_choice}>2X(Below)</p>
                                     <button onClick={chooseSolWorWhat} id='SolForLess' className={styles.BetSlip_ratio_choice_btn}>
                                         {
-                                            ((currentCard[0][1].SolForLess + (currentCard[0][1].SolForMore * 0.8) + (currentCard[0][1].SolForDraw * 0.8)) / currentCard[0][1].SolForLess).toFixed(1)
+                                            show.isSOL
+                                            ?
+                                            ((currentCard[0][1].BetSOL.SolForLess + (currentCard[0][1].BetSOL.SolForMore * 0.8) + (currentCard[0][1].BetSOL.SolForDraw * 0.8)) / currentCard[0][1].BetSOL.SolForLess).toFixed(1)
+                                            :
+                                            ((currentCard[0][1].BetNCTR.SolForLess + (currentCard[0][1].BetNCTR.SolForMore * 0.8) + (currentCard[0][1].BetNCTR.SolForDraw * 0.8)) / currentCard[0][1].BetNCTR.SolForLess).toFixed(1)
                                         }
                                     </button>
                                 </div>
@@ -198,7 +255,10 @@ const Trials: FC<any> = ({data}) => {
                             </div>
 
                             <div className={styles.BetSlip_ratio_amount_container}>
-                                <label className={styles.BetSlip_ratio_amount_label} htmlFor="name">
+                                {
+                                    show.isSOL
+                                    ?
+                                    <label className={styles.BetSlip_ratio_amount_label} htmlFor="name">
                                     Amount of bet: <input 
                                         value={BET} 
                                         className={styles.BetSlip_ratio_amount_input} 
@@ -215,8 +275,31 @@ const Trials: FC<any> = ({data}) => {
                                             }
                                             }
                                         }
-                                    /> SOL<span style={{fontSize:'min(20px, 2.5vw)'}}>(Min 0.1)</span>
-                                </label>
+                                    />
+                                      SOL<span style={{fontSize:'min(20px, 2.5vw)'}}>(Min 0.1)</span>
+                                    </label>
+                                    :
+                                    <label className={styles.BetSlip_ratio_amount_label} htmlFor="name">
+                                    Amount of bet: <input 
+                                        value={BET} 
+                                        className={styles.BetSlip_ratio_amount_input} 
+                                        placeholder='0.1' 
+                                        required 
+                                        type="number" 
+                                        name='name' 
+                                        id='name'
+                                        min={0.1} 
+                                        onChange={(e: any) => {
+                                            setBET(parseFloat(e.target.value))
+                                            if (e.target.value === '') {
+                                                setBET(0)
+                                            }
+                                            }
+                                        }
+                                    />
+                                        NCTR<span style={{fontSize:'min(20px, 2.5vw)'}}>(Min 0.1)</span>
+                                    </label>
+                                }
                             </div>
                         </div>
 
@@ -238,7 +321,7 @@ const Trials: FC<any> = ({data}) => {
                             </div>
                             
                             {
-                                !isTimeToDisable
+                                !isTimeToDisable && show.isSOL
                                 ?
                                 <SendSolanaBtn
                                 currentCard = {currentCard}
@@ -249,11 +332,16 @@ const Trials: FC<any> = ({data}) => {
                                 <></>
                             }
 
-                           <SendNCTRBtn 
-                                currentCard = {currentCard}
-                                BET ={BET}
-                                SolForWhat={SolForWhat}
-                           />
+                            {
+                                !isTimeToDisable && show.isNCTR
+                                ?
+                                <SendNCTRBtn 
+                                    currentCard = {currentCard}
+                                    BET ={BET}
+                                />
+                                :
+                                <></> 
+                            }
 
                         </div>
                     </div>

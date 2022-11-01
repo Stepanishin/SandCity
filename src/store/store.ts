@@ -3,6 +3,7 @@ import { setupListeners } from "@reduxjs/toolkit/dist/query";
 import { firebaseApi } from "./reducers/firebase.api";
 import timerAndDisableBtnSlice from './reducers/getTimerAndDisableBtnReducer'
 import accessToFlatSlice from './reducers/getAccesToFlatReducer'
+import SolForWhatSlice from './reducers/getSolForWhatReducer'
 
 
 
@@ -10,7 +11,8 @@ import accessToFlatSlice from './reducers/getAccesToFlatReducer'
 const rootReducer = combineReducers({
     [firebaseApi.reducerPath]: firebaseApi.reducer,
     timerAndDisableBtnSlice,
-    accessToFlatSlice
+    accessToFlatSlice,
+    SolForWhatSlice
 })
 
 

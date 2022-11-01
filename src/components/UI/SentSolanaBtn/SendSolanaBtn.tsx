@@ -12,19 +12,19 @@ import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { getDatabase, ref, get, child, push, update, set } from "firebase/database";
 
 import * as web3 from "@solana/web3.js";
-// import * as splToken from "@solana/spl-token";
+import { render } from '@testing-library/react';
 
 
 export interface ISendSolanaBtnProps {
     wallet?: string,
-    SolForWhat?: string,
+    SolForWhat?: string | boolean,
     currentCard?: any,
     BET?: number
 }
 
-const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) => {
+const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET,SolForWhat}) => {
 
-    const connection = new web3.Connection(clusterApiUrl("mainnet-beta"))
+    const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
     const db = getDatabase();
     let alarm_loading : any
@@ -32,20 +32,28 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
     let alarm_sendSucces:any
     let alarm_sendError_chooseBET:any
     let alarm_sendError_something:any
+    // let {SolForWhat} = useAppSelector(state => state.SolForWhatSlice)
 
     // Здесь назначаем кошелек, куда будут идти все ставки
-    let theWallet:any = currentCard[0][1].walletForLess
+    let theWallet:any = currentCard[0][1].walletForBet
+    // let SolForWTF:any
 
-    const onClick = useCallback( async (e:any) => {
+    useEffect(() => {
+        // render (
+        //     <button onClick={onClick} className={styles.card_timeAndBet_btn}>
+        //         <span>BET</span>
+        //     </button>
+        // )
+    },[SolForWhat])
 
+    const onClick = useCallback( async (e:any) => { 
+        console.log(BET)
+        console.log(SolForWhat)
         alarm_loading = document.querySelector('#alarm_loading')!
         card_timeAndBet_timer = document.querySelector('#card_timeAndBet_timer')
         alarm_sendSucces = document.querySelector('#alarm_sendSucces')
         alarm_sendError_chooseBET = document.querySelector('#alarm_sendError_chooseBET')
         alarm_sendError_something = document.querySelector('#alarm_sendError_something')
-
-
-        
         // Если не выбрали на какое событие ставить
         if (SolForWhat === '') {
             card_timeAndBet_timer.style.display = 'none'
@@ -74,12 +82,7 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
 
         if (!publicKey) throw new WalletSendTransactionError('connect wallet123');
 
-        // if (!publicKey) {
-        //     return
-        // }
-
         alarm_loading.style.display = 'block'
-        
 
         connection.getBalance(publicKey).then((bal:any) => {
         });
@@ -92,18 +95,12 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
                 lamports: lamportsI,
             })
         );
-        
-        // const signature = await sendTransaction(transaction, connection);
-        // const signature = await web3.sendAndConfirmTransaction(transaction, connection);
-        // const signature = await web3.sendAndConfirmTransaction(connection, transaction, [
-        //     fromKeypair,
-        //   ]);
-        const signature = await web3.sendAndConfirmTransaction(connection, transaction, publicKey);
-        // const signature = await web3.signAndSendTransaction(transaction);
+
+        const signature = await sendTransaction(transaction, connection);;
         
         await connection.confirmTransaction(signature, 'processed');
 
-        /////////////////////////DATA BASE///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////DATA BASE///////////////////////////////////////////////////////////////////////////////////////////////////////////
         const updateDb = () => {
 
             const dbRef = ref(getDatabase());
@@ -115,22 +112,22 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
 
                         // Определяем, куда и сколько будет приплюсовывать ставку в базе данных, draw, less or more
                         if (SolForWhat === 'SolForMore') {
-                            solQuantity = arr.SolForMore
+                            solQuantity = arr.BetSOL.SolForMore
                         } else if (SolForWhat === 'SolForLess') {
-                            solQuantity = arr.SolForLess
+                            solQuantity = arr.BetSOL.SolForLess
                         } else if (SolForWhat === 'SolForDraw') {
-                            solQuantity = arr.SolForDraw
+                            solQuantity = arr.BetSOL.SolForDraw
                         }
                         // Делаем запись в базу данных
-                        updates[`/Judges/${currentCard[0][1].name}${currentCard[0][1].id}` + `/${SolForWhat}/`] = BET + solQuantity;
+                        updates[`/Judges/${currentCard[0][1].name}${currentCard[0][1].id}/BetSOL` + `/${SolForWhat}/`] = BET + solQuantity;
 
                         // создаём и Добавляем в базу кошелек и сумму ставки этого кошелька
                         let userWallet = publicKey.toBase58()
-                        if (arr.wallets[`${SolForWhat}`].hasOwnProperty(`${userWallet}`)) {
-                            let currentBet = arr.wallets[`${SolForWhat}`][userWallet].bet
-                            updates[`/Judges/${currentCard[0][1].name}${currentCard[0][1].id}/wallets/${SolForWhat}/${userWallet}/bet/`] = currentBet + BET
+                        if (arr.BetSOL.wallets[`${SolForWhat}`].hasOwnProperty(`${userWallet}`)) {
+                            let currentBet = arr.BetSOL.wallets[`${SolForWhat}`][userWallet].bet
+                            updates[`/Judges/${currentCard[0][1].name}${currentCard[0][1].id}/BetSOL/wallets/${SolForWhat}/${userWallet}/bet/`] = currentBet + BET
                         } else {
-                                set(ref(db, `/Judges/${currentCard[0][1].name}${currentCard[0][1].id}/wallets/${SolForWhat}/${userWallet}`), {
+                                set(ref(db, `/Judges/${currentCard[0][1].name}${currentCard[0][1].id}/BetSOL/wallets/${SolForWhat}/${userWallet}`), {
                                     'userWallet': userWallet,
                                     'bet': BET,
                                 } );
@@ -165,6 +162,7 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         updateDb()
+
         } catch (err) {
             // Закрытие Лоадера
             const closeAlarmLoading =() => {
@@ -186,7 +184,7 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET, SolForWhat}) =
         
 
          
-    }, [publicKey, sendTransaction, connection  ]);
+    }, [publicKey, sendTransaction, connection, SolForWhat, BET, currentCard  ]);
 
     
     
