@@ -22,8 +22,8 @@ const FLAT:FC<any> = ({data}) => {
         }
     }
 
-    console.log(data)
-    console.log(data?.filter((card:any) => card[1].state === 'test'))
+    // console.log(data)
+    // console.log(data?.filter((card:any) => card[1].state === 'test'))
     
     return (
         <div id='FLAT' className={styles.Flat} >
@@ -113,10 +113,6 @@ const FLAT:FC<any> = ({data}) => {
                             :
                             <></>
                         }
-
-
-
-
 
 
 

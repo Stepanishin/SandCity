@@ -1,0 +1,17 @@
+export interface ICard {
+    avatar?: string,
+    cardDescr?: string,
+    date?: string,
+    dateToShot?: string,
+    twitter?: string,
+    discord?: string,
+    id?: string,
+    isDraw?: boolean,
+    name?: string,
+    result?:string,
+    state?: string,
+    walletForBet?: string,
+    website?: string,
+    BetNCTR?: {},
+    BetSOL?: {},
+};

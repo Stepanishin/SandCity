@@ -1,0 +1,38 @@
+.Admin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.AddNewJudge_uploadAvatar_container {
+    /* align-self: flex-start; */
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 50px;
+}
+.AddNewJudge_container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    margin: 30px auto;
+}
+
+.AddNewJudge_container button:hover,
+.AddNewJudge_container input[type='submit']:hover,
+.AddNewJudge_container input[type='file']:hover {
+    transform: scale(1, 1.2);
+}
+
+.AddNewJudge_container button:active,
+.AddNewJudge_container input[type='submit']:active,
+.AddNewJudge_container input[type='file']:active {
+    background-color: black;
+}

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC,useEffect } from 'react';
 import styles from './Archive.module.css'
 
 
@@ -7,6 +7,8 @@ import styles from './Archive.module.css'
 
 const Archive:FC<any> = ({data}) => {
     
+    let sortData =  data?.filter((el:any) => el[1].state === 'past' || el[1].state === 'wait').sort(((a: any,b: any) => parseInt(a[1].id) > parseInt(b[1].id) ? -1 : parseInt(a[1].id) < parseInt(b[1].id) ? 1 : 0))
+
     return (
         <div id='ARCHIVE' className={styles.Archive} >
             <div className={styles.Archive_container} >
@@ -28,11 +30,11 @@ const Archive:FC<any> = ({data}) => {
                         <table>
                             <tbody>
                             {
-                                data?.map((card:any) => {
+                                sortData?.map((card:any) => {
                                     if (card[1].state === 'past' || card[1].state === 'wait') {
                                         return (
                                             <tr key={card[1].id}>
-                                                <td   className={styles.firstTitle}>{card[1].name}</td>
+                                                <td className={styles.firstTitle}>{card[1].name}</td>
                                                 <td>{card[1].state}</td>
                                                 <td>
                                                     {
