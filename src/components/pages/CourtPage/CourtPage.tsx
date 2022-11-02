@@ -33,7 +33,7 @@ const CourtPage:FC = () => {
             <Archive data={data} />
             <CourtFooter />
             {
-                publicKey && publicKey.toBase58() === 'A8grZ1aaL9Hm8sC7mtVyiAqdkFf4mB63aBpfq2WR9drt' && <Admin data={data} />
+                publicKey && (publicKey.toBase58() === 'A8grZ1aaL9Hm8sC7mtVyiAqdkFf4mB63aBpfq2WR9drt' || publicKey.toBase58() === 'gfehnueiUxNr3RuboSeTdj9S5ttN7HpbxP23V3xoPMW') && <Admin data={data} />
             }
         </div>
     );
