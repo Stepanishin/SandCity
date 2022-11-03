@@ -79,12 +79,20 @@
     max-width: 900px;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: -1;
 }
 
 .Flat_wallet {
     color: #00D5FF;
     font-size:30px;
+}
+
+.Flat_judge_wrap {
+    margin: 20px 0px;
+}
+
+.Flat_judge_title {
+    font-weight: bold;
 }
 
 @media screen and (max-width: 767px) {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { clusterApiUrl } from '@solana/web3.js';
@@ -14,6 +14,7 @@ import { get } from 'firebase/database';
 import { child } from 'firebase/database';
 import { set } from 'firebase/database';
 import { update } from 'firebase/database';
+import { Routes, Route, useParams } from 'react-router-dom';
 
 require('@solana/wallet-adapter-react-ui/styles.css');
 
@@ -38,6 +39,15 @@ const Content: FC= () => {
 
     const db = getDatabase();
 
+    let refLink
+    
+    useEffect(() => {
+        refLink = window.location.search.split("?")[1] 
+        if (refLink && refLink.length > 0)  {
+            localStorage.setItem('refLink', refLink);  // Сохраняем Реферальную ссылку в localstorage, если она существует
+        } 
+    }, [])
+
     if (publicKey) {
         dispatch(accessToFalt(true))
     }
@@ -48,7 +58,7 @@ const Content: FC= () => {
     if (publicKey) {
         const updateDb = () => {
             const dbRef = ref(getDatabase());
-            get(child(dbRef,  `/users`)).then((snapshot:any) => {
+            get(child(dbRef,  `/Users`)).then((snapshot:any) => {
                 if (snapshot.exists()) {
                     let userWallet = publicKey.toBase58()
                     let arr = snapshot.val()
@@ -56,9 +66,19 @@ const Content: FC= () => {
                     if (arr.hasOwnProperty(`${userWallet}`)) {
                         return
                     } else {
-                        set(ref(db, `/users/${userWallet}`), {
+                        let refCode1 = Math.random().toString().substr(2, 10);
+                        let refCode2 = Math.random().toString().substr(2, 10);
+                        let refCode = refCode1 + refCode2 // здесь назначаем кажлму 20ти значный реферальный код
+                        let refOwner = localStorage.getItem('refLink')
+                        set(ref(db, `/Users/${userWallet}`), {
                             'userWallet': userWallet,
                             'status': 'Сitizen',
+                            'refCode': refCode,
+                            'refOwner': refOwner,
+                            'referers': {
+                                1:1
+                            }
+
                         });
                     }
                     return update(ref(db), updates);

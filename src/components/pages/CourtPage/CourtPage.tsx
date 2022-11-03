@@ -1,7 +1,7 @@
 import { useWallet } from '@solana/wallet-adapter-react';
 import React, { FC } from 'react';
 import { useAppSelector } from '../../../hooks/redux';
-import { useGetJudgesQuery } from '../../../store/reducers/firebase.api';
+import { useGetUsersQuery, useGetJudgesQuery } from '../../../store/reducers/firebase.api';
 import Admin from './Admin/Admin';
 import Archive from './Archive/Archive';
 import Court from './Court/Court';
@@ -17,7 +17,8 @@ import Trials from './Trials/Trials';
 
 const CourtPage:FC = () => {
 
-    const { isLoading, data} = useGetJudgesQuery('')
+    const { data} = useGetJudgesQuery('')
+    const { data: usersData} = useGetUsersQuery('')
     let {isShowFlat} = useAppSelector(state => state.accessToFlatSlice)
     const { publicKey, sendTransaction } = useWallet();
 
@@ -28,7 +29,7 @@ const CourtPage:FC = () => {
             {/* <Court /> */}
             <Trials data={data} />
             {
-                isShowFlat && <FLAT data={data} />
+                isShowFlat && <FLAT data={data} usersData={usersData} />
             }
             <Archive data={data} />
             <CourtFooter />

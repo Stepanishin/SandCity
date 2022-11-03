@@ -7,7 +7,7 @@ import styles from './Flat.module.css'
 
 
 
-const FLAT:FC<any> = ({data}) => {
+const FLAT:FC<any> = ({data, usersData}) => {
 
     const { publicKey, sendTransaction } = useWallet();
 
@@ -22,13 +22,20 @@ const FLAT:FC<any> = ({data}) => {
         }
     }
 
-    // console.log(data)
-    // console.log(data?.filter((card:any) => card[1].state === 'test'))
+    console.log(usersData)
+    // console.log(usersData.filter((card:any) => card[1].userWallet === publicKey.toBase58())) 
+    usersData && usersData.forEach((el:any) => {
+        console.log(el)
+    }); 
+    // let yourLink:any = usersData.filter((card:any) => {
+    //     card.userWallet === publicKey.toBase58()
+    // })
+    // console.log(yourLink)
     
     return (
         <div id='FLAT' className={styles.Flat} >
             {
-                isShowFlat && publicKey &&
+                isShowFlat && publicKey && 
                 <div id='FLAT' className={styles.Flat_container} >
                     <div className={styles.Flat_title_container}>
                         <h2 className={styles.Flat_title_blur} >FLAT</h2>
@@ -38,12 +45,25 @@ const FLAT:FC<any> = ({data}) => {
                         <p className={styles.Flat_wallet}>
                            Your wallet:  {"" + publicKey.toBase58().slice(0, 3) +"..."+ publicKey.toBase58().slice(publicKey.toBase58().length - 3, publicKey.toBase58().length)}
                         </p>
-
+                        {
+                        usersData && 
+                        <>
+                            {
+                                usersData.map((card:any) => {
+                                    if (card[1].userWallet === publicKey.toBase58()) {
+                                        return (
+                                            <p>Your referral link: {'https://court.dustcity.world?' + card[1].refCode}</p>
+                                        )
+                                    }
+                                })
+                            }
+                        </>
+                        }
                             {
                             data && data?.filter((card:any) => card[1].state === 'test').length > 0
                             ?
                             <div className='Flat_judges_container'>
-                                <h3 className='Flat_judges_title'>Active Judges</h3>
+                                <h3 className='Flat_judges_title'>Active Judges:</h3>
                                 <ul className='Flat_judges_list'>
                                     {
                                     data?.map(( card : any) => {   
@@ -51,17 +71,15 @@ const FLAT:FC<any> = ({data}) => {
                                             let userWallet = publicKey.toBase58()
                                             if (card[1].wallets.SolForLess.hasOwnProperty(userWallet)) {
                                                 return (
-                                                    <div key={card[1].name} className='Flat_judge_wrap' style={{border:' 3px solid #ff65bd'}}>
-                                                        {/* <Link style={{color:"#ff65bd"}} to={`/CourtList/${card[1].name}`}><li>{card[1].name}</li></Link> */}
-                                                        <p>{card[1].name}</p>
+                                                    <div key={card[1].name} className={styles.Flat_judge_wrap}>
+                                                        <p className={styles.Flat_judge_title}>{card[1].name}</p>
                                                         <p>Your bet {card[1].wallets.SolForLess[userWallet].bet} SOL</p> 
                                                     </div>
                                                 )
                                             } else {
                                                 return (
-                                                    <div key={card[1].name} className='Flat_judge_wrap' style={{border:'3px solid #00FFFF'}}>
-                                                        {/* <Link style={{color:"#00FFFF"}} to={`/CourtList/${card[1].name}`}><li>{card[1].name}</li></Link> */}
-                                                        <p>{card[1].name}</p>
+                                                    <div key={card[1].name} className={styles.Flat_judge_wrap}>
+                                                        <p className={styles.Flat_judge_title}>{card[1].name}</p>
                                                         <p>Your bet {card[1].wallets.SolForMore[userWallet].bet} SOL</p>
                                                     </div>
                                                 )
@@ -72,13 +90,13 @@ const FLAT:FC<any> = ({data}) => {
                                 </ul>
                             </div>
                             :
-                            <p style={{marginTop: '20px', textAlign:'center'}}>You don`t have active bets -  BET </p>
+                            <p style={{margin: '20px 0px', textAlign:'start'}}>You don`t have active Judges</p>
                         }
 
 
 
 
-                        {
+                        {/* {
                             data && data?.filter((card:any) => card[1].state === 'wait').length > 0
                             ?
                             <div className='Flat_judges_container'>
@@ -91,7 +109,6 @@ const FLAT:FC<any> = ({data}) => {
                                             if (card[1].wallets.SolForLess.hasOwnProperty(userWallet)) {
                                                 return (
                                                     <div key={card[1].name} className='Flat_judge_wrap' style={{border:' 3px solid #ff65bd'}}>
-                                                        {/* <Link style={{color:"#ff65bd"}} to={`/CourtList/${card[1].name}`}><li>{card[1].name}</li></Link> */}
                                                         <p>{card[1].name}</p>
                                                         <p>Your bet: {card[1].wallets.SolForLess[userWallet].bet} SOL</p> 
                                                     </div>
@@ -99,7 +116,6 @@ const FLAT:FC<any> = ({data}) => {
                                             } else {
                                                 return (
                                                     <div key={card[1].name} className='Flat_judge_wrap' style={{border:'3px solid #00FFFF'}}>
-                                                        {/* <Link style={{color:"#00FFFF"}} to={`/CourtList/${card[1].name}`}><li>{card[1].name}</li></Link> */}
                                                         <p>{card[1].name}</p>
                                                         <p>Your bet {card[1].wallets.SolForMore[userWallet].bet} SOL</p>
                                                     </div>
@@ -112,25 +128,24 @@ const FLAT:FC<any> = ({data}) => {
                             </div>
                             :
                             <></>
-                        }
+                        } */}
 
 
 
                         {   
-                            data && data?.filter((card:any) => card[1].state === 'past').length > 0
+                            data && data?.filter((card:any) => card[1].state === 'past').length > 0 || data?.filter((card:any) => card[1].state === 'wait').length > 0
                             ?
                             <div className='Flat_judges_container'>
-                                <h3 className='Flat_judges_title'>Past Judges</h3>
+                                <h3 className='Flat_judges_title'>Past Judges:</h3>
                                 <ul className='Flat_judges_list'>
                                     {
                                     data?.map(( card : any) => {   
-                                        if (card[1].state === 'past') {
+                                        if (card[1].state === 'past' || card[1].state === 'wait' ) {
                                             let userWallet = publicKey.toBase58()
                                             if (card[1].wallets.SolForLess.hasOwnProperty(userWallet)) {
                                                 return (
-                                                    <div key={card[1].name} className='Flat_judge_wrap' style={{border:' 3px solid #ff65bd'}}>
-                                                        {/* <Link style={{color:"#ff65bd"}} to={`/CourtList/${card[1].name}`}><li>{card[1].name}</li></Link> */}
-                                                        <p>{card[1].name}</p>
+                                                    <div key={card[1].name} className={styles.Flat_judge_wrap}>
+                                                        <p className={styles.Flat_judge_title}>{card[1].name}</p>
                                                         <p>Your bet {card[1].wallets.SolForLess[userWallet].bet} SOL</p>
                                                         {
                                                             card[1].result === 'less'
@@ -143,9 +158,8 @@ const FLAT:FC<any> = ({data}) => {
                                                 )
                                             } else {
                                                 return (
-                                                    <div key={card[1].name} className='Flat_judge_wrap' style={{border:'3px solid #00FFFF'}}>
-                                                        {/* <Link style={{color:"#00FFFF"}} to={`/CourtList/${card[1].name}`}><li>{card[1].name}</li></Link> */}
-                                                        <p>{card[1].name}</p>
+                                                    <div key={card[1].name} className={styles.Flat_judge_wrap}>
+                                                        <p className={styles.Flat_judge_title}>{card[1].name}</p>
                                                         <p>Your bet {card[1].wallets.SolForMore[userWallet].bet} SOL</p>
                                                         {
                                                             card[1].result === 'more'
