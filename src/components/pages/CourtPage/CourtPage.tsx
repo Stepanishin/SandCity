@@ -26,11 +26,11 @@ const CourtPage:FC = () => {
         <div className={styles.CourtPage} >
             <CourtHeader />
             {/* <History /> */}
-            {/* <Court /> */}
             <Trials data={data} />
             {
                 isShowFlat && <FLAT data={data} usersData={usersData} />
             }
+            <Court />
             <Archive data={data} />
             <CourtFooter />
             {

@@ -16,6 +16,9 @@ import { useAppDispatch, useAppSelector } from '../../../../hooks/redux';
 import { ARG, timerAndDisableBtnSlice } from '../../../../store/reducers/getTimerAndDisableBtnReducer';
 import SendNCTRBtn from '../../../UI/SendNCTRBtn/SendNCTRBtn';
 import { SolForWhatSlice } from '../../../../store/reducers/getSolForWhatReducer';
+import ShareJudgeTwitter from '../../../UI/ShareJudgeTwitter/ShareJudgeTwitter';
+
+import bg1 from './img/bg1.svg'
 
 
 const Trials: FC<any> = ({data}) => {
@@ -130,6 +133,7 @@ const Trials: FC<any> = ({data}) => {
 
     return (
         <div id='TRIALS' className={styles.Trials} >
+            <img className={styles.Trials_decoration_bg1} src={bg1} alt="" />
             <div className={styles.Trials_container}>
             <div className={styles.Trials_title_container}>
                 <h2 className={styles.Trials_title_blur} >COURT</h2>
@@ -182,6 +186,9 @@ const Trials: FC<any> = ({data}) => {
                                                     <HashLink smooth  to="/Court#BETwrap" ><button id='JudgeInSOL' onClick={showJudge} className={styles.card_timeAndJudge_btn}>Judge in SOL</button></HashLink>
                                                     <HashLink smooth  to="/Court#BETwrap" ><button id='JudgeInNCTR' onClick={showJudge} className={styles.card_timeAndJudge_btn}>Judge in NCTR</button></HashLink>
                                                 </div>
+                                            </div>
+                                            <div className={styles.card_twitterBtn_container}>
+                                                <ShareJudgeTwitter name={card[1].name} />
                                             </div>
                                         </SwiperSlide>
                                     )

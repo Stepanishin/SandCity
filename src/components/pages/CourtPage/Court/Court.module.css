@@ -1,44 +1,40 @@
+.Court {
+    margin-top: min(100px, 15vw);
+    position: relative;
+}
+
 .Court_container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin-top: -50px;
+    align-items: center;
+    padding: 10px 20px;
+    gap: min(80px, 9vw);
+    text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
-.Court_barcode {
-    font-family: 'Libre Barcode 128 Text';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(4.2vw, 60px);
-    line-height: 60px;
-    text-align: center;
-    color: #FFFFFF;
-    max-width: 1450px;
+.Court_container_description {
+    max-width: 900px;
+    font-size: min(25px, 2.5vw);
+    line-height: min(35px, 5vw);
+    font-family: 'GT America LCG 500';
+    color: #5ac1cd;
 }
 
-.Court_title {
-    font-family: 'World Conflict';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(200px,16vw);
-    text-align: center;
-    color: white;
-    /* background:url("../../../../assets/img/sand.jpeg") no-repeat center/cover; */
-    -webkit-background-clip:text;
-    -webkit-text-fill-color: transparent;
-    padding-top: min(100px, 3.5vw);
+.Court_container_image {
+    width: 100%;
+    max-width: 900px;
+    height: 100%;
+    filter: drop-shadow(0px 0px 30px #00D5FF);
 }
 
-.Court_description {
-    padding: 0px 20px;
-    padding-top: min(150px, 6vw);
-    font-family: 'Courier';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(40px, 3vw);
-    line-height: min(46px, 4vw);
-    text-align: center;
-    color: #FFFFFF;
-    max-width: 1450px;
+/* DECORATION */
+.Court_decoration_bg2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    right: -400px;
 }

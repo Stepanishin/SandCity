@@ -15,10 +15,10 @@ declare module "swiper"
 declare module "@solana/wallet-adapter-react"
 declare module "@solana/wallet-adapter-react-ui"
 declare module "@solana/wallet-adapter-base"
-
 declare module "@solana/web3.js"
 declare module "firebase/database"
 declare module "@solana/wallet-adapter-base"
 declare module "@solana/wallet-adapter-base"
 declare module "@reduxjs/toolkit/query/react"
 declare module "@solana/spl-token"
+declare module 'react-copy-to-clipboard'

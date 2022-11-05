@@ -95,6 +95,19 @@
     font-weight: bold;
 }
 
+.Flat_btnToCopy {
+    margin-left: 20px;
+    background-color: none;
+    background: none;
+    color: beige;
+}
+.Flat_btnToCopy:hover {
+    color: aqua;
+}
+.Flat_btnToCopy:active {
+    color: #00D5FF;
+}
+
 @media screen and (max-width: 767px) {
     .Flat_title_container {
         padding-top: min(200px, 30vw);

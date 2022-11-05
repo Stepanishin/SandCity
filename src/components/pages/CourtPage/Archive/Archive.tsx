@@ -1,8 +1,6 @@
 import React, { FC,useEffect } from 'react';
 import styles from './Archive.module.css'
-
-
-
+import bg3 from './img/bg3.svg'
 
 
 const Archive:FC<any> = ({data}) => {
@@ -11,6 +9,7 @@ const Archive:FC<any> = ({data}) => {
 
     return (
         <div id='ARCHIVE' className={styles.Archive} >
+            <img className={styles.Archive_decoration_bg3} src={bg3} alt="" />
             <div className={styles.Archive_container} >
                 <div className={styles.Archive_title_container}>
                     <h2 className={styles.Archive_title_blur} >ARCHIVE</h2>

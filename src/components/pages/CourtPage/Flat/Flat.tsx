@@ -2,7 +2,8 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import React, { FC } from 'react';
 import { useAppSelector } from '../../../../hooks/redux';
 import styles from './Flat.module.css'
-
+import {CopyToClipboard} from 'react-copy-to-clipboard';
+import ShareRefLinkTwitter from '../../../UI/ShareRefLinkTwitter/ShareRefLinkTwitter';
 
 
 
@@ -22,15 +23,21 @@ const FLAT:FC<any> = ({data, usersData}) => {
         }
     }
 
-    console.log(usersData)
-    // console.log(usersData.filter((card:any) => card[1].userWallet === publicKey.toBase58())) 
-    usersData && usersData.forEach((el:any) => {
-        console.log(el)
-    }); 
-    // let yourLink:any = usersData.filter((card:any) => {
-    //     card.userWallet === publicKey.toBase58()
-    // })
-    // console.log(yourLink)
+
+    const [value, setValue] = React.useState('some\ntext');
+    const [copied, setCopied] = React.useState(false);
+    const onChange = React.useCallback((e:any) => {
+        setValue(e.target.value);
+        setCopied(e.target.value);
+    }, [])
+    // const onClick = React.useCallback(({target: {innerText}}) => {
+    //     console.log(`Clicked on "${innerText}"!`);
+    // }, [])
+    const onCopy = React.useCallback(() => {
+        setCopied(true);
+    }, [])
+
+  
     
     return (
         <div id='FLAT' className={styles.Flat} >
@@ -38,8 +45,8 @@ const FLAT:FC<any> = ({data, usersData}) => {
                 isShowFlat && publicKey && 
                 <div id='FLAT' className={styles.Flat_container} >
                     <div className={styles.Flat_title_container}>
-                        <h2 className={styles.Flat_title_blur} >FLAT</h2>
-                        <h2 className={styles.Flat_title} >FLAT</h2>
+                        <h2 className={styles.Flat_title_blur} >PROFILE</h2>
+                        <h2 className={styles.Flat_title} >PROFILE</h2>
                     </div>
                     <div className={styles.Flat_inner_container}>
                         <p className={styles.Flat_wallet}>
@@ -51,8 +58,16 @@ const FLAT:FC<any> = ({data, usersData}) => {
                             {
                                 usersData.map((card:any) => {
                                     if (card[1].userWallet === publicKey.toBase58()) {
+                                        let link = 'https://court-fawn.vercel.app/?' + card[1].refCode
                                         return (
-                                            <p>Your referral link: {'https://court.dustcity.world?' + card[1].refCode}</p>
+                                            <div>
+                                            <textarea onChange={onChange} rows={2} cols={10} value={link} style={{visibility:'hidden', position:'absolute'}}/>
+                                            <p style={{marginTop:'30px'}} >Your referral link: </p>
+                                            <CopyToClipboard onCopy={onCopy} text={link}>
+                                                <span>{link} <button className={styles.Flat_btnToCopy}>Copy</button></span>
+                                            </CopyToClipboard>
+                                            <ShareRefLinkTwitter name={link} />
+                                            </div>
                                         )
                                     }
                                 })

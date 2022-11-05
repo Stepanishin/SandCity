@@ -32,7 +32,7 @@ const CourtHeader: FC = () => {
                     <nav>
                         <ul className='Court_Header_nav_List' >
                             {
-                                isShowFlat && <HashLink smooth  to="/#FLAT"><li>FLAT</li></HashLink>
+                                isShowFlat && <HashLink smooth  to="/#FLAT"><li>PROFILE</li></HashLink>
                             }
                             <HashLink smooth  to="/#ARCHIVE"><li>ARCHIVE</li></HashLink>
                             <a href='https://dustcity.world/'  target="_blank" rel="noreferrer"><li>BACK TO CITY</li></a>
@@ -54,7 +54,7 @@ const CourtHeader: FC = () => {
                         </label>
                         <ul id='Court_Header_nav_List_mobile' className='Court_Header_nav_List_mobile' >
                             {
-                                isShowFlat && <HashLink onClick={deleteBurgerMenu} smooth  to="/#FLAT"><li>FLAT</li></HashLink>
+                                isShowFlat && <HashLink onClick={deleteBurgerMenu} smooth  to="/#FLAT"><li>PROFILE</li></HashLink>
                             }
                             <HashLink onClick={deleteBurgerMenu} smooth  to="/#ARCHIVE"><li>ARCHIVE</li></HashLink>
                             <a  onClick={deleteBurgerMenu} href='https://dustcity.world/'  target="_blank" rel="noreferrer" ><li>BACK TO CITY</li></a>
