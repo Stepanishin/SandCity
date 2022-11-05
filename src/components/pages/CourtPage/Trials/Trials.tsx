@@ -183,7 +183,7 @@ const Trials: FC<any> = ({data}) => {
                                                     <p className={styles.card_condition_description}>{card[1].cardDescr}</p>
                                                 </div>
                                                 <div className={styles.card_timeAndJudge_container}>
-                                                    <HashLink smooth  to="/Court#BETwrap" ><button id='JudgeInSOL' onClick={showJudge} className={styles.card_timeAndJudge_btn}>Judge in SOL</button></HashLink>
+                                                    {/* <HashLink smooth  to="/Court#BETwrap" ><button id='JudgeInSOL' onClick={showJudge} className={styles.card_timeAndJudge_btn}>Judge in SOL</button></HashLink> */}
                                                     <HashLink smooth  to="/Court#BETwrap" ><button id='JudgeInNCTR' onClick={showJudge} className={styles.card_timeAndJudge_btn}>Judge in NCTR</button></HashLink>
                                                 </div>
                                             </div>

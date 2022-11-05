@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { IShareTwitterBtnProps } from '../../../types/IShareTwitterBtnProps';
 import { RetweetOutlined } from '@ant-design/icons';
-
+import './ShareJudgeTwitter.css'
 
 
 

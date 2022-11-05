@@ -1,0 +1,8 @@
+.ShareTwitterBtn {
+    font-family: 'Courier';
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(20px, 2vw);
+    line-height: min(28px, 3vw);
+    color: beige;
+}
