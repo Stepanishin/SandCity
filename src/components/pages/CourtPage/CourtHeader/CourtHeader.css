@@ -171,7 +171,7 @@
     transform: scale(1);
 }
 
-@media screen and (width < 900px) {
+@media screen and (width < 1100px) {
     .Court_wrapper_decs{
         display: none;
     }

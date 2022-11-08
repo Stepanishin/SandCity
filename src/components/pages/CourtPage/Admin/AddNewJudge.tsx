@@ -87,6 +87,16 @@ const AddNewJudge: FC<any> = ({data}) => {
         setAddNewEvent({...addNewEvent, [fieldName]: e.target.value})
     }
 
+    const handleChangeDraw = (e:any) => {
+        const fieldName = e.target.name
+        if (e.target.value === 'true') {
+            setAddNewEvent({...addNewEvent, [fieldName]: true})
+        } else if (e.target.value === 'false') {
+            setAddNewEvent({...addNewEvent, [fieldName]: false})
+        }
+
+    }
+
     const sendData = (e:any) => {
         e.preventDefault()
 
@@ -150,6 +160,8 @@ const AddNewJudge: FC<any> = ({data}) => {
                 <label htmlFor="date">Дата, когда это событие произойдет***  <input required type='datetime-local' name='date' id='date' onChange={handleChange} /></label>
 
                 <label htmlFor="dateToShot">Дата, когда приём ставок должен закрыться***  <input required type='datetime-local' name='dateToShot' id='dateToShot' onChange={handleChange} /></label>
+
+                <label htmlFor="isDraw">Ничьи есть или нет (true , false) ***  <input required type='text' name='isDraw' id='isDraw' onChange={handleChangeDraw} /></label>
 
                 {/* <label htmlFor="eventDescr">Описание события внутри карточки  <input type='text' name='eventDescr' id='eventDescr' onChange={handleChange} /></label> */}
 

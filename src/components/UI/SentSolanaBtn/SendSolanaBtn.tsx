@@ -47,8 +47,6 @@ const SendSolanaBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET,SolForWhat}) =>
     },[SolForWhat])
 
     const onClick = useCallback( async (e:any) => { 
-        console.log(BET)
-        console.log(SolForWhat)
         alarm_loading = document.querySelector('#alarm_loading')!
         card_timeAndBet_timer = document.querySelector('#card_timeAndBet_timer')
         alarm_sendSucces = document.querySelector('#alarm_sendSucces')

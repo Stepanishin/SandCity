@@ -34,8 +34,6 @@ const SendNCTRBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET }) => {
         let mintNCTRAdress = 'AgnHzGspNu7F3nFM4izuPt5g7m1URjVaTaFNgvqSXcjC'
 
         const onClick = useCallback( async (e:any) => {
-            console.log(BET)
-            console.log(SolForWhat)
             alarm_loading = document.querySelector('#alarm_loading')!
             card_timeAndBet_timer = document.querySelector('#card_timeAndBet_timer')
             alarm_sendSucces = document.querySelector('#alarm_sendSucces')
@@ -65,6 +63,9 @@ const SendNCTRBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET }) => {
             try {
                 ////////////////////////SOLANA///////////////////////////////////////////////////////////////////////////////////////////////////////////////   
                 if (!publicKey || !signTransaction) throw new WalletNotConnectedError()
+
+                alarm_loading.style.display = 'block'
+
                 const toPublicKey = new PublicKey(theWallet) //Кошелек, куда пересылать
                 const mint = new PublicKey(mintNCTRAdress) //Адрес токена ,который нужно переслать
 

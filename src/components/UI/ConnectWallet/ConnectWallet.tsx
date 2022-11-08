@@ -77,7 +77,8 @@ const Content: FC= () => {
                             'refOwner': refOwner,
                             'referers': {
                                 1:1
-                            }
+                            },
+                            'score': 0
 
                         });
                     }

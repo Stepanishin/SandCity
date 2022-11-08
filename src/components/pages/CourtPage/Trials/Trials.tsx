@@ -35,7 +35,7 @@ const Trials: FC<any> = ({data}) => {
     let {SolForWhat} = useAppSelector(state => state.SolForWhatSlice)
     const {changeSolForWhat} = SolForWhatSlice.actions
     const dispatch = useAppDispatch()
-    let [ BET, setBET ] = useState(0.1)
+    let [ BET, setBET ] = useState(1)
     let count = 0
 
 
@@ -62,6 +62,7 @@ const Trials: FC<any> = ({data}) => {
             dispatch(changeSolForWhat('clear'))
             dispatch(timerAndDisableBtn(ARG.false))
         });
+
     }, [])
 
 
@@ -152,8 +153,9 @@ const Trials: FC<any> = ({data}) => {
                     >
                         {
                             data?.map((card:any, id:any) => {
-                                
-                                if  (card[1].state === 'test') {
+                                var nowDate:any = new Date();
+                                var achiveDate:any = new Date(card[1].dateToShot as any);
+                                if  (card[1].state === 'test' && ((achiveDate - nowDate)+1000) > 0) {
                                     count++
                                     return (
                                         <SwiperSlide id={card[1].id} key={card[1].id} >
@@ -225,17 +227,17 @@ const Trials: FC<any> = ({data}) => {
                                 </div>
 
                                 {
-                                   currentCard[0][1].isDraw && show.isSOL
-                                   ?
-                                    <div className={styles.BetSlip_ratio_choice_container}>
-                                        <p className={styles.BetSlip_ratio_choice}>X(Draw)</p>
-                                        <button onClick={chooseSolWorWhat} id='SolForDraw' className={styles.BetSlip_ratio_choice_btn}>
-                                        {
-                                            ((currentCard[0][1].BetSOL.SolForDraw + (currentCard[0][1].BetSOL.SolForMore * 0.8) + (currentCard[0][1].BetSOL.SolForLess * 0.8)) / currentCard[0][1].BetSOL.SolForDraw).toFixed(1)
-                                        }
-                                        </button>
-                                    </div>
-                                    :
+                                   currentCard[0][1].isDraw 
+                                   
+                                    // <div className={styles.BetSlip_ratio_choice_container}>
+                                    //     <p className={styles.BetSlip_ratio_choice}>X(Draw)</p>
+                                    //     <button onClick={chooseSolWorWhat} id='SolForDraw' className={styles.BetSlip_ratio_choice_btn}>
+                                    //     {
+                                    //         ((currentCard[0][1].BetSOL.SolForDraw + (currentCard[0][1].BetSOL.SolForMore * 0.8) + (currentCard[0][1].BetSOL.SolForLess * 0.8)) / currentCard[0][1].BetSOL.SolForDraw).toFixed(1)
+                                    //     }
+                                    //     </button>
+                                    // </div>
+                                    ?
                                     <div className={styles.BetSlip_ratio_choice_container}>
                                         <p className={styles.BetSlip_ratio_choice}>X(Draw)</p>
                                         <button onClick={chooseSolWorWhat} id='SolForDraw' className={styles.BetSlip_ratio_choice_btn}>
@@ -244,6 +246,8 @@ const Trials: FC<any> = ({data}) => {
                                         }
                                         </button>
                                     </div>
+                                    :
+                                    <></>
                                 }
 
                                 <div className={styles.BetSlip_ratio_choice_container}>
@@ -269,17 +273,17 @@ const Trials: FC<any> = ({data}) => {
                                     Amount of bet: <input 
                                         value={BET} 
                                         className={styles.BetSlip_ratio_amount_input} 
-                                        placeholder='0.1' 
+                                        placeholder='1' 
                                         required 
                                         type="number" 
                                         name='name' 
                                         id='name'
-                                        min={0} 
+                                        min={1} 
                                         onChange={(e: any) => {
                                             setBET(parseFloat(e.target.value))
-                                            if (e.target.value === '') {
-                                                setBET(0)
-                                            }
+                                            // if (e.target.value === '') {
+                                            //     setBET(0)
+                                            // }
                                             }
                                         }
                                     />
@@ -290,21 +294,21 @@ const Trials: FC<any> = ({data}) => {
                                     Amount of bet: <input 
                                         value={BET} 
                                         className={styles.BetSlip_ratio_amount_input} 
-                                        placeholder='0.1' 
+                                        placeholder='1' 
                                         required 
                                         type="number" 
                                         name='name' 
                                         id='name'
-                                        min={0.1} 
+                                        min={1} 
                                         onChange={(e: any) => {
                                             setBET(parseFloat(e.target.value))
-                                            if (e.target.value === '') {
-                                                setBET(0)
-                                            }
+                                            // if (e.target.value === '') {
+                                            //     setBET(0)
+                                            // }
                                             }
                                         }
                                     />
-                                        NCTR<span style={{fontSize:'min(20px, 2.5vw)'}}>(Min 0.1)</span>
+                                        NCTR<span style={{fontSize:'min(20px, 2.5vw)'}}>(Min 1)</span>
                                     </label>
                                 }
                             </div>

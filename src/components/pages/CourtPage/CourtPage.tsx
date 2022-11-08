@@ -8,9 +8,10 @@ import Court from './Court/Court';
 import CourtFooter from './CourtFooter/CourtFooter';
 import CourtHeader from './CourtHeader/CourtHeader';
 import styles from './CourtPage.module.css'
-import FLAT from './Flat/Flat';
+import FLAT from '../../Stats/Flat/Flat';
 import History from './History/History';
 import Trials from './Trials/Trials';
+import Records from './Records/Records';
 
 
 
@@ -25,17 +26,10 @@ const CourtPage:FC = () => {
     return (
         <div className={styles.CourtPage} >
             <CourtHeader />
-            {/* <History /> */}
             <Trials data={data} />
-            {
-                isShowFlat && <FLAT data={data} usersData={usersData} />
-            }
             <Court />
+            <Records data={data} usersData={usersData} />
             <Archive data={data} />
-            <CourtFooter />
-            {
-                publicKey && (publicKey.toBase58() === 'A8grZ1aaL9Hm8sC7mtVyiAqdkFf4mB63aBpfq2WR9drt' || publicKey.toBase58() === 'gfehnueiUxNr3RuboSeTdj9S5ttN7HpbxP23V3xoPMW') && <Admin data={data} />
-            }
         </div>
     );
 
