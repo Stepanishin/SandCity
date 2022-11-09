@@ -81,33 +81,34 @@
 
 .Archive_card_values {
 	overflow-x: auto;
-    font-family: 'Courier';
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(25px, 2.2vw);
-    line-height: min(29px,2.5vw);
+    font-family: 'GT America LCG 400';
+    line-height: 150%;
+    font-size: min(16px, 2.2vw);
     color: rgba(255, 255, 255, 0.75);
+    position: relative;
+    z-index: 2;
 }
 .Archive_cards_container table {
 	width:100%;
 	table-layout: fixed;
 }
 .Archive_cards_container thead th {
-    font-family: 'Courier';
+    font-family: 'GT America LCG 400';
     text-align: left;
-    font-style: normal;
-    font-weight: 400;
-    font-size: min(25px, 3vw);
+    font-size: min(20px, 3vw);
     line-height: min(30px, 3.7vw);
     color: #FFFFFF;
+    position: relative;
+    z-index: 2;
 }
 .Archive_cards_container tbody td {
     text-align: left;
     padding: min(10px, 1.5vw) min(8px, 1vw);
     vertical-align: top;
     border-top: 2px solid rgba(19, 19, 19, 0.5);
-    font-size: min(18px, 3vw);
-    line-height: min(30px, 3.7vw);
+    font-family: 'GT America LCG 400';
+    font-size: min(16px, 2.5vw);
+    line-height: 150%;
 }
 
 .firstTitle {

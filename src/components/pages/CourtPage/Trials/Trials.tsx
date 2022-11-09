@@ -214,7 +214,7 @@ const Trials: FC<any> = ({data}) => {
                             <div className={styles.BetSlip_ratio_container}>
 
                                 <div className={styles.BetSlip_ratio_choice_container}>
-                                    <p className={styles.BetSlip_ratio_choice}>1X(Above)</p>
+                                    <p className={styles.BetSlip_ratio_choice}>1X (Above)</p>
                                     <button onClick={chooseSolWorWhat} id='SolForMore' className={styles.BetSlip_ratio_choice_btn}>
                                         {
                                             show.isSOL
@@ -239,7 +239,7 @@ const Trials: FC<any> = ({data}) => {
                                     // </div>
                                     ?
                                     <div className={styles.BetSlip_ratio_choice_container}>
-                                        <p className={styles.BetSlip_ratio_choice}>X(Draw)</p>
+                                        <p className={styles.BetSlip_ratio_choice}>X (Draw)</p>
                                         <button onClick={chooseSolWorWhat} id='SolForDraw' className={styles.BetSlip_ratio_choice_btn}>
                                         {
                                             ((currentCard[0][1].BetNCTR.SolForDraw + (currentCard[0][1].BetNCTR.SolForMore * 0.8) + (currentCard[0][1].BetNCTR.SolForLess * 0.8)) / currentCard[0][1].BetNCTR.SolForDraw).toFixed(1)
@@ -251,7 +251,7 @@ const Trials: FC<any> = ({data}) => {
                                 }
 
                                 <div className={styles.BetSlip_ratio_choice_container}>
-                                    <p className={styles.BetSlip_ratio_choice}>2X(Below)</p>
+                                    <p className={styles.BetSlip_ratio_choice}>2X (Below)</p>
                                     <button onClick={chooseSolWorWhat} id='SolForLess' className={styles.BetSlip_ratio_choice_btn}>
                                         {
                                             show.isSOL
@@ -308,7 +308,7 @@ const Trials: FC<any> = ({data}) => {
                                             }
                                         }
                                     />
-                                        NCTR<span style={{fontSize:'min(20px, 2.5vw)'}}>(Min 1)</span>
+                                        NCTR (Min 1)
                                     </label>
                                 }
                             </div>

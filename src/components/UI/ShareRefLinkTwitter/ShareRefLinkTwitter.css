@@ -1,3 +1,6 @@
 .ShareTwitterBtn {
     color: beige;
+    font-family: 'GT America LCG 400';
+    font-size: min(16px, 2vw);
+    line-height: 150%;
 }
