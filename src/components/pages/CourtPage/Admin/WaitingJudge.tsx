@@ -31,14 +31,18 @@ const WaitingJudge: FC<any> = ({data, usersData}) => {
                 if (card[1].name + card[1].id  === e.target.name) {
                     Object.entries(card[1].BetNCTR.wallets.SolForMore).forEach(async (user:any) => {
                         t += 5000
-                        let BETMoreAll:number = card[1].BetNCTR.SolForMore
-                        let SolForAll:number = card[1].BetNCTR.SolForMore + 0.8 * card[1].BetNCTR.SolForDraw + 0.8 * card[1].BetNCTR.SolForLess
-                        let yourBET:number = user[1].bet
+                        // let plusScore:number = parseFloat((user[1].bet).toFixed(2))
                         let a = async () => {
+                            let BETMoreAll:number = card[1].BetNCTR.SolForMore
+                            let SolForAll:number = card[1].BetNCTR.SolForMore + 0.8 * card[1].BetNCTR.SolForDraw + 0.8 * card[1].BetNCTR.SolForLess
+                            let yourBET:number = user[1].bet
+                            console.log('BETMoreAll', BETMoreAll )
+                            console.log('SolForAll', SolForAll )
+                            console.log('yourBET', yourBET )
                             if (user[0] != '1') {
                                 let BET:any = parseFloat((SolForAll * (yourBET / BETMoreAll)).toFixed(2))
                                 console.log('BET:' , BET)
-                                await onClick(user[1].userWallet, BET , 1)
+                                await onClick(user[1].userWallet, BET , BET)
                                 console.log(user)
                                 console.log(user[1].userWallet)
                             }
@@ -57,11 +61,12 @@ const WaitingJudge: FC<any> = ({data, usersData}) => {
                         let BETDrawAll:number = card[1].BetNCTR.SolForDraw
                         let SolForAll:number = 0.8 * card[1].BetNCTR.SolForMore + card[1].BetNCTR.SolForDraw + 0.8 * card[1].BetNCTR.SolForLess
                         let yourBET:number = user[1].bet
+                        // let plusScore:number = parseFloat((user[1].bet).toFixed(2))
                         let a = async () => {
                             if (user[0] != '1') {
                                 let BET:any = parseFloat((SolForAll * (yourBET / BETDrawAll)).toFixed(2))
                                 console.log('BET:' , BET)
-                                await onClick(user[1].userWallet, BET , 1)
+                                await onClick(user[1].userWallet, BET , BET)
                                 console.log(user)
                                 console.log(user[1].userWallet)
                             }
@@ -77,14 +82,15 @@ const WaitingJudge: FC<any> = ({data, usersData}) => {
                 if (card[1].name + card[1].id  === e.target.name) {
                     Object.entries(card[1].BetNCTR.wallets.SolForLess).forEach(async (user:any) => {
                         t += 5000
-                        let BETLessAll:number = card[1].BetNCTR.SolForMore
+                        let BETLessAll:number = card[1].BetNCTR.SolForLess
                         let SolForAll:number = 0.8 * card[1].BetNCTR.SolForMore + 0.8 * card[1].BetNCTR.SolForDraw + card[1].BetNCTR.SolForLess
                         let yourBET:number = user[1].bet
+                        // let plusScore:number = parseFloat((user[1].bet).toFixed(2))
                         let a = async () => {
                             if (user[0] != '1') {
                                 let BET:any = parseFloat((SolForAll * (yourBET / BETLessAll)).toFixed(2))
                                 console.log('BET:' , BET)
-                                await onClick(user[1].userWallet, BET , 1)
+                                await onClick(user[1].userWallet, BET , BET)
                                 console.log(user)
                                 console.log(user[1].userWallet)
                             }
@@ -176,6 +182,89 @@ const WaitingJudge: FC<any> = ({data, usersData}) => {
                 
                          
                     }, [publicKey, sendTransaction, connection ]);
+
+    const updateMinusScore = (userWallet:any, score: number) => {
+        const dbRef = ref(getDatabase());
+        get(child(dbRef,  `/Users/${userWallet}`)).then((snapshot:any) => {
+        if (snapshot.exists()) {
+            let arr = snapshot.val()
+            console.log(arr)
+            const updates:any = {};
+            let prevScore:number = arr.score;
+
+            // Делаем запись в базу данных
+            updates[`/Users/${userWallet}/score`] = prevScore - score;
+
+            return update(ref(db), updates);
+
+        } else {
+            console.log("No data available");
+        }
+        }).catch((error:any) => {
+        console.error(error);
+        });
+    }
+
+    const setMinusScore = (e:any) => {
+        e.preventDefault()
+        if (result === 'More') {
+            data.map((card:any) => {
+                if (card[1].name + card[1].id  === e.target.name) {
+                    Object.entries(card[1].BetNCTR.wallets.SolForLess).forEach(async (user:any) => {
+                        let yourBET:number = user[1].bet
+                        let userWallet = user[1].userWallet
+                        updateMinusScore(userWallet, yourBET)
+                        console.log('done minusScore')
+                    })
+                    Object.entries(card[1].BetNCTR.wallets.SolForDraw).forEach(async (user:any) => {
+                        let yourBET:number = user[1].bet
+                        let userWallet = user[1].userWallet
+                        updateMinusScore(userWallet, yourBET)
+                        console.log('done minusScore')
+                    })
+                }
+            })
+            
+        }
+        if (result === 'Draw') {
+            data.map((card:any) => {
+                if (card[1].name + card[1].id  === e.target.name) {
+                    Object.entries(card[1].BetNCTR.wallets.SolForMore).forEach(async (user:any) => {
+                        let yourBET:number = user[1].bet
+                        let userWallet = user[1].userWallet
+                        updateMinusScore(userWallet, yourBET)
+                        console.log('done minusScore')
+                    })
+                    Object.entries(card[1].BetNCTR.wallets.SolForLess).forEach(async (user:any) => {
+                        let yourBET:number = user[1].bet
+                        let userWallet = user[1].userWallet
+                        updateMinusScore(userWallet, yourBET)
+                        console.log('done minusScore')
+                    })
+                }
+            })
+            
+        }
+        if (result === 'Less') {
+            data.map((card:any) => {
+                if (card[1].name + card[1].id  === e.target.name) {
+                    Object.entries(card[1].BetNCTR.wallets.SolForMore).forEach(async (user:any) => {
+                        let yourBET:number = user[1].bet
+                        let userWallet = user[1].userWallet
+                        updateMinusScore(userWallet, yourBET)
+                        console.log('done minusScore')
+                    })
+                    Object.entries(card[1].BetNCTR.wallets.SolForDraw).forEach(async (user:any) => {
+                        let yourBET:number = user[1].bet
+                        let userWallet = user[1].userWallet
+                        updateMinusScore(userWallet, yourBET)
+                        console.log('done minusScore')
+                    })
+                }
+            })
+            
+        }
+    }
     return (
         <div className='WaitingJudge_container' style={{marginTop: '200px'}} >  
         <h2>WAITING CARDS</h2>
@@ -185,14 +274,19 @@ const WaitingJudge: FC<any> = ({data, usersData}) => {
                 var achiveDate:any = new Date(card[1].dateToShot as any);
                 if (card[1].state === 'wait' || (card[1].state === 'test' && ((achiveDate - nowDate)+1000) < 0 )  ) {
                     return (
-                        <div key={card[1].id}>
+                        <div key={card[1].id} style={{border: '2px solid #5AC1CD'}}>
                             <form name={card[1].name + card[1].id} onSubmit={setBets}>
                                 <h3>{card[1].name}</h3>
                                 <label htmlFor="cardResult">Result (More , Draw , Less )***  <input required type="text" name='cardResult' id='cardResult' onChange={handleChange}/></label>
                                 <br />
                                 <button type="submit">SET RESULTS</button>
                             </form>
-                            
+                            <br />
+                            <form name={card[1].name + card[1].id} onSubmit={setMinusScore}>
+                                <h3>{card[1].name}</h3>
+                                {/* <label htmlFor="cardResult">Result (More , Draw , Less )***  <input required type="text" name='cardResult' id='cardResult' onChange={handleChange}/></label> */}
+                                <button type="submit">SET MinusScore</button>
+                            </form>
                         </div>
                     )
                 }

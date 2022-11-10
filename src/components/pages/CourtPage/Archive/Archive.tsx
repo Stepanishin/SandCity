@@ -37,15 +37,15 @@ const Archive:FC<any> = ({data}) => {
                                                 <td>{card[1].state}</td>
                                                 <td>
                                                     {
-                                                        card[1].result === 'more'
+                                                        card[1].result === 'More' || card[1].result === 'more'
                                                         ?
                                                         <p style={{color:'green'}}>1x</p>
                                                         :
-                                                        card[1].result === 'less'
+                                                        card[1].result === 'Less' || card[1].result === 'less'
                                                         ?
                                                         <p style={{color:'red'}}>2x</p>
                                                         :
-                                                        card[1].result === 'drow'
+                                                        card[1].result === 'Draw' || card[1].result === 'draw'
                                                         ?
                                                         'x'
                                                         :
