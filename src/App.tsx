@@ -21,6 +21,7 @@ import { clusterApiUrl } from '@solana/web3.js';
 import { initializeApp } from "firebase/app";
 import { useAppDispatch, useAppSelector } from './hooks/redux';
 import ConnectWallet from './components/UI/ConnectWallet/ConnectWallet';
+import CourtFooter from './components/pages/CourtPage/CourtFooter/CourtFooter';
 
 
 
@@ -55,6 +56,7 @@ function App() {
           )
         }
       </Routes>
+      <CourtFooter />
     </div>
     </Context>
   );

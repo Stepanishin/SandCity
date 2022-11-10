@@ -30,14 +30,14 @@ const Stats:FC = () => {
                 ?
                     isShowFlat && <FLAT data={data} usersData={usersData} />         
                 :
-                <div style={{paddingTop: '300px'}} >
+                <div style={{paddingTop: '300px', display:'flex', justifyContent: 'center', minHeight: '100vh'}} >
                     <ConnectWallet />
                 </div>
             }
             {
                 publicKey && isShowFlat && <History data={data} usersData={usersData} />
             }                  
-            <CourtFooter />
+            {/* <CourtFooter /> */}
             {
                     publicKey && (publicKey.toBase58() === 'A8grZ1aaL9Hm8sC7mtVyiAqdkFf4mB63aBpfq2WR9drt' || publicKey.toBase58() === 'gfehnueiUxNr3RuboSeTdj9S5ttN7HpbxP23V3xoPMW') && <Admin data={data} usersData={usersData} />
             }

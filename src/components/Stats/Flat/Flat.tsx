@@ -94,7 +94,7 @@ const FLAT:FC<any> = ({data, usersData}) => {
                                                     return (
                                                         <div key={card[1].name} className={styles.Flat_judge_wrap}>
                                                             <p className={styles.card_active_descr}>{card[1].name}</p>
-                                                            <p className={styles.card_active_descr_bet}>Your bet {card[1]?.BetNCTR?.wallets?.SolForMore[userWallet]?.bet} NCTR</p> 
+                                                            <p className={styles.card_active_descr_bet}>Your bet: 1X (Above) - {(card[1]?.BetNCTR?.wallets?.SolForMore[userWallet]?.bet).toFixed(2)} NCTR</p> 
                                                         </div>
                                                     )
                                                 } 
@@ -102,7 +102,7 @@ const FLAT:FC<any> = ({data, usersData}) => {
                                                     return (
                                                         <div key={card[1].name} className={styles.Flat_judge_wrap}>
                                                             <p className={styles.card_active_descr}>{card[1].name}</p>
-                                                            <p className={styles.card_active_descr_bet}>Your bet {card[1]?.BetNCTR?.wallets?.SolForDraw[userWallet]?.bet} NCTR</p>
+                                                            <p className={styles.card_active_descr_bet}>Your bet: X (Draw) -  {(card[1]?.BetNCTR?.wallets?.SolForDraw[userWallet]?.bet).toFixed(2)} NCTR</p>
                                                         </div>
                                                     )
                                                 } 
@@ -110,7 +110,7 @@ const FLAT:FC<any> = ({data, usersData}) => {
                                                     return (
                                                         <div key={card[1].name} className={styles.Flat_judge_wrap}>
                                                             <p className={styles.card_active_descr}>{card[1].name}</p>
-                                                            <p className={styles.card_active_descr_bet}>Your bet {card[1]?.BetNCTR?.wallets?.SolForLess[userWallet]?.bet} NCTR</p>
+                                                            <p className={styles.card_active_descr_bet}>Your bet: 2X (Below) -  {(card[1]?.BetNCTR?.wallets?.SolForLess[userWallet]?.bet).toFixed(2)} NCTR</p>
                                                         </div>
                                                     )
                                                 } 

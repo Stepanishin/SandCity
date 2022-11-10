@@ -59,7 +59,7 @@
     margin: min(110px,9vw) auto;
     padding: min(38px,4vw) min(80px,6vw);
     position: relative;
-    max-width: 900px;
+    max-width: 800px;
     width: 100%;
     height: min(667px, 50vw);
     border-right: 2px solid #db2fd5;

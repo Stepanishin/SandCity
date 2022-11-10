@@ -54,10 +54,9 @@
     margin: min(110px,9vw) auto;
     padding: min(38px,4vw) min(80px,6vw);
     position: relative;
-    max-width: 900px;
+    max-width: 800px;
     width: 100%;
     min-height: min(350px, 30vw);
-    /* max-height: min(700px, 60vw); */
     border-right: 2px solid #db2fd5;
     border-bottom: 1px solid #db2fd5;
     background-image: url('../../../../assets/img/border.svg');

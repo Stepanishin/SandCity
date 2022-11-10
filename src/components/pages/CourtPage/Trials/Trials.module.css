@@ -12,7 +12,7 @@
 .Trials_slider_container {
     position: relative;
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 800px;
     width: 100%;
     border-right: 2px solid #db2fd5;
     border-bottom: 1px solid #db2fd5;
@@ -90,7 +90,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    padding: min(50px, 4vw);
+    padding: min(30px, 2vw);
 }
 
 .card_info_container {
@@ -139,8 +139,10 @@
 }
 
 .card_info_avatar {
-    width: min(285px, 19vw);
-    height: min(345px, 23vw);
+    /* width: min(285px, 19vw);
+    height: min(345px, 23vw); */
+    width: min(220px, 17vw);
+    height: min(220px, 17vw);
     border-radius: min(30px, 2vw);
 }
 
@@ -157,7 +159,7 @@
     line-height: 120%;
     color: #5AC1CD;
     margin-bottom: 10px;
-    max-width: min(454px, 36vw);
+    max-width: min(300px, 36vw);
     text-align: start;  
 }
 
@@ -193,7 +195,7 @@
 .card_timeAndJudge_container {
     display: flex;
     justify-content: center;
-    padding-top: min(30px, 4vw);
+    padding-top: min(10px, 2vw);
     align-items: flex-end;
     gap: min(50px, 5vw);
 }
@@ -252,7 +254,7 @@
 .BetSlip_container {
     position: relative;
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 800px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -278,7 +280,7 @@
 }
 
 .BetSlip_container_title {
-    margin-top: min(45px, 4.5vw);
+    margin-top: min(15px, 3.5vw);
     font-family: 'GT America LCG 400';
     font-style: normal;
     font-weight: 400;
@@ -364,8 +366,7 @@
 
 
 .BetSlip_ratio_amount_container {
-    margin-top:min(60px, 7vw);
-    /* text-align: center; */
+    margin-top: min(40px, 5vw);
 }
 
 .BetSlip_ratio_amount_label {
@@ -398,10 +399,9 @@
 .card_timeAndBet_container {
     display: flex;
     justify-content: space-between;
-    padding: min(50px, 5vw) min(50px, 5vw) 0 min(50px, 5vw);
+    padding: min(25px, 2vw);
     align-items: center;
     gap: min(30px, 4vw);
-    padding-bottom: min(50px, 8vw);
     position: relative;
     z-index: 2;
 }

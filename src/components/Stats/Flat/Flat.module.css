@@ -53,7 +53,7 @@
 
 .Flat_inner_container {
     margin: min(110px,9vw) auto;
-    padding: min(38px,4vw) min(80px,6vw);
+    padding: min(38px,10vw) min(80px,10vw);
     position: relative;
     max-width: 900px;
     width: 100%;
@@ -84,7 +84,7 @@
 }
 
 .Flat_judge_wrap {
-    margin: 20px 0px;
+    margin: min(20px, 2vw) 0px;
 }
 
 .Flat_judge_title {
@@ -114,8 +114,8 @@
     border-bottom: min(7px, 0.7vw) solid #5AC1CD;
 }
 .card_info_avatar {
-    width: min(285px, 19vw);
-    height: min(345px, 23vw);
+    width: min(250px, 18vw);
+    height: min(250px, 18vw);
     border-radius: min(30px, 2vw);
 }
 .card_info_description_container {
@@ -160,9 +160,10 @@
     font-family: 'GT America LCG 400';
     font-size: min(16px, 2.5vw);
     line-height: 150%;
+    font-weight: bold;
     color: #5AC1CD;
     text-align: start;
-    margin-top: 20px;
+    margin-top: min(20px, 2vw);
 }
 .card_active_descr_bet {
     font-family: 'GT America LCG 400';
@@ -170,7 +171,6 @@
     line-height: 150%;
     color: #5AC1CD;
     text-align: start;
-    margin-top: 20px;
 }
 
 @media screen and (max-width: 767px) {

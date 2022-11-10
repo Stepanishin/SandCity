@@ -14,6 +14,7 @@ const Records:FC<any> = ({data, usersData}) => {
     if (usersData) {
         let arr = [...usersData]
         newUsersData = arr.sort((a:any,b:any) => b[1].score - a[1].score)
+        
     }
 
     return (
@@ -31,7 +32,7 @@ const Records:FC<any> = ({data, usersData}) => {
                         </div>
                         <div className={styles.Records_item_container}>
                         {
-                            usersData && newUsersData &&
+                            usersData && newUsersData && newUsersData.length > 0 &&
                             newUsersData.sort((a:any, b:any) => b[1].score - a[1].score).map((user:any) => {
                                 return (
                                     <div key={user[1].userWallet}  className={styles.Records_item}>

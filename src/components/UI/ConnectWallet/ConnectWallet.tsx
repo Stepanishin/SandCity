@@ -66,9 +66,7 @@ const Content: FC= () => {
                     if (arr.hasOwnProperty(`${userWallet}`)) {
                         return
                     } else {
-                        let refCode1 = Math.random().toString().substr(2, 10);
-                        let refCode2 = Math.random().toString().substr(2, 10);
-                        let refCode = refCode1 + refCode2 // здесь назначаем кажлму 20ти значный реферальный код
+                        let refCode = Math.random().toString().substr(2, 10);
                         let refOwner = localStorage.getItem('refLink')
                         set(ref(db, `/Users/${userWallet}`), {
                             'userWallet': userWallet,
