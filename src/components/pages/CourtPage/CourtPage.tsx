@@ -12,6 +12,7 @@ import FLAT from '../../Stats/Flat/Flat';
 import History from './History/History';
 import Trials from './Trials/Trials';
 import Records from './Records/Records';
+import HeroScreen from '../../HeroScreen/HeroScreen';
 
 
 
@@ -24,10 +25,10 @@ const CourtPage:FC = () => {
     const { publicKey, sendTransaction } = useWallet();
 
     return (
-        <div className={styles.CourtPage} >
+        <div className={styles.CourtPage} >       
             <CourtHeader />
-            <Trials data={data} />
             <Court />
+            <Trials data={data} />
             <Records data={data} usersData={usersData} />
             <Archive data={data} />
         </div>

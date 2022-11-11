@@ -8,6 +8,7 @@
     height: fit-content;
     z-index: 10;
     padding-top: 30px;
+    top: 0;
 }
   
 .Court_Header_container {

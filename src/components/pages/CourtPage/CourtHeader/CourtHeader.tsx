@@ -33,8 +33,8 @@ const CourtHeader: FC = () => {
                         <ul className='Court_Header_nav_List' >
                             <HashLink smooth  to="/"><li>COURT</li></HashLink>
                             {
-                                // isShowFlat && <HashLink smooth  to="/#FLAT"><li>PROFILE</li></HashLink>
-                                isShowFlat && <NavLink to="/Stats"><li>PROFILE</li></NavLink>
+                                isShowFlat && <HashLink smooth  to="/Stats/#FLAT"><li>PROFILE</li></HashLink>
+                                // isShowFlat && <NavLink to="/Stats/#FLAT"><li>PROFILE</li></NavLink>
                             }
                             <HashLink smooth  to="/#ARCHIVE"><li>ARCHIVE</li></HashLink>
                             <a href='https://dustcity.world/'  target="_blank" rel="noreferrer"><li>BACK TO CITY</li></a>

@@ -22,6 +22,7 @@ import { initializeApp } from "firebase/app";
 import { useAppDispatch, useAppSelector } from './hooks/redux';
 import ConnectWallet from './components/UI/ConnectWallet/ConnectWallet';
 import CourtFooter from './components/pages/CourtPage/CourtFooter/CourtFooter';
+import HeroScreen from './components/HeroScreen/HeroScreen';
 
 
 
@@ -45,6 +46,7 @@ function App() {
   return (
     <Context>
     <div className="App">
+      <HeroScreen />
       <Routes>
         {
           MainRoutes.map(route => 
