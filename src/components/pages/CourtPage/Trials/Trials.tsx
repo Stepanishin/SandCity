@@ -150,7 +150,7 @@ const Trials: FC<any> = ({data}) => {
                         // cssMode={true}
                         navigation={true}
                         pagination={true}
-                        mousewheel={true}
+                        // mousewheel={true}
                         keyboard={true}
                         modules={[Navigation, Pagination, Mousewheel, Keyboard, EffectCreative]}
                         className="mySwiper"
@@ -167,7 +167,6 @@ const Trials: FC<any> = ({data}) => {
                               translate: ["120%", 0, -500],
                             },
                           }}
-                        //   modules={[EffectCreative]}
                     >
                         {
                             data?.map((card:any, id:any) => {

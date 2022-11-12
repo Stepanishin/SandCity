@@ -7,7 +7,7 @@
 }
 
 .Records_title_container {
-    padding-top: min(200px, 30vw);
+    padding-top: min(150px, 15vw);
     position: relative;
     width: 355px;
 }
@@ -147,7 +147,6 @@
 
 @media screen and (max-width: 767px) {
     .Records_title_container {
-        padding-top: min(200px, 30vw);
         width: 300px;
     }
     
@@ -164,7 +163,6 @@
 
 @media screen and (max-width: 424px) {
     .Records_title_container {
-        padding-top: min(200px, 30vw);
         width: 250px;
     }
     
