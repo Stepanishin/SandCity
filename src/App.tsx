@@ -46,7 +46,7 @@ function App() {
   return (
     <Context>
     <div className="App">
-      <HeroScreen />
+      {/* <HeroScreen /> */}
       <Routes>
         {
           MainRoutes.map(route => 
