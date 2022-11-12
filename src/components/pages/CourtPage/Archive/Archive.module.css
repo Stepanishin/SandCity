@@ -12,7 +12,7 @@
 }
 
 .Archive_title_container {
-    padding-top: min(100px, 15vw);
+    padding-top: min(50px, 7vw);
     position: relative;
     width: 355px;
 }
@@ -131,7 +131,6 @@
 
 @media screen and (max-width: 767px) {
     .Archive_title_container {
-        padding-top: min(200px, 30vw);
         width: 300px;
     }
     
@@ -148,7 +147,6 @@
 
 @media screen and (max-width: 424px) {
     .Archive_title_container {
-        padding-top: min(200px, 30vw);
         width: 250px;
     }
     
