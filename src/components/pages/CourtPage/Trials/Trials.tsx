@@ -156,7 +156,7 @@ const Trials: FC<any> = ({data}) => {
                         className="mySwiper"
 
                         effect={"creative"}
-                        // grabCursor={true}
+                        grabCursor={true}
                         creativeEffect={{
                             prev: {
                               shadow: true,
