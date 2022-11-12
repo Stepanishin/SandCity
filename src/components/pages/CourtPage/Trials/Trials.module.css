@@ -32,7 +32,7 @@
 }
 
 .Trials_title_container {
-    padding-top: min(200px, 30vw);
+    padding-top: min(120px, 15vw);
     position: relative;
     width: 280px;
 }
@@ -469,7 +469,6 @@
 
 @media screen and (max-width: 767px) {
     .Trials_title_container {
-        padding-top: min(200px, 30vw);
         width: 250px;
     }
     
@@ -486,7 +485,6 @@
 
 @media screen and (max-width: 424px) {
     .Trials_title_container {
-        padding-top: min(200px, 30vw);
         width: 250px;
     }
     
