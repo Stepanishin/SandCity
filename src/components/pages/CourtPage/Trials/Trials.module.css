@@ -90,7 +90,7 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    padding: min(30px, 2vw);
+    padding: min(42px, 4vw);
 }
 
 .card_info_container {

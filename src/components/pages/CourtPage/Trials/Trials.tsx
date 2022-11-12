@@ -147,7 +147,7 @@ const Trials: FC<any> = ({data}) => {
                 <div className={styles.Trials_slider_container}>
                     <>
                     <Swiper
-                        cssMode={true}
+                        // cssMode={true}
                         navigation={true}
                         pagination={true}
                         mousewheel={true}
@@ -155,18 +155,18 @@ const Trials: FC<any> = ({data}) => {
                         modules={[Navigation, Pagination, Mousewheel, Keyboard, EffectCreative]}
                         className="mySwiper"
 
-                        // effect={"creative"}
-                        // grabCursor={true}
-                        // creativeEffect={{
-                        //     prev: {
-                        //       shadow: true,
-                        //       translate: ["-120%", 0, -500],
-                        //     },
-                        //     next: {
-                        //       shadow: true,
-                        //       translate: ["120%", 0, -500],
-                        //     },
-                        //   }}
+                        effect={"creative"}
+                        grabCursor={true}
+                        creativeEffect={{
+                            prev: {
+                              shadow: true,
+                              translate: ["-120%", 0, -500],
+                            },
+                            next: {
+                              shadow: true,
+                              translate: ["120%", 0, -500],
+                            },
+                          }}
                         //   modules={[EffectCreative]}
                     >
                         {
