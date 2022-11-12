@@ -21,6 +21,10 @@ import ShareJudgeTwitter from '../../../UI/ShareJudgeTwitter/ShareJudgeTwitter';
 import bg1 from './img/bg1.svg'
 
 
+// import required modules
+import { EffectCreative } from "swiper";
+
+
 const Trials: FC<any> = ({data}) => {
 
     const { publicKey, sendTransaction } = useWallet();
@@ -148,8 +152,22 @@ const Trials: FC<any> = ({data}) => {
                         pagination={true}
                         mousewheel={true}
                         keyboard={true}
-                        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+                        modules={[Navigation, Pagination, Mousewheel, Keyboard, EffectCreative]}
                         className="mySwiper"
+
+                        effect={"creative"}
+                        // grabCursor={true}
+                        creativeEffect={{
+                            prev: {
+                              shadow: true,
+                              translate: ["-120%", 0, -500],
+                            },
+                            next: {
+                              shadow: true,
+                              translate: ["120%", 0, -500],
+                            },
+                          }}
+                        //   modules={[EffectCreative]}
                     >
                         {
                             data?.map((card:any, id:any) => {
@@ -228,15 +246,6 @@ const Trials: FC<any> = ({data}) => {
 
                                 {
                                    currentCard[0][1].isDraw 
-                                   
-                                    // <div className={styles.BetSlip_ratio_choice_container}>
-                                    //     <p className={styles.BetSlip_ratio_choice}>X(Draw)</p>
-                                    //     <button onClick={chooseSolWorWhat} id='SolForDraw' className={styles.BetSlip_ratio_choice_btn}>
-                                    //     {
-                                    //         ((currentCard[0][1].BetSOL.SolForDraw + (currentCard[0][1].BetSOL.SolForMore * 0.8) + (currentCard[0][1].BetSOL.SolForLess * 0.8)) / currentCard[0][1].BetSOL.SolForDraw).toFixed(1)
-                                    //     }
-                                    //     </button>
-                                    // </div>
                                     ?
                                     <div className={styles.BetSlip_ratio_choice_container}>
                                         <p className={styles.BetSlip_ratio_choice}>X (Draw)</p>
