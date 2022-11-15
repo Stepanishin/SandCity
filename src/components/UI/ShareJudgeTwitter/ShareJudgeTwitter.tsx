@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
-import { IShareTwitterBtnProps } from '../../../types/IShareTwitterBtnProps';
 import { RetweetOutlined } from '@ant-design/icons';
 import './ShareJudgeTwitter.css'
 
+const ShareJudgeTwitter:FC<any> = ({name} ) => {
 
-
-const ShareJudgeTwitter:FC<IShareTwitterBtnProps> = ({name} ) => {
 
     let text = `What do you think about ${name}?` 
+
+    
     let text2 = 'Judge it here: https://dustcity.world/'
     let text3 = 'Bet and win NCTR!'   
     let text4 = 'Buy NFT on MagicEden: https://magiceden.io/marketplace/dustcity'

@@ -15,12 +15,21 @@ const FLAT:FC<any> = ({data, usersData}) => {
 
     let {isShowFlat} = useAppSelector(state => state.accessToFlatSlice)
     let dataTest:any
+    let dataUser:any
 
     if (publicKey) {
         if (data) {
             let userWallet = publicKey.toBase58()
             dataTest = data.filter((el:any) => {
                 return (el[1]?.BetNCTR?.wallets?.SolForLess.hasOwnProperty(userWallet) || el[1]?.BetNCTR?.wallets?.SolForMore.hasOwnProperty(userWallet) || el[1]?.BetNCTR?.wallets?.SolForDraw.hasOwnProperty(userWallet))
+            })
+        }
+    }
+
+    if (publicKey) {
+        if (usersData) {
+            dataUser = usersData.filter((user:any) => {
+                return user[1].userWallet === publicKey.toBase58()
             })
         }
     }
@@ -77,6 +86,13 @@ const FLAT:FC<any> = ({data, usersData}) => {
                                     }
                                 </>
                                 }
+                                {/* {
+                                    dataUser && dataUser[0][1].nickname &&
+                                    <div>
+                                        {dataUser[0][1].refCode}
+                                        {dataUser[0][1].score}
+                                    </div>
+                                } */}
                             </div>
                         </div>
                         <div className={styles.card_active_container}>

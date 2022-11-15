@@ -121,6 +121,9 @@ const AddNewJudge: FC<any> = ({data}) => {
                         });
         }
         updateDb(nameEvent)
+        setTimeout(() => {
+            window.location.reload()
+        }, 1500);
     }
 
 

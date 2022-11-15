@@ -20,6 +20,9 @@ import ShareJudgeTwitter from '../../../UI/ShareJudgeTwitter/ShareJudgeTwitter';
 
 import bg1 from './img/bg1.svg'
 
+import toast from 'react-hot-toast';
+import { Toaster, resolveValue } from 'react-hot-toast';
+
 
 // import required modules
 import { EffectCreative } from "swiper";
@@ -41,34 +44,6 @@ const Trials: FC<any> = ({data}) => {
     const dispatch = useAppDispatch()
     let [ BET, setBET ] = useState(1)
     let count = 0
-
-
-    useEffect(() => {
-        // Убираю окно с коэффициентами при прокручивании слайдера и сбрасываю выбор ставки
-        // Переделать
-        let swiperBtnNext = document.querySelector('.swiper-button-next')!
-        let swiperBtnPrev = document.querySelector('.swiper-button-prev')!
-        swiperBtnNext?.addEventListener('click', function() {
-            setShow({
-                isShow: false,
-                isNCTR: false,
-                isSOL: false,
-            })
-            dispatch(changeSolForWhat('clear'))
-            dispatch(timerAndDisableBtn(ARG.false))
-        });
-        swiperBtnPrev?.addEventListener('click', function() {
-            setShow({
-                isShow: false,
-                isNCTR: false,
-                isSOL: false,
-            })
-            dispatch(changeSolForWhat('clear'))
-            dispatch(timerAndDisableBtn(ARG.false))
-        });
-
-    }, [])
-
 
     // Показываем окно с коэффициентами
     const showJudge = (e:any) => {
@@ -96,7 +71,7 @@ const Trials: FC<any> = ({data}) => {
             }) 
         }
         const current = document.querySelector('.swiper-slide-active')
-        setCurrentCard(data?.filter((card:any) => card[1].id === current?.id))
+        setCurrentCard(data?.filter((card:any, index:any) => card[1].id === current?.id))
     }
 
     // Добавляем выбранному коэффициенту бэкграунд.
@@ -133,7 +108,6 @@ const Trials: FC<any> = ({data}) => {
             }
         }
         dispatch(changeSolForWhat(`${e.target.id}`))
-        // setSolForWhat(e.target.id)
     }
 
     return (
@@ -149,12 +123,15 @@ const Trials: FC<any> = ({data}) => {
                     <Swiper
                         // cssMode={true}
                         navigation={true}
-                        pagination={true}
+                        // pagination={true}
+                        spaceBetween={30}
+                        pagination={{
+                          clickable: true,
+                        }}
                         // mousewheel={true}
                         keyboard={true}
                         modules={[Navigation, Pagination, Mousewheel, Keyboard, EffectCreative]}
                         className="mySwiper"
-
                         effect={"creative"}
                         grabCursor={true}
                         creativeEffect={{
@@ -167,6 +144,16 @@ const Trials: FC<any> = ({data}) => {
                               translate: ["120%", 0, -500],
                             },
                           }}
+                        onSlideChange={() => {
+                            setShow({
+                                isShow: false,
+                                isNCTR: false,
+                                isSOL: false,
+                            })
+                            dispatch(changeSolForWhat('clear'))
+                            dispatch(timerAndDisableBtn(ARG.false))
+                        }}
+                        // onSwiper={(swiper:any) => console.log(swiper)}
                     >
                         {
                             data?.map((card:any, id:any) => {
@@ -207,14 +194,14 @@ const Trials: FC<any> = ({data}) => {
                                                 </div>
                                             </div>
                                             <div className={styles.card_twitterBtn_container}>
-                                                <ShareJudgeTwitter name={card[1].name} />
+                                                {/* <ShareJudgeTwitter name={card[1].name} /> */}
                                             </div>
                                         </SwiperSlide>
                                     )
                                 }
                             })
                         }
-                        
+
                     </Swiper>
                     </>
                 </div>
@@ -326,19 +313,7 @@ const Trials: FC<any> = ({data}) => {
                             <p id='card_timeAndBet_timer' className={styles.card_timeAndBet_timer}>
                                 <Timer dateToShot={currentCard[0][1].dateToShot} />
                             </p>
-                            <div id='alarm_sendSucces'  className={styles.alarm_sendSucces}>
-                                <img className={styles.card_timeAndBet_img} src={accepted} alt="accepted" />
-                                <p>Your bid has been accepted!</p>
-                            </div>
-                            <div id='alarm_sendError_chooseBET'  className={styles.alarm_sendError_chooseBET}>
-                                <img className={styles.card_timeAndBet_img} src={forbidden} alt="forbidden" width='50px' height='50px' />
-                                <p>Bid not selected!</p>
-                            </div>
-                            <div id='alarm_sendError_something'  className={styles.alarm_sendError_something}>
-                                <img className={styles.card_timeAndBet_img} src={forbidden} alt="forbidden" width='50px' height='50px' />
-                                <p>Something went wrong!</p>
-                            </div>
-                            
+                                                      
                             {
                                 !isTimeToDisable && show.isSOL
                                 ?
@@ -363,6 +338,13 @@ const Trials: FC<any> = ({data}) => {
                             }
 
                         </div>
+
+                        <div style={{position: 'relative', zIndex: '3'}} >
+                        {
+                            data && currentCard && <ShareJudgeTwitter name={currentCard[0][1].name} />
+                        }
+                        
+                        </div> 
                     </div>
                     :
                     <></>

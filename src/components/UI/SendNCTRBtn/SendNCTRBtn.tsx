@@ -10,6 +10,11 @@ import { getDatabase, ref, get, child, push, update, set } from "firebase/databa
 import { TOKEN_PROGRAM_ID, createTransferInstruction } from "@solana/spl-token";
 import { getOrCreateAssociatedTokenAccount } from '@solana/spl-token';
 
+import toast from 'react-hot-toast';
+import { Toaster, resolveValue } from 'react-hot-toast';
+
+
+
 
 
 export interface ISendSolanaBtnProps {
@@ -33,21 +38,28 @@ const SendNCTRBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET }) => {
         let theWallet:any = currentCard[0][1].walletForBet
         let mintNCTRAdress = 'AgnHzGspNu7F3nFM4izuPt5g7m1URjVaTaFNgvqSXcjC'
 
+        // Создаём тосты*(алармы)
+        const succes = () => {
+            toast.success('Your bid has been accepted!')
+        };
+        const bidNotSelected = () => {
+            toast.error('Bid not selected!')
+        };
+        const smhWrong = () => {
+            toast.error('Something went wrong!')
+        };
+        // 
+
         const onClick = useCallback( async (e:any) => {
             alarm_loading = document.querySelector('#alarm_loading')!
             card_timeAndBet_timer = document.querySelector('#card_timeAndBet_timer')
             alarm_sendSucces = document.querySelector('#alarm_sendSucces')
             alarm_sendError_chooseBET = document.querySelector('#alarm_sendError_chooseBET')
             alarm_sendError_something = document.querySelector('#alarm_sendError_something')
+
             // Если не выбрали на какое событие ставить
             if (SolForWhat === '') {
-                card_timeAndBet_timer.style.display = 'none'
-                alarm_sendError_chooseBET.style.display = 'flex'
-                const closeAlarmSucces =() => {
-                    card_timeAndBet_timer.style.display = 'block'
-                    alarm_sendError_chooseBET.style.display = 'none'
-                }
-                setTimeout(closeAlarmSucces, 5000)
+                bidNotSelected()
                 return false
             }
             // 
@@ -142,28 +154,30 @@ const SendNCTRBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET }) => {
                                 // 
         
                                 // Сигнал , что всё прошло успешно
-                                card_timeAndBet_timer.style.display = 'none'
-                                alarm_sendSucces.style.display = 'flex'
-                                const closeAlarmSucces =() => {
-                                    card_timeAndBet_timer.style.display = 'block'
-                                    alarm_sendSucces.style.display = 'none'
-                                }
-                                setTimeout(closeAlarmSucces, 5000)
-                                // 
+                                succes()
         
                                 return update(ref(db), updates);
             
                             } else {
                                 console.log("No data available");
+                                smhWrong()
                             }
                             }).catch((error:any) => {
                             console.error(error);
+                            smhWrong()
                             });
                 }
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
                 updateDb()
             } catch (error: any) {
+                // Закрытие Лоадера
+                const closeAlarmLoading =() => {
+                    alarm_loading.style.display = 'none'
+                }
+                setTimeout(closeAlarmLoading, 1000)
+                // 
+                smhWrong()
             }
     
              
@@ -179,7 +193,7 @@ const SendNCTRBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET }) => {
                 <span>BET</span>
             </button>
 
-
+            
             <div id='alarm_loading' className={styles.alarm_loading}>
                 <div className={styles.loader}>
                     <div className={styles.loader_inner}>
@@ -202,6 +216,8 @@ const SendNCTRBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET }) => {
                     </div>
                 </div>
             </div>
+
+            <div style={{position:'relative', zIndex: '9999'}}><Toaster position="top-right" /></div>
         </div>
         
         

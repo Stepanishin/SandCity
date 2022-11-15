@@ -2,7 +2,6 @@
     color: white;
     width: 100%;
     height: 100%;
-    /* overflow: inherit !important; */
     overflow: hidden !important;
   }
   
@@ -41,28 +40,13 @@
 }
 
 .swiper-pagination {
-  bottom: max(-50px, -8vw) !important;
   color: #5AC1CD;
 }
 
 .swiper-pagination span {
   background-color: #5AC1CD;
-  width: min(150px, 20vw) !important;
+  width: min(70px, 10vw) !important;
   height: min(5px, 1vw) !important;
   border-radius: 0px !important;
   margin-left: 20px !important;
 }
-
-/* Mobile */
-/* @media screen and {
-  .swiper-button-next {
-    right: 40px !important;
-    top: 50px !important;
-  }
-
-  .swiper-button-prev {
-    top: 50px !important;
-    right: 100px !important;
-    left: auto !important;
-  }
-} */
