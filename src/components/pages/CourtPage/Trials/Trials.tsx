@@ -26,6 +26,8 @@ import { Toaster, resolveValue } from 'react-hot-toast';
 
 // import required modules
 import { EffectCreative } from "swiper";
+import { child, get, getDatabase, ref, set, update } from 'firebase/database';
+import { getConfigFileParsingDiagnostics } from 'typescript';
 
 
 const Trials: FC<any> = ({data}) => {
@@ -42,7 +44,7 @@ const Trials: FC<any> = ({data}) => {
     let {SolForWhat} = useAppSelector(state => state.SolForWhatSlice)
     const {changeSolForWhat} = SolForWhatSlice.actions
     const dispatch = useAppDispatch()
-    let [ BET, setBET ] = useState(1)
+    let [ BET, setBET ] = useState(10)
     let count = 0
 
     // Показываем окно с коэффициентами
@@ -110,6 +112,21 @@ const Trials: FC<any> = ({data}) => {
         dispatch(changeSolForWhat(`${e.target.id}`))
     }
 
+    const deleteJudge = () => {
+        console.log('delete')
+        const db: any = getDatabase();
+        const updateDb = () => {
+            const dbRef = ref(getDatabase());
+            const updates:any = {};
+            updates[`/Judges/${currentCard[0][1].name}${currentCard[0][1].id}/state`] = 'delete';
+            return update(ref(db), updates);
+        }
+        updateDb()
+        setTimeout(() => {
+            window.location.reload()
+        }, 1000);
+    }
+
     return (
         <div id='TRIALS' className={styles.Trials} >
             <img className={styles.Trials_decoration_bg1} src={bg1} alt="" />
@@ -121,14 +138,11 @@ const Trials: FC<any> = ({data}) => {
                 <div className={styles.Trials_slider_container}>
                     <>
                     <Swiper
-                        // cssMode={true}
                         navigation={true}
-                        // pagination={true}
                         spaceBetween={30}
                         pagination={{
                           clickable: true,
                         }}
-                        // mousewheel={true}
                         keyboard={true}
                         modules={[Navigation, Pagination, Mousewheel, Keyboard, EffectCreative]}
                         className="mySwiper"
@@ -193,9 +207,9 @@ const Trials: FC<any> = ({data}) => {
                                                     <HashLink smooth  to="/Court#BETwrap" ><button id='JudgeInNCTR' onClick={showJudge} className={styles.card_timeAndJudge_btn}>Judge in NCTR</button></HashLink>
                                                 </div>
                                             </div>
-                                            <div className={styles.card_twitterBtn_container}>
-                                                {/* <ShareJudgeTwitter name={card[1].name} /> */}
-                                            </div>
+                                            {/* <div className={styles.card_twitterBtn_container}>
+                                                <button onClick={deleteJudge} >Delete</button>
+                                            </div> */}
                                         </SwiperSlide>
                                     )
                                 }
@@ -289,12 +303,12 @@ const Trials: FC<any> = ({data}) => {
                                     Amount of bet: <input 
                                         value={BET} 
                                         className={styles.BetSlip_ratio_amount_input} 
-                                        placeholder='1' 
+                                        placeholder='10' 
                                         required 
                                         type="number" 
                                         name='name' 
                                         id='name'
-                                        min={1} 
+                                        min={10} 
                                         onChange={(e: any) => {
                                             setBET(parseFloat(e.target.value))
                                             // if (e.target.value === '') {
@@ -303,7 +317,7 @@ const Trials: FC<any> = ({data}) => {
                                             }
                                         }
                                     />
-                                        NCTR (Min 1)
+                                        NCTR (Min 10)
                                     </label>
                                 }
                             </div>
@@ -339,12 +353,18 @@ const Trials: FC<any> = ({data}) => {
 
                         </div>
 
-                        <div style={{position: 'relative', zIndex: '3'}} >
+                        <div style={{position: 'relative', zIndex: '1'}} >
                         {
                             data && currentCard && <ShareJudgeTwitter name={currentCard[0][1].name} />
                         }
                         
                         </div> 
+                        {
+                            publicKey && (publicKey.toBase58() === 'A8grZ1aaL9Hm8sC7mtVyiAqdkFf4mB63aBpfq2WR9drt' || publicKey.toBase58() === 'gfehnueiUxNr3RuboSeTdj9S5ttN7HpbxP23V3xoPMW') &&
+                            <div className={styles.card_twitterBtn_container}>
+                                <button className='Flat_btn' onClick={deleteJudge} >Delete</button>
+                            </div>
+                        }
                     </div>
                     :
                     <></>

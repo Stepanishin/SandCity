@@ -37,7 +37,7 @@ const Records:FC<any> = ({data, usersData}) => {
                                 return (
                                     <div key={user[1].userWallet}  className={styles.Records_item}>
                                         <p  className={styles.Records_item_wallet}>
-                                        {user[1].userWallet.slice(0, 3) + "..." + user[1].userWallet.slice(user[1].userWallet.length - 3, user[1].userWallet.length)}
+                                        {user[1].nickname ? user[1].nickname : user[1].userWallet.slice(0, 3) + "..." + user[1].userWallet.slice(user[1].userWallet.length - 3, user[1].userWallet.length)}
                                         </p>
                                         <p  className={styles.Records_item_score}>
                                             {user[1].score}

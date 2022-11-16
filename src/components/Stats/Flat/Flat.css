@@ -1,0 +1,77 @@
+.Flat_modal_container {
+    position: absolute;
+    top: 2px;
+    bottom: 1px;
+    left: 3px;
+    right: 0px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.90);
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%, 0 19%);
+    transform: scale(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.Flat_modal_container_visible {
+    transform: scale(1);
+}
+.Flat_fontSize {
+    font-family: 'GT America LCG 400';
+    font-size: min(16px, 2.5vw);
+    line-height: 120%;
+    color: #5AC1CD;
+}
+.nickname_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    /* width: 100%; */
+    gap: min(15px, 3.5vw);
+}
+.Flat_nick_wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.Flat_btn {
+    background: none;
+    color: beige;
+    font-family: 'GT America LCG 400';
+    font-style: normal;
+    font-weight: 400;
+    font-size: min(16px, 2.5vw);
+    line-height: 120%;
+}
+.Flat_btn:hover {
+    color: aqua;
+}
+.Flat_nickname_submit {
+    background: none;
+    cursor: pointer;
+}
+.Flat_nickname_submit:hover {
+    color: aqua;
+}
+.Flat_btn_exit {
+    position: absolute;
+    top: min(19px, 2vw);
+    background: none;
+    right: min(28px, 4vw);
+    font-size: min(30px, 5vw);
+}
+.Flat_btn_exit:hover {
+    color: aqua;
+}
+
+.Flat_nickname_text {
+    padding: 5px;
+    background: #414141;
+    border-radius: 3px;
+}
+
+.Flat_enterNick_btn {
+    
+}

@@ -48,6 +48,9 @@ const SendNCTRBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET }) => {
         const smhWrong = () => {
             toast.error('Something went wrong!')
         };
+        const betToSmall = () => {
+            toast.error('Your bet is too small!')
+        };
         // 
 
         const onClick = useCallback( async (e:any) => {
@@ -70,6 +73,12 @@ const SendNCTRBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET }) => {
                 if (wl instanceof HTMLElement) {
                         wl.click()         
                 }  
+            }
+            // 
+            // Если ставка слишком маленькая
+            if (BET && BET < 10) {
+                betToSmall()
+                return false
             }
             // 
             try {

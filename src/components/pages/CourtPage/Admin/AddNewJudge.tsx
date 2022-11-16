@@ -88,13 +88,13 @@ const AddNewJudge: FC<any> = ({data}) => {
     }
 
     const handleChangeDraw = (e:any) => {
-        const fieldName = e.target.name
-        if (e.target.value === 'true') {
-            setAddNewEvent({...addNewEvent, [fieldName]: true})
-        } else if (e.target.value === 'false') {
-            setAddNewEvent({...addNewEvent, [fieldName]: false})
+        const fieldName = e.target.value
+        let isDraw = 'isDraw'
+        if ((fieldName).toLowerCase() === 'true') {
+            setAddNewEvent({...addNewEvent, [isDraw]: true})
+        } else if ((fieldName).toLowerCase() === 'false') {
+            setAddNewEvent({...addNewEvent, [isDraw]: false})
         }
-
     }
 
     const sendData = (e:any) => {
@@ -164,7 +164,22 @@ const AddNewJudge: FC<any> = ({data}) => {
 
                 <label htmlFor="dateToShot">Дата, когда приём ставок должен закрыться***  <input required type='datetime-local' name='dateToShot' id='dateToShot' onChange={handleChange} /></label>
 
-                <label htmlFor="isDraw">Ничьи есть или нет (true , false) ***  <input required type='text' name='isDraw' id='isDraw' onChange={handleChangeDraw} /></label>
+                {/* <label htmlFor="isDraw">Ничьи есть или нет (true , false) ***  <input required type='text' name='isDraw' id='isDraw' onChange={handleChangeDraw} /></label> */}
+
+                <div style={{display: 'flex', gap: '50px'}}  >
+                    <p>Ничья есть или нет (true , false) ***</p>
+                    <div>
+                        <input onChange={handleChangeDraw} required type="radio" id="true" name="draw" value="true" />
+                        <label htmlFor="true">Ничья есть</label>
+                    </div>
+                    <div>
+                        <input onChange={handleChangeDraw} required type="radio" id="false" name="draw" value="false" />
+                        <label htmlFor="false">Ничьи нет</label>
+                    </div>
+
+                </div>
+
+
 
                 {/* <label htmlFor="eventDescr">Описание события внутри карточки  <input type='text' name='eventDescr' id='eventDescr' onChange={handleChange} /></label> */}
 

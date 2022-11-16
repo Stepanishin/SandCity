@@ -151,7 +151,7 @@
     font-family: 'GT America LCG 400';
     font-style: normal;
     font-weight: 400;
-    font-size: min(20px, 2vw);
+    font-size: min(16px, 2.5vw);
     line-height: 120%;
     color: #5AC1CD;
     text-align: start; 
@@ -172,6 +172,8 @@
     color: #5AC1CD;
     text-align: start;
 }
+
+
 
 @media screen and (max-width: 767px) {
     .Flat_title_container {

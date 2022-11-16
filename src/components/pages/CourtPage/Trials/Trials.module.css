@@ -235,8 +235,8 @@
 
 .card_twitterBtn_container {
     position: absolute;
-    bottom: min(10px, 2vw);
-    right: min(30px, 2vw);
+    bottom: min(15px, 2.5vw);
+    right: min(39px, 3vw);
 }
 
 /* Card styles mobile */
