@@ -12,6 +12,7 @@ import { getOrCreateAssociatedTokenAccount } from '@solana/spl-token';
 
 import toast from 'react-hot-toast';
 import { Toaster, resolveValue } from 'react-hot-toast';
+import { changeStateSlice } from '../../../store/reducers/getChangeState';
 
 
 
@@ -34,6 +35,10 @@ const SendNCTRBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET }) => {
         let alarm_sendError_chooseBET:any
         let alarm_sendError_something:any
         let {SolForWhat} = useAppSelector(state => state.SolForWhatSlice)
+
+        let {isChange} = useAppSelector(state => state.changeStateSlice)
+        const {changeState} = changeStateSlice.actions
+        const dispatch = useAppDispatch()
 
         let theWallet:any = currentCard[0][1].walletForBet
         let mintNCTRAdress = 'AgnHzGspNu7F3nFM4izuPt5g7m1URjVaTaFNgvqSXcjC'
@@ -164,7 +169,9 @@ const SendNCTRBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET }) => {
         
                                 // Сигнал , что всё прошло успешно
                                 succes()
-        
+                                
+
+
                                 return update(ref(db), updates);
             
                             } else {
@@ -179,6 +186,7 @@ const SendNCTRBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET }) => {
                 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
                 updateDb()
+                dispatch(changeState())
             } catch (error: any) {
                 // Закрытие Лоадера
                 const closeAlarmLoading =() => {

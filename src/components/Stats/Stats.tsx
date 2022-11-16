@@ -1,7 +1,7 @@
 import { useWallet } from '@solana/wallet-adapter-react';
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useAppSelector } from '../../hooks/redux';
-import { useGetJudgesQuery, useGetUsersQuery } from '../../store/reducers/firebase.api';
+import { useGetJudgesQuery, useGetUsersQuery, useLazyGetJudgesQuery, useLazyGetUsersQuery } from '../../store/reducers/firebase.api';
 import Admin from '../pages/CourtPage/Admin/Admin';
 import CourtFooter from '../pages/CourtPage/CourtFooter/CourtFooter';
 import CourtHeader from '../pages/CourtPage/CourtHeader/CourtHeader';
@@ -17,10 +17,22 @@ import History from './History/History';
 
 const Stats:FC = () => {
 
-    const { data} = useGetJudgesQuery('')
-    const { data: usersData} = useGetUsersQuery('')
+    // const { data} = useGetJudgesQuery('')
+    // const { data: usersData} = useGetUsersQuery('')
     let {isShowFlat} = useAppSelector(state => state.accessToFlatSlice)
     const { publicKey, sendTransaction } = useWallet();
+
+    let {isChange} = useAppSelector(state => state.changeStateSlice)
+    const [fetchGetJudges, { data }] = useLazyGetJudgesQuery()
+    const [fetchGetUsers, { data: usersData }] = useLazyGetUsersQuery()
+    useEffect(() => {
+        fetchGetJudges()
+        fetchGetUsers()
+    }, [])
+    // useEffect(() => {
+    //     fetchGetJudges()
+    //     fetchGetUsers()
+    // }, [isChange])
 
     return (
         <div>

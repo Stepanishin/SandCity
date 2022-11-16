@@ -4,6 +4,7 @@ import { firebaseApi } from "./reducers/firebase.api";
 import timerAndDisableBtnSlice from './reducers/getTimerAndDisableBtnReducer'
 import accessToFlatSlice from './reducers/getAccesToFlatReducer'
 import SolForWhatSlice from './reducers/getSolForWhatReducer'
+import changeStateSlice from './reducers/getChangeState'
 
 
 
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     [firebaseApi.reducerPath]: firebaseApi.reducer,
     timerAndDisableBtnSlice,
     accessToFlatSlice,
-    SolForWhatSlice
+    SolForWhatSlice,
+    changeStateSlice
 })
 
 

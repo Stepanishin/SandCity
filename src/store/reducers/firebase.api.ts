@@ -44,4 +44,4 @@ export const firebaseApi = createApi({
 })
 
 
-export const { useGetJudgesQuery, useGetUsersQuery } = firebaseApi
+export const { useGetJudgesQuery, useGetUsersQuery, useLazyGetUsersQuery, useLazyGetJudgesQuery } = firebaseApi

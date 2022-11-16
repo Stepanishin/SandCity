@@ -15,6 +15,8 @@ import { child } from 'firebase/database';
 import { set } from 'firebase/database';
 import { update } from 'firebase/database';
 import { Routes, Route, useParams } from 'react-router-dom';
+import { useGetUsersQuery, useLazyGetUsersQuery } from '../../../store/reducers/firebase.api';
+import { changeStateSlice } from '../../../store/reducers/getChangeState';
 
 require('@solana/wallet-adapter-react-ui/styles.css');
 
@@ -29,6 +31,10 @@ const ConnectWallet:FC = () => {
 export default ConnectWallet;
 
 const Content: FC= () => {
+
+
+    let {isChange} = useAppSelector(state => state.changeStateSlice)
+    const {changeState} = changeStateSlice.actions
 
     let {isShowFlat} = useAppSelector(state => state.accessToFlatSlice)
     const {accessToFalt} = accessToFlatSlice.actions
@@ -80,7 +86,9 @@ const Content: FC= () => {
 
                         });
                     }
+                    dispatch(changeState())
                     return update(ref(db), updates);
+                    
                 }
             }).catch((error:any) => {
                 console.error(error);
