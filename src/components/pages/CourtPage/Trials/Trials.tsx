@@ -44,7 +44,7 @@ const Trials: FC<any> = ({data}) => {
     let {SolForWhat} = useAppSelector(state => state.SolForWhatSlice)
     const {changeSolForWhat} = SolForWhatSlice.actions
     const dispatch = useAppDispatch()
-    let [ BET, setBET ] = useState(10)
+    let [ BET, setBET ] = useState(1)
     let count = 0
 
     // Показываем окно с коэффициентами
@@ -303,12 +303,12 @@ const Trials: FC<any> = ({data}) => {
                                     Amount of bet: <input 
                                         value={BET} 
                                         className={styles.BetSlip_ratio_amount_input} 
-                                        placeholder='10' 
+                                        placeholder='1' 
                                         required 
                                         type="number" 
                                         name='name' 
                                         id='name'
-                                        min={10} 
+                                        min={1} 
                                         onChange={(e: any) => {
                                             setBET(parseFloat(e.target.value))
                                             // if (e.target.value === '') {
@@ -317,7 +317,7 @@ const Trials: FC<any> = ({data}) => {
                                             }
                                         }
                                     />
-                                        NCTR (Min 10)
+                                        NCTR (Min 1)
                                     </label>
                                 }
                             </div>

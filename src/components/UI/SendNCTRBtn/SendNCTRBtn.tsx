@@ -81,7 +81,7 @@ const SendNCTRBtn:FC<ISendSolanaBtnProps> = ({currentCard, BET }) => {
             }
             // 
             // Если ставка слишком маленькая
-            if (BET && BET < 10) {
+            if (BET && BET < 1) {
                 betToSmall()
                 return false
             }
